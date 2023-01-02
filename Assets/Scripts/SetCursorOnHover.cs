@@ -21,21 +21,21 @@ public class SetCursorOnHover : MonoBehaviour
   public CursorType cursorSelected;
   void OnMouseOver()
   {
-    switch (cursorSelected)
-    {
-      case CursorType.DEFAULT:
-        CursorController.instance.SetDefaultCursor();
-        break;
-      case CursorType.TYPE:
-        CursorController.instance.SetTypeCursor();
-        break;
-      case CursorType.CLICK:
-        CursorController.instance.SetClickCursor();
-        break;
-      default:
-        CursorController.instance.SetDefaultCursor();
-        break;
-    }
+    // switch (cursorSelected)
+    // {
+    //   case CursorType.DEFAULT:
+    //     CursorController.instance.SetDefaultCursor();
+    //     break;
+    //   case CursorType.TYPE:
+    //     CursorController.instance.SetTypeCursor();
+    //     break;
+    //   case CursorType.CLICK:
+    //     CursorController.instance.SetClickCursor();
+    //     break;
+    //   default:
+    //     CursorController.instance.SetDefaultCursor();
+    //     break;
+    // }
 
 		if(imageToEnable) {
 			imageToEnable.SetActive(true);
@@ -44,7 +44,7 @@ public class SetCursorOnHover : MonoBehaviour
 
   void OnMouseExit()
   {
-    CursorController.instance.SetDefaultCursor();
+    //CursorController.instance.SetDefaultCursor();
 		if(imageToEnable) {
 			imageToEnable.SetActive(false);
 		}

@@ -7523,7 +7523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlToCall: https://tsur.github.io/blog
---- !u!114 &710433966
+--- !u!114 &710433970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10122,7 +10122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlToCall: https://github.com/zuripabon
---- !u!114 &1197632595
+--- !u!114 &1197632597
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17053,7 +17053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0.93333334, g: 0.6117647, b: 0.65882355, a: 1}
-  outlineWidth: 6
+  outlineWidth: 8
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 4300000, guid: 2332e5067531c694083e7fc55bc609ca, type: 3}
@@ -19359,7 +19359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlToCall: https://es.linkedin.com/in/zuripabon
---- !u!114 &1579793513
+--- !u!114 &1579793517
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19565,7 +19565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outlineMode: 0
   outlineColor: {r: 0.93333334, g: 0.6117647, b: 0.65882355, a: 1}
-  outlineWidth: 6
+  outlineWidth: 8
   precomputeOutline: 1
   bakeKeys:
   - {fileID: 4300000, guid: e7be0ab1f1efb804aad4e5c4118a911f, type: 3}
@@ -20291,20 +20291,6 @@ MonoBehaviour:
     - {x: 0.57735026, y: 0.57735026, z: -0.57735026}
     - {x: -0.57735026, y: 0.57735026, z: -0.57735026}
     - {x: -0.57735026, y: 0.57735026, z: 0.57735026}
---- !u!114 &1609855321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1609855314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eec9e2fdfd2dee49a74588a138ad399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageToEnable: {fileID: 2116204114}
-  cursorSelected: 1
 --- !u!114 &1609855326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20318,6 +20304,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlToCall: https://www.npmjs.com/~tsur
+--- !u!114 &1609855331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609855314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec9e2fdfd2dee49a74588a138ad399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToEnable: {fileID: 2116204114}
+  cursorSelected: 1
 --- !u!4 &1616912269 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400498, guid: f1f3c8bba3f110d43851b9acbbc52891, type: 3}
@@ -28171,20 +28171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1886a97c13bbe444997a32db3446cbec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1985377158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1180107372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eec9e2fdfd2dee49a74588a138ad399, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imageToEnable: {fileID: 110360562}
-  cursorSelected: 1
 --- !u!114 &1985377162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28198,6 +28184,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   urlToCall: https://tidycal.com/zuripabon/15-minute-meeting
+--- !u!114 &1985377166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180107372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eec9e2fdfd2dee49a74588a138ad399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageToEnable: {fileID: 110360562}
+  cursorSelected: 1
 --- !u!1001 &2003611423
 PrefabInstance:
   m_ObjectHideFlags: 0

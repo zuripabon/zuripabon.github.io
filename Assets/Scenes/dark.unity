@@ -3125,7 +3125,6 @@ GameObject:
   - component: {fileID: 534624011}
   - component: {fileID: 534624010}
   - component: {fileID: 534624012}
-  - component: {fileID: 534624013}
   m_Layer: 0
   m_Name: _game
   m_TagString: Untagged
@@ -3256,7 +3255,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cdc91eb299a20fe9faf5599a3e9dfe8b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.528
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3340,21 +3339,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &534624013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534624009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20fd0e5a564465146b7e4a3c6eb2fb4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultCursor: {fileID: 2800000, guid: f3d6f344608d12347ad7526d46ed1e2b, type: 3}
-  clickCursor: {fileID: 2800000, guid: 161d5277830bfbf4dbe6693cba95ec0c, type: 3}
-  typeCursor: {fileID: 2800000, guid: f3d6f344608d12347ad7526d46ed1e2b, type: 3}
 --- !u!1 &540345043
 GameObject:
   m_ObjectHideFlags: 0

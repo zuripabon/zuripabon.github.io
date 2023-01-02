@@ -28,9 +28,9 @@ function setupUnity(selector, callback) {
     const buildUrl = "Build";
     const loaderUrl = buildUrl + "/build.loader.js";
     const config = {
-        dataUrl: buildUrl + "/build.data.gz",
-        frameworkUrl: buildUrl + "/build.framework.js.gz",
-        codeUrl: buildUrl + "/build.wasm.gz",
+        dataUrl: buildUrl + "/build.data",
+        frameworkUrl: buildUrl + "/build.framework.js",
+        codeUrl: buildUrl + "/build.wasm",
         // streamingAssetsUrl: "StreamingAssets",
         // companyName: "DefaultCompany",
         // productName: "AWebGame",

@@ -7376,7 +7376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edaa76a99b5ba541911a18939496306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  urlToCall: https://tsur.github.io/blog
+  urlToCall: https://tidycal.com/zuripabon/15-minute-meeting
 --- !u!114 &710433970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28267,7 +28267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3edaa76a99b5ba541911a18939496306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  urlToCall: https://tidycal.com/zuripabon/15-minute-meeting
+  urlToCall: https://tsur.github.io/blog
 --- !u!114 &1985377166
 MonoBehaviour:
   m_ObjectHideFlags: 0

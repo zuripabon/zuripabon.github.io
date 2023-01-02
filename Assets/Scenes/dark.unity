@@ -3256,7 +3256,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cdc91eb299a20fe9faf5599a3e9dfe8b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.528
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3354,7 +3354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultCursor: {fileID: 2800000, guid: f3d6f344608d12347ad7526d46ed1e2b, type: 3}
   clickCursor: {fileID: 2800000, guid: 161d5277830bfbf4dbe6693cba95ec0c, type: 3}
-  typeCursor: {fileID: 0}
+  typeCursor: {fileID: 2800000, guid: f3d6f344608d12347ad7526d46ed1e2b, type: 3}
 --- !u!1 &540345043
 GameObject:
   m_ObjectHideFlags: 0
@@ -16610,9 +16610,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'welcome explorer ...
+  m_Text: 'Software Developer
 
-    to my humble and secret hut'
+    reach.zuripabon@gmail.com'
 --- !u!222 &1464060361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28409,7 +28409,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'wanna hear
+  m_Text: 'wanna read
 
     a story?'
 --- !u!222 &2044798683

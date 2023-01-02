@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/main.unity
     guid: b6d4db8e669b8490bbcee2e419d2f538
+  - enabled: 1
+    path: Assets/Scenes/dark.unity
+    guid: 43623a25e53ec2946981165ca71b3d5d
   m_configObjects: {}

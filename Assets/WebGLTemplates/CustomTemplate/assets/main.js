@@ -26,15 +26,15 @@ function setupUnity(selector, callback) {
 
 
     const buildUrl = "Build";
-    const loaderUrl = buildUrl + "/build.loader.js";
+    const loaderUrl = buildUrl + "/docs.loader.js";
     const config = {
-        dataUrl: buildUrl + "/build.data.gz",
-        frameworkUrl: buildUrl + "/build.framework.js.gz",
-        codeUrl: buildUrl + "/build.wasm.gz",
-        // streamingAssetsUrl: "StreamingAssets",
-        // companyName: "DefaultCompany",
-        // productName: "AWebGame",
-        // productVersion: "1.0.0",
+        dataUrl: buildUrl + "/docs.data",
+        frameworkUrl: buildUrl + "/docs.framework.js",
+        codeUrl: buildUrl + "/docs.wasm",
+        // with gzip enabled
+        // dataUrl: buildUrl + "/docs.data.gz",
+        // frameworkUrl: buildUrl + "/docs.framework.js.gz",
+        // codeUrl: buildUrl + "/docs.wasm.gz",
     };
 
     const script = document.createElement("script");

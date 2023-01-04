@@ -81,8 +81,6 @@ function resizeCanvas(selector, unityInstance){
 
     let gCanvasElement = null;
 
-    console.log({initialDimensions})
-
     if(window.screen){
         screen.orientation.lock('landscape');
     }

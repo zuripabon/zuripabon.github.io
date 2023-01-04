@@ -1,5 +1,5 @@
-@media screen and (max-width: 600px) and (orientation: portrait) {
-    html, .webgl-content * {
+@media screen and (orientation: portrait) {
+    /* html, .webgl-content canvas {
       transform: rotate(-90deg);
       transform-origin: left top;
       width: 100vh;
@@ -8,7 +8,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-    }
+    } */
   }
 
 .webgl-content * {border: 0; margin: 0; padding: 0}

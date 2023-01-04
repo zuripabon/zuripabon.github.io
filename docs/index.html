@@ -4,8 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Zuri Pabon - Portfolio</title>
+    <link rel="manifest" href="assets/appmanifest.webmanifest">
     <link rel="shortcut icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="assets/style.css">
+    <script>
+        if (typeof navigator.serviceWorker !== 'undefined') {
+            navigator.serviceWorker.register('assets/pwabuilder-sw.js')
+        }
+    </script>
 </head>
 <body>
 <div class="webgl-content">

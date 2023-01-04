@@ -24,18 +24,18 @@ function setupUnity(selector, callback) {
     const progressBarEmptyElement = q(selector, '.progress .empty');
     const splashScreenElement = q(selector, '.splash');
 
-
     const buildUrl = "Build";
-    const loaderUrl = buildUrl + "/build.loader.js";
+    const loaderUrl = buildUrl + "/docs.loader.js";
     const config = {
-        dataUrl: buildUrl + "/build.data",
-        frameworkUrl: buildUrl + "/build.framework.js",
-        codeUrl: buildUrl + "/build.wasm",
-        // streamingAssetsUrl: "StreamingAssets",
-        // companyName: "DefaultCompany",
-        // productName: "AWebGame",
-        // productVersion: "1.0.0",
+        dataUrl: buildUrl + "/docs.data",
+        frameworkUrl: buildUrl + "/docs.framework.js",
+        codeUrl: buildUrl + "/docs.wasm",
+        // with gzip enabled
+        // dataUrl: buildUrl + "/docs.data.gz",
+        // frameworkUrl: buildUrl + "/docs.framework.js.gz",
+        // codeUrl: buildUrl + "/docs.wasm.gz",
     };
+
 
     const script = document.createElement("script");
     script.src = loaderUrl;
@@ -70,7 +70,7 @@ function setupUnity(selector, callback) {
 
 }
 
-function resizeCanvas(selector){
+function resizeCanvas(selector, unityInstance){
 
     const gameContainer = q(selector);
 
@@ -81,66 +81,16 @@ function resizeCanvas(selector){
 
     let gCanvasElement = null;
 
-    const getCanvasFromMutationsList = (mutationsList) => {
-        for (let mutationItem of mutationsList){
-            for (let addedNode of mutationItem.addedNodes){
-                if (addedNode.id === 'canvas'){
-                    warn("canvas found")
-                    return addedNode;
-                }
-            }
-        }
-        return null;
+    console.log({initialDimensions})
+
+    if(window.screen){
+        screen.orientation.lock('landscape');
     }
-
-    const setDimensions = () => {
-        gCanvasElement.style.display = 'none';
-        var winW = parseInt(window.getComputedStyle(gameContainer).width, 10);
-        var winH = parseInt(window.getComputedStyle(gameContainer).height, 10);
-        var scale = Math.min(winW / initialDimensions.width, winH / initialDimensions.height);
-        gCanvasElement.style.display = '';
-
-        var fitW = Math.round(initialDimensions.width * scale * 100) / 100;
-        var fitH = Math.round(initialDimensions.height * scale * 100) / 100;
-
-        if (gCanvasElement) {
-            gCanvasElement.setAttribute('width', fitW);
-            gCanvasElement.setAttribute('height', fitH);
-        }
-    }
-
-    const registerCanvasWatcher = () => {
-        let debounceTimeout = null;
-        const debouncedSetDimensions = () => {
-            if (debounceTimeout !== null) {
-                clearTimeout(debounceTimeout);
-            }
-            debounceTimeout = setTimeout(setDimensions, 200);
-        }
-        window.addEventListener('resize', debouncedSetDimensions, false);
-        setDimensions();
-    }
-
-
-    new MutationObserver(function (mutationsList) {
-        const canvas = getCanvasFromMutationsList(mutationsList)
-        if (canvas){
-            gCanvasElement = canvas;
-            registerCanvasWatcher();
-
-            new MutationObserver(function (attributesMutation) {
-                this.disconnect();
-                setTimeout(setDimensions, 1)
-            }).observe(canvas, {attributes:true});
-
-            this.disconnect();
-        }
-    }).observe(gameContainer, {childList:true});
 
 };
 
 (function start(selector="#gameContainer"){
     info("Hi ;)", {fontSize: 14});
 
-    setupUnity(selector, ()=> resizeCanvas(selector));
+    setupUnity(selector, (unityInstance)=> resizeCanvas(selector, unityInstance));
 })()

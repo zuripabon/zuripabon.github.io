@@ -1,0 +1,24 @@
+{
+    "short_name": "Zuri Pabon",
+    "name": "Zuri Pabon Portfolio",
+    "icons": [
+      {
+        "src": "progressLogo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "progressLogo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "id": "/?source=pwa",
+    "start_url": "/?source=pwa",
+    "background_color": "#434343",
+    "display": "standalone",
+    "orientation":  "landscape",
+    "scope": "/",
+    "theme_color": "#434343",
+    "description": "Zuri Pabon Portfolio"
+  }

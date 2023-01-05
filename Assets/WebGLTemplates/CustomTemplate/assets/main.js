@@ -18,12 +18,8 @@ const q = (parentSelector, ...q) => document.querySelector(`${parentSelector}${q
 
 function setupUnity(selector, callback) {
     const gameCanvas = q(selector, 'canvas');
-    const logoElement = q(selector, '.logo');
-    const progressBarElement = q(selector, '.progress');
-    const progressBarFullElement = q(selector, '.progress .full');
-    const progressBarEmptyElement = q(selector, '.progress .empty');
-    const splashScreenElement = q(selector, '.splash');
-
+    const logoElement = q(selector, '.loading .container .logo');
+    // const audioElement = q(selector, '.loading .container .clip');
 
     const buildUrl = "Build";
     const loaderUrl = buildUrl + "/docs.loader.js";
@@ -37,28 +33,16 @@ function setupUnity(selector, callback) {
         // codeUrl: buildUrl + "/docs.wasm.gz",
     };
 
+
     const script = document.createElement("script");
     script.src = loaderUrl;
     script.onload = () => {
-        createUnityInstance(gameCanvas, config, (progress) => {
-            progressBarFullElement.style.width = (100 * progress) + "%";
-            progressBarEmptyElement.style.width = (100 * (1 - progress)) + "%";
-        }).then((unityInstance) => {
+        createUnityInstance(gameCanvas, config).then((unityInstance) => {
             info("Game loaded");
-            
-            splashScreenElement.style.display =  "block";
-         
-            setTimeout(()=>{
-                progressBarFullElement.style.width = 93
-            },1*1000);
-            setTimeout(()=>{
-                progressBarFullElement.style.width = 96
-            },2*1000);
             setTimeout(() => {
-                progressBarFullElement.style.width = 100
-                progressBarElement.style.display = "none";
-                logoElement.style.display =  "none";
-                splashScreenElement.style.display =  "none";
+                // audioElement.remove();
+                logoElement.style.display = "none";
+                toggleCanvasView();
             }, 3*1000);
             callback(unityInstance);
         }).catch((message) => {
@@ -70,77 +54,32 @@ function setupUnity(selector, callback) {
 
 }
 
-function resizeCanvas(selector){
-
-    const gameContainer = q(selector);
-
-    const initialDimensions = {
-        width: parseInt(gameContainer.style.width, 10), 
-        height: parseInt(gameContainer.style.height, 10)
-    };
-
-    let gCanvasElement = null;
-
-    const getCanvasFromMutationsList = (mutationsList) => {
-        for (let mutationItem of mutationsList){
-            for (let addedNode of mutationItem.addedNodes){
-                if (addedNode.id === 'canvas'){
-                    warn("canvas found")
-                    return addedNode;
-                }
-            }
-        }
-        return null;
-    }
-
-    const setDimensions = () => {
-        gCanvasElement.style.display = 'none';
-        var winW = parseInt(window.getComputedStyle(gameContainer).width, 10);
-        var winH = parseInt(window.getComputedStyle(gameContainer).height, 10);
-        var scale = Math.min(winW / initialDimensions.width, winH / initialDimensions.height);
-        gCanvasElement.style.display = '';
-
-        var fitW = Math.round(initialDimensions.width * scale * 100) / 100;
-        var fitH = Math.round(initialDimensions.height * scale * 100) / 100;
-
-        if (gCanvasElement) {
-            gCanvasElement.setAttribute('width', fitW);
-            gCanvasElement.setAttribute('height', fitH);
-        }
-    }
-
-    const registerCanvasWatcher = () => {
-        let debounceTimeout = null;
-        const debouncedSetDimensions = () => {
-            if (debounceTimeout !== null) {
-                clearTimeout(debounceTimeout);
-            }
-            debounceTimeout = setTimeout(setDimensions, 200);
-        }
-        window.addEventListener('resize', debouncedSetDimensions, false);
-        setDimensions();
-    }
-
-
-    new MutationObserver(function (mutationsList) {
-        const canvas = getCanvasFromMutationsList(mutationsList)
-        if (canvas){
-            gCanvasElement = canvas;
-            registerCanvasWatcher();
-
-            new MutationObserver(function (attributesMutation) {
-                this.disconnect();
-                setTimeout(setDimensions, 1)
-            }).observe(canvas, {attributes:true});
-
-            this.disconnect();
-        }
-    }).observe(gameContainer, {childList:true});
-
+function resizeCanvas(selector, unityInstance){
+    window.onresize = function(){  toggleCanvasView(); }
 };
 
-(function start(selector="#gameContainer"){
+function toggleCanvasView(){
+    const loadingElement = q('.main .loading');
+    const toggleOrientationElement = q('.main .loading .container .landscape-loading');
+
+    if(isLandscapeOrientation()){
+        loadingElement.style.display =  "none";
+        toggleOrientationElement.style.display = " none";
+        loadingElement.style.backgroundColor =  "#black";
+    }
+    else{
+        loadingElement.style.display =  "block";
+        toggleOrientationElement.style.display = " block";
+        loadingElement.style.backgroundColor =  "rgba(199, 57, 57, 0.86)";
+    }
+}
+
+function isLandscapeOrientation(){
+    return window.innerWidth > window.innerHeight;
+}
+
+(function start(selector=".main"){
     info("Hi ;)", {fontSize: 14});
 
-    setupUnity(selector, ()=> resizeCanvas(selector));
+    setupUnity(selector, (unityInstance)=> resizeCanvas(selector, unityInstance));
 })()

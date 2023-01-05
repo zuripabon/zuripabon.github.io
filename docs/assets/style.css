@@ -1,57 +1,50 @@
-@media screen and (orientation: portrait) {
-    /* html, .webgl-content canvas {
-      transform: rotate(-90deg);
-      transform-origin: left top;
-      width: 100vh;
-      height: 100vw;
-      overflow-x: hidden;
-      position: absolute;
-      top: 100%;
-      left: 0;
-    } */
-  }
 
-.webgl-content * {border: 0; margin: 0; padding: 0}
-.webgl-content {height: 100vh; top: 0; left: 0;}
-.webgl-content .splash {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 100;
-    background-color: #434343;
-    display: none;
-}
-.webgl-content .logo, .progress {position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);z-index: 110;}
-.webgl-content .logo {background: url('progressLogo.png') no-repeat center / contain; width: 154px; height: 130px;}
-.webgl-content .progress {height: 18px; width: 141px; margin-top: 90px;}
-.webgl-content .progress .empty {background: url('progressEmpty.Light.png') no-repeat right / cover; float: right; width: 100%; height: 100%; display: inline-block;}
-.webgl-content .progress .full {background: url('progressFull.Light.png') no-repeat left / cover; float: left; width: 0%; height: 100%; display: inline-block;}
-
-.webgl-content .logo.Dark {background-image: url('progressLogo.png');}
-.webgl-content .progress.Dark .empty {background-image: url('progressEmpty.Dark.png');}
-.webgl-content .progress.Dark .full {background-image: url('progressFull.Dark.png');}
-
-.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;} 
-.webgl-content .footer .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;} 
-.webgl-content .footer .webgl-logo {background-image: url('webgl-logo.png'); width: 204px; float: left;}
-.webgl-content .footer .title {margin-right: 10px; float: right;}
-.webgl-content .footer .fullscreen {background-image: url('fullscreen.png'); width: 38px; float: right;}
-
+html * {border: 0; margin: 0; padding: 0}
 body, html{
     margin:0;
     padding:0;
-    background-color: #434343;
+    background-color: black;
 }
-
-
-#gameContainer{
+.main {height:100vh; width:100vw;}
+.main .loading {
     width: 100%;
     height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color:black;
+}
+.main .loading .container {
+    position: absolute; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 110;
+    font-weight: bold;
+    color: #ddbbbb;
+    text-align:center;
+    font-size: 54px;
+}
+.main .loading .container .landscape-loading {
+    display: none;
+    color: #3a3535;
+}
+.main .loading .container .landscape-loading .landscape-logo{
+    width: 200px;
+}
+.main .loading .container .logo-pic {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 35px;
 }
 
-#gameContainer canvas{
+
+.main .ui {
+    font-family: 'Fredoka One', sans-serif;
+}
+
+#canvas{
     width: 100%;
     height: 100%;
     position:absolute;

@@ -42,6 +42,33 @@ body, html{
 
 .main .ui {
     font-family: 'Fredoka One', sans-serif;
+    display: none;
+}
+
+.main .ui .info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 110;
+    margin: 30px;
+    align-items: center;
+}
+
+.main .ui .info .logo-pic {
+    width: 90px;
+    height: 85px;
+}
+
+.main .ui .info .info-contact{
+    font-size: 18px; 
+    color: #E0DADB;
+    margin-left: 10px;
+}
+
+.main .ui .info .info-contact .hashtag{
+    font-size: 30px; 
+    color: #EE9CA8;
 }
 
 #canvas{
@@ -102,3 +129,23 @@ body, html{
     }
   }
   
+
+  @media only screen and (max-height: 575.98px) and (orientation: landscape) {
+
+    .main .ui .info {
+        margin: 10px;
+    }
+
+    .main .ui .info .logo-pic {
+        width: 65px;
+        height: 60px;
+    }
+    
+    .main .ui .info .info-contact{
+        font-size: 14px;
+    }
+    
+    .main .ui .info .info-contact .hashtag{
+        font-size: 18px;
+    }
+}

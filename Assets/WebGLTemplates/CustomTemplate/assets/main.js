@@ -19,6 +19,8 @@ const q = (parentSelector, ...q) => document.querySelector(`${parentSelector}${q
 function setupUnity(selector, callback) {
     const gameCanvas = q(selector, 'canvas');
     const logoElement = q(selector, '.loading .container .logo');
+    const uiElement = q(selector, '.ui');
+
     // const audioElement = q(selector, '.loading .container .clip');
 
     const buildUrl = "Build";
@@ -42,6 +44,7 @@ function setupUnity(selector, callback) {
             setTimeout(() => {
                 // audioElement.remove();
                 logoElement.style.display = "none";
+                uiElement.style.display = "block";
                 toggleCanvasView();
             }, 3*1000);
             callback(unityInstance);

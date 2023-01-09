@@ -70,7 +70,7 @@ function toggleCanvasView(){
     else{
         loadingElement.style.display =  "block";
         toggleOrientationElement.style.display = " block";
-        loadingElement.style.backgroundColor =  "rgba(199, 57, 57, 0.86)";
+        loadingElement.style.backgroundColor =  "rgba(219, 170, 170, 0.86)";
     }
 }
 

@@ -19,7 +19,6 @@ const q = (parentSelector, ...q) => document.querySelector(`${parentSelector}${q
 function setupUnity(selector, callback) {
     const gameCanvas = q(selector, 'canvas');
     const logoElement = q(selector, '.loading .container .logo');
-    const uiElement = q(selector, '.ui');
 
     // const audioElement = q(selector, '.loading .container .clip');
 
@@ -44,7 +43,7 @@ function setupUnity(selector, callback) {
             setTimeout(() => {
                 // audioElement.remove();
                 logoElement.style.display = "none";
-                uiElement.style.display = "block";
+                
                 toggleCanvasView();
             }, 3*1000);
             callback(unityInstance);
@@ -64,16 +63,19 @@ function resizeCanvas(selector, unityInstance){
 function toggleCanvasView(){
     const loadingElement = q('.main .loading');
     const toggleOrientationElement = q('.main .loading .container .landscape-loading');
+    const uiElement = q('.main .ui');
 
     if(isLandscapeOrientation()){
         loadingElement.style.display =  "none";
         toggleOrientationElement.style.display = " none";
         loadingElement.style.backgroundColor =  "#black";
+        uiElement.style.display = "block";
     }
     else{
         loadingElement.style.display =  "block";
         toggleOrientationElement.style.display = " block";
         loadingElement.style.backgroundColor =  "rgba(219, 170, 170, 0.86)";
+        uiElement.style.display = "none";
     }
 }
 

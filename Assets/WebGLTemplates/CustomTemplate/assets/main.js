@@ -46,22 +46,70 @@ const navigateUrlFromGameObject = (id) => {
     
 }
 
+const messageFromGameObject = (id) => {
+
+    if(id === "tent"){
+        return "wanna read a story?";
+    }
+
+    if(id === "campfire"){
+        return "want to drink a hot cocoa with me ?";
+    }
+
+    if(id === "box"){
+        return "my open sourced contributions";
+    }
+
+    if(id === "boat"){
+        return "navigate my working experience";
+    }
+
+    if(id === "fox"){
+        return "my spare time ideas and pet-projects";
+    }
+    
+}
+
 const q = (parentSelector, ...q) => document.querySelector(`${parentSelector}${q.reduce((acc, q) => `${acc} ${q}`, '')}`);
 
+let isMessageCardEnabled = false;
+let timeId = null;
 // Only works for desktop
 const handleHoverGameObject = (id, isHoverIn) => {
+    const messageParentElement = q('.main .ui .message-desktop');
+    const canvas = q('.main canvas');
 
+    isMessageCardEnabled = isHoverIn;
+
+    if(!isHoverIn){
+        canvas.style.cursor = "default";
+        return messageParentElement.style.display = "none";
+    }
+
+    canvas.style.cursor = "pointer";
+    const messageElement = q(' .main .ui .message-desktop .message-card');
+    messageElement.textContent = messageFromGameObject(id);
 }
 
 // Only works for mobile
 const handleGameObjectClick = (id) => {
-
+    const messageElement = q(' .main .ui .info .message-card');
+    if(timeId){
+        clearTimeout(timeId);
+    }
+    messageElement.setAttribute('data', id);
+    messageElement.textContent = messageFromGameObject(id);
+    messageElement.style.display = "flex";
+    timeId = setTimeout(()=>{
+        messageElement.style.display = "none";
+    }, 4000);
 }
 
 
 function setupUnity(selector, callback) {
     const gameCanvas = q(selector, 'canvas');
     const logoElement = q(selector, '.loading .container .logo');
+    const messageParentElement = q(' .main .ui .message-desktop');
 
     // const audioElement = q(selector, '.loading .container .clip');
 
@@ -93,18 +141,27 @@ function setupUnity(selector, callback) {
         handleHoverGameObject(id, isHoverIn);
     }
 
+    document.addEventListener('mousemove', function(e){
+
+        if(!isMessageCardEnabled){
+            return;
+        }
+
+        messageParentElement.style.left = (e.clientX + 3) + 'px';
+        messageParentElement.style.top = (e.clientY + 3) + 'px';
+        messageParentElement.style.display = "flex";
+      });
+
     const script = document.createElement("script");
     script.src = loaderUrl;
     script.onload = () => {
         createUnityInstance(gameCanvas, config).then((unityInstance) => {
             info("Game loaded");
             setTimeout(() => {
-                // audioElement.remove();
                 logoElement.style.display = "none";
-                
                 toggleCanvasView();
+                callback(unityInstance);
             }, 3*1000);
-            callback(unityInstance);
         }).catch((message) => {
           error(message);
         });
@@ -114,7 +171,7 @@ function setupUnity(selector, callback) {
 
 }
 
-function resizeCanvas(selector, unityInstance){
+function resizeCanvas(){
     window.onresize = function(){  toggleCanvasView(); }
 };
 
@@ -136,6 +193,14 @@ function toggleCanvasView(){
         uiElement.style.display = "none";
     }
 }
+function onStart(selector, unityInstance){
+    const messageElement = q('.main .ui .info .message-card');
+    resizeCanvas(selector, unityInstance);
+    messageElement.onclick = function(e){
+        const gameObjectId = e.target.getAttribute('data');
+        navigateUrlFromGameObject(gameObjectId);
+    };
+}
 
 function isLandscapeOrientation(){
     return window.innerWidth > window.innerHeight;
@@ -144,5 +209,5 @@ function isLandscapeOrientation(){
 (function start(selector=".main"){
     info("Hi ;)", {fontSize: 14});
 
-    setupUnity(selector, (unityInstance)=> resizeCanvas(selector, unityInstance));
+    setupUnity(selector, (unityInstance)=> onStart(selector, unityInstance));
 })()

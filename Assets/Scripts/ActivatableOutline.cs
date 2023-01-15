@@ -7,6 +7,7 @@ public class ActivatableOutline : MonoBehaviour
   [SerializeField]
   private string id;
   private Outline myOutlineScript;
+  private bool firstTime;
   
   [DllImport("__Internal")]
   private static extern void onHoverIn(string str);
@@ -16,13 +17,15 @@ public class ActivatableOutline : MonoBehaviour
   private void Awake()
   {
     myOutlineScript = GetComponent<Outline>();
-    myOutlineScript.enabled = false;
+    firstTime = true;
+    // myOutlineScript.enabled = false;
   }
   void OnMouseOver()
   {
     //If your mouse hovers over the GameObject with the script attached, output this message
-    if(!myOutlineScript.enabled){
+    if(firstTime == true || !myOutlineScript.enabled){
       onHoverIn(id);
+      firstTime = false;
     }
     myOutlineScript.enabled = true;
   }

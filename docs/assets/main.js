@@ -109,6 +109,7 @@ const handleGameObjectClick = (id) => {
 function setupUnity(selector, callback) {
     const gameCanvas = q(selector, 'canvas');
     const logoElement = q(selector, '.loading .container .logo');
+    const progressBarElement = q(selector, '.loading .container .logo .progress');
     const messageParentElement = q(' .main .ui .message-desktop');
 
     // const audioElement = q(selector, '.loading .container .clip');
@@ -155,7 +156,9 @@ function setupUnity(selector, callback) {
     const script = document.createElement("script");
     script.src = loaderUrl;
     script.onload = () => {
-        createUnityInstance(gameCanvas, config).then((unityInstance) => {
+        createUnityInstance(gameCanvas, config, (progress) => {
+            progressBarElement.textContent = (100 * progress).toFixed(0) + "%";
+        }).then((unityInstance) => {
             info("Game loaded");
             setTimeout(() => {
                 logoElement.style.display = "none";

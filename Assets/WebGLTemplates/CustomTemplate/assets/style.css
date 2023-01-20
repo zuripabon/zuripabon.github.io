@@ -41,7 +41,11 @@ body, html{
     height: 250px;
     margin-bottom: 35px;
 }
-
+.main .loading .container .logo .progress {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 12px;
+    color: #bbb8b8;
+}
 
 .main .ui {
     font-family: 'Fredoka One', sans-serif;

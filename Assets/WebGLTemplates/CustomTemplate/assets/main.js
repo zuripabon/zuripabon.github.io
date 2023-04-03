@@ -72,6 +72,7 @@ const q = (parentSelector, ...q) => document.querySelector(`${parentSelector}${q
 
 let isMessageCardEnabled = false;
 let timeId = null;
+let latestSelectedGameId;
 // Only works for desktop
 const handleHoverGameObject = (id, isHoverIn) => {
     const messageParentElement = q('.main .ui .message-desktop');
@@ -95,12 +96,14 @@ const handleGameObjectClick = (id) => {
     if(timeId){
         clearTimeout(timeId);
     }
-    messageElement.setAttribute('data', id);
+    latestSelectedGameId = id;
     messageElement.textContent = messageFromGameObject(id);
     messageElement.style.display = "flex";
     timeId = setTimeout(()=>{
         messageElement.style.display = "none";
-    }, 4000);
+        latestSelectedGameId = null;
+    }, 3000);
+
 }
 
 
@@ -197,9 +200,13 @@ function toggleCanvasView(){
 function onStart(selector, unityInstance){
     const messageElement = q('.main .ui .info .message-card');
     resizeCanvas(selector, unityInstance);
-    messageElement.onclick = function(e){
-        const gameObjectId = e.target.getAttribute('data');
-        navigateUrlFromGameObject(gameObjectId);
+    const isMobile = mobileCheck();
+    if(!isMobile){
+        return;
+    }
+    messageElement.onclick = function(){
+        navigateUrlFromGameObject(latestSelectedGameId);
+        latestSelectedGameId = null;
     };
 }
 

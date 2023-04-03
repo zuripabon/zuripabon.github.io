@@ -204,4 +204,14 @@ body, html{
     .main .ui .info .info-contact .hashtag{
         font-size: 18px;
     }
+ 
 }
+
+@media only screen and (min-width: 600px) and (orientation: portrait) {
+
+    .main .loading .container .logo .progress {
+        font-size: 36px;
+    }
+ 
+}
+

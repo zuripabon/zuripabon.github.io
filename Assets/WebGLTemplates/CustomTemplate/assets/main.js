@@ -16,9 +16,14 @@ const error = function(m){
 
 const mobileCheck = () => {
    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  };
+};
 
-const openInNewTab = (url) => window.open(url, '_blank').focus();
+const openInNewTab = (url) => {
+    const w = window.open(url, '_blank');
+    if(w.focus){
+        w.focus();
+    }
+}
   
 const navigateUrlFromGameObject = (id) => {
 

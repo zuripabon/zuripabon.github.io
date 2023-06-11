@@ -29,7 +29,7 @@ const openInNewTab = (url) => {
 const navigateUrlFromGameObject = (id) => {
 
     if(id === "tent"){
-        return openInNewTab("https://tsur.github.io/blog")
+        return openInNewTab("https://zuripabon.es/blog")
     }
 
     if(id === "campfire"){

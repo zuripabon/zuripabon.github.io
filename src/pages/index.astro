@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+---
+<!-- an experienced software engineer passionate about crafting innovative solutions and tackling challenges head-on -->
+<Layout title="Welcome to Astro.">
+	<main class="center">
+		<h1 class="title uppercase">I am <span class="text-gradient">Zuri Pabón</span></h1>
+		<p class="desc">
+			With over a decade of expertise in computer science, I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey in programming is fueled by creativity, problem-solving, and a relentless drive for excellence.
+		</p>
+		<p class="desc"> Let's build something extraordinary <button class="cta text-gradient">together</button></p>
+		
+	</main>
+</Layout>
+
+<style>
+	.uppercase {
+		text-transform: uppercase;
+	}
+
+  .title {
+		font-size: 4rem;
+		font-weight: 700;
+		text-align: center;
+	}
+
+	.desc {
+		font-size: 2.4rem;
+	}
+
+	.center {
+		display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex-direction: column;
+		justify-content: center;
+    width: 75%;
+		max-width: 840px;
+    overflow: clip;
+    row-gap: 32px;
+    margin-inline: auto;
+	}
+	
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+	.cta {
+    border: none;
+    background-color: transparent;
+    position: relative;
+    display: inline-block;
+    font-size: 2.4rem;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 80%);
+    text-transform: underline;
+    outline: none;
+	}
+
+	.cta::before {
+		content: "";
+		position: absolute;
+		inset: -0.4rem;
+    transition: all;
+    transition-duration: 1s;
+    border-radius: 50%;
+    /* background-image: linear-gradient(
+      to right,
+      hsla(var(--accent), 10%) 35%,
+      hsla(var(--accent-light), 20%) 41%,
+      hsla(var(--accent-light), 50%) 100%
+    ); */
+    background-color: hsla(var(--accent-light), 10%);
+		transform: skewY(-5deg);
+	}
+
+  .cta:hover::before {
+    /* background-image: linear-gradient(
+      to right,
+      hsla(var(--accent-light), 40%) 38%,
+      hsla(var(--accent), 10%) 40%,
+      hsla(var(--accent), 10%) 100%
+    ); */
+    /* background-color: hsla(var(--accent-light), 15%); */
+		transform: skewY(0);
+	}
+
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+</style>

@@ -1,15 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Start from '../components/Start.astro';
+
+let counter = 0;
+
+// const interval = setInterval(()=>{
+  
+//   counter=counter+10
+
+//   if(counter >= 100){
+//     counter = 100;
+//     clearInterval(interval)
+//   }
+  
+//   }, 100)
+
+//   let ms = 1000
+//   let counter = 0
+//   const incr = () => (counter += 1)
+ 
+//   let clear
+//   $: {
+// 	 clearInterval(clear)
+// 	 clear = setInterval(incr, ms)
+//  }
+ 
+const loadingChars = ['|','/','-', '\\', '|', '/', '-', '\\']
+let loadingIndex = 0
+setInterval(()=> {
+  loadingIndex = (loadingIndex+1)%loadingChars.length
+} , 150)
 ---
-<!-- an experienced software engineer passionate about crafting innovative solutions and tackling challenges head-on -->
 <Layout title="Welcome to Astro.">
 	<main class="center">
 		<h1 class="title uppercase">I am <span class="text-gradient">Zuri Pabón</span></h1>
 		<p class="desc">
-			With over a decade of expertise in computer science, I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey in programming is fueled by creativity, problem-solving, and a relentless drive for excellence.
+			Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.
 		</p>
-		<p class="desc"> Let's build something extraordinary <button class="cta text-gradient">together</button></p>
+		<!-- <p class="desc"> Let's build something <Start progress={100}>together</Start></p> -->
+		<p class="desc"> Let's <Start progress={counter}>build</Start> something awesome together</p>
+		<p class="desc-terminal">$> ./build --something-awesome --together <span class="loading-chars">{loadingChars[loadingIndex]}</span></p>
 		
 	</main>
 </Layout>
@@ -20,26 +50,31 @@ import Card from '../components/Card.astro';
 	}
 
   .title {
-		font-size: 4rem;
-		font-weight: 700;
-		text-align: center;
+		font-size: 5rem;
 	}
 
 	.desc {
-		font-size: 2.4rem;
+		font-size: 1.8rem;
 	}
+
+  .desc-terminal {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2.4rem;
+  }
+
+  .loading-chars {
+    
+  }
 
 	.center {
 		display: flex;
     flex-direction: column;
-    height: 100vh;
     flex-direction: column;
-		justify-content: center;
     width: 75%;
 		max-width: 840px;
-    overflow: clip;
     row-gap: 32px;
-    margin-inline: auto;
+    margin: 3rem auto;
 	}
 	
 	.text-gradient {
@@ -49,47 +84,7 @@ import Card from '../components/Card.astro';
 		background-size: 400%;
 		background-position: 0%;
 	}
-
-	.cta {
-    border: none;
-    background-color: transparent;
-    position: relative;
-    display: inline-block;
-    font-size: 2.4rem;
-    cursor: pointer;
-    color: rgba(255, 255, 255, 80%);
-    text-transform: underline;
-    outline: none;
-	}
-
-	.cta::before {
-		content: "";
-		position: absolute;
-		inset: -0.4rem;
-    transition: all;
-    transition-duration: 1s;
-    border-radius: 50%;
-    /* background-image: linear-gradient(
-      to right,
-      hsla(var(--accent), 10%) 35%,
-      hsla(var(--accent-light), 20%) 41%,
-      hsla(var(--accent-light), 50%) 100%
-    ); */
-    background-color: hsla(var(--accent-light), 10%);
-		transform: skewY(-5deg);
-	}
-
-  .cta:hover::before {
-    /* background-image: linear-gradient(
-      to right,
-      hsla(var(--accent-light), 40%) 38%,
-      hsla(var(--accent), 10%) 40%,
-      hsla(var(--accent), 10%) 100%
-    ); */
-    /* background-color: hsla(var(--accent-light), 15%); */
-		transform: skewY(0);
-	}
-
+	
 	.instructions {
 		margin-bottom: 2rem;
 		border: 1px solid rgba(var(--accent-light), 25%);
@@ -105,4 +100,21 @@ import Card from '../components/Card.astro';
 		border-radius: 4px;
 		padding: 0.3em 0.4em;
 	}
+
+  @media only screen and (min-width: 768px) {
+    .center {
+      justify-content: center;
+      overflow: clip;
+      height: 100vh;
+      margin: 0 auto;
+    }
+
+    .title {
+		font-size: 6rem;
+    }
+
+    .desc {
+      font-size: 2.4rem;
+    }
+  }
 </style>

@@ -6,9 +6,15 @@ import Canvas from '../components/Canvas.astro';
 <Layout title="I am Zuri Pabón">
 	<main class="center">
 		<h1 class="title uppercase">I am <span class="text-gradient">Zuri Pabón</span></h1>
-		<p class="desc">
-			Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.
-		</p>
+    <div class="title-mobile">
+      <h1 class="uppercase">I am</h1>
+      <h1 class="uppercase"><span class="text-gradient">Zuri Pabón</span></h1>
+    </div>
+		<div class="portfolio-summary-container">
+      <p class="desc subtitle">
+        Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.
+      </p>
+    </div>
 		<!-- <p class="desc"> Let's build something <Start progress={100}>together</Start></p> -->
 		<Build client:visible /> 
 		<!-- <p class="desc-terminal">$> ./build --something-awesome --together <span class="loading-chars">{loadingChars[loadingIndex]}</span></p> -->
@@ -17,16 +23,33 @@ import Canvas from '../components/Canvas.astro';
 </Layout>
 
 <style is:global>
+
+  .portfolio-summary-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
 	.uppercase {
 		text-transform: uppercase;
 	}
 
-  .title {
-		font-size: 5rem;
+  .title-mobile {
+		font-size: 1.8rem;
 	}
 
+  .title {
+    display: none;
+    font-size: 6rem;
+  }
+  .subtitle {
+    text-align: end;
+    margin: 0;
+    max-width: 875px;
+  }
+
 	.desc {
-		font-size: 1.8rem;
+		font-size: 1.7rem;
 	}
 
   .desc-terminal {
@@ -35,17 +58,15 @@ import Canvas from '../components/Canvas.astro';
     font-size: 2.4rem;
   }
 
-  .loading-chars {
-    
-  }
-
 	.center {
 		display: flex;
     flex-direction: column;
-    flex-direction: column;
-    width: 75%;
-		max-width: 840px;
-    row-gap: 32px;
+    justify-content: center;
+    width: 90%;
+		max-width: 1080px;
+    row-gap: 48px;
+    overflow: clip;
+    height: 100%;
     margin: 3rem auto;
 	}
 	
@@ -73,16 +94,31 @@ import Canvas from '../components/Canvas.astro';
 		padding: 0.3em 0.4em;
 	}
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-height: 560px) {
+    
     .center {
-      justify-content: center;
-      overflow: clip;
-      height: 100vh;
-      margin: 0 auto;
+      height: calc(100vh - 6rem);
+      margin: 3rem auto;
+	  }
+  }
+
+  @media only screen and (min-width: 650px) {
+    
+    .title-mobile {
+      font-size: 2.5rem;
     }
 
+    .desc {
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 905px) {
     .title {
-		font-size: 6rem;
+      display: block;
+    }
+    .title-mobile {
+      display: none;
     }
 
     .desc {

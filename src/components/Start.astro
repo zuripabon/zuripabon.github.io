@@ -1,0 +1,98 @@
+---
+interface Props {
+	progress: number;
+}
+
+const { progress = 0 } = Astro.props;
+
+const width = `${progress}%`
+const loading = progress < 100 
+
+---
+
+<button class="cta text-gradient" disabled={loading} class:list={[ 'cta text-gradient', { loading }, {ready: !loading} ]}>
+	<slot />
+</button>
+
+<style define:vars={{ width }}>
+
+  @keyframes progress-bar-stripes {
+    0% {
+      background-position: 40px 0;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+
+	.cta {
+    border: none;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #1d1a20;
+    outline: none;
+    z-index: 1;
+    margin-left: 5px;
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    font-size: 1.4rem;
+	}
+
+  .cta-progress {
+    color: #13151a;
+    background-color: transparent;
+  }
+
+  .cta.loading::before{
+    background-image: -webkit-linear-gradient(45deg,rgba(0,0,0,.35) 25%,transparent 25%,transparent 50%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.35) 75%,transparent 75%,transparent);
+    background-size: 40px 40px;
+    animation: progress-bar-stripes 2s linear infinite;
+  }
+
+  .cta.ready::before{
+    background-image: var(--accent-gradient);
+		background-size: 400%;
+		background-position: 0%;
+  }
+
+	.cta::before {
+		content: "";
+		position: absolute;
+		inset: -0.4rem;
+		transition: all;
+		transition-duration: 1s;
+    border-radius: 100px;
+    z-index: -1;
+    background: #9c9ba2;
+    width: var(--width);
+    padding: 0.3rem;
+		/* border-radius: 50%; */
+    /* background-image: linear-gradient(
+      to right,
+      hsla(var(--accent), 10%) 35%,
+      hsla(var(--accent-light), 20%) 41%,
+      hsla(var(--accent-light), 50%) 100%
+    ); */
+    /* background-color: hsla(var(--accent-light), 10%); */
+		/* transform: skewY(-5deg); */
+	}
+
+  .cta:hover::before {
+    /* background-image: linear-gradient(
+      to right,
+      hsla(var(--accent-light), 40%) 38%,
+      hsla(var(--accent), 10%) 40%,
+      hsla(var(--accent), 10%) 100%
+    ); */
+    background-color: hsla(283, 82%, 78%, 76%);
+		/* transform: skewY(0); */
+	}
+
+  @media only screen and (min-width: 768px) {
+    .cta {
+      font-size: 1.8rem;
+    }
+  }
+
+</style>

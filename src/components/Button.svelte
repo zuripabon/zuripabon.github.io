@@ -2,7 +2,7 @@
   export let loading = true
 </script>
 
-<p class="desc"><button type="button" class="cta text-gradient" class:loading={loading} class:disabled={loading}>Let's build</button> something awesome together</p>
+<p class="cta-container"><button type="button" class="cta text-gradient" class:loading={loading} class:disabled={loading}>Let's build</button> something awesome together</p>
 
 <style>
 	
@@ -15,6 +15,15 @@
     }
   }
 
+  .cta-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    text-align: center;
+    font-size: 1.7rem;
+  }
+
 	.cta {
     border: none;
     position: relative;
@@ -22,8 +31,10 @@
     outline: none;
     z-index: 0;
     font-weight: bold;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     cursor: pointer;
+    margin-right: 5px;
+    padding: 0 0.5rem;
 	}
 
   .disabled {
@@ -55,11 +66,29 @@
     background-color: hsla(283, 82%, 78%, 76%);
 	} */
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 685px) {
+    
+    .cta {
+      font-size: 2rem;
+    }
+
+    .cta-container {
+      flex-direction: row;
+      font-size: 2rem;
+    }
+  }
+
+  @media only screen and (min-width: 905px) {
     .cta {
       font-size: 2.4rem;
     }
+
+    .cta-container {
+      flex-direction: row;
+      font-size: 2.4rem;
+    }
   }
+
 </style>
 
 

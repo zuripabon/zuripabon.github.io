@@ -140,7 +140,7 @@ function resizeCanvas(selector){
 };
 
 (function start(selector="#gameContainer"){
-    info("Hi ;)", {fontSize: 14});
+    info("Say hello reach.zuripabon@gmail.com ;)", {fontSize: 14});
 
-    setupUnity(selector, ()=> resizeCanvas(selector));
+    setupUnity(selector, (unityInstance)=> onStart(selector, unityInstance));
 })()

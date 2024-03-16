@@ -1,50 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Start from '../components/Start.astro';
-
-let counter = 0;
-
-// const interval = setInterval(()=>{
-  
-//   counter=counter+10
-
-//   if(counter >= 100){
-//     counter = 100;
-//     clearInterval(interval)
-//   }
-  
-//   }, 100)
-
-//   let ms = 1000
-//   let counter = 0
-//   const incr = () => (counter += 1)
- 
-//   let clear
-//   $: {
-// 	 clearInterval(clear)
-// 	 clear = setInterval(incr, ms)
-//  }
- 
-const loadingChars = ['|','/','-', '\\', '|', '/', '-', '\\']
-let loadingIndex = 0
-setInterval(()=> {
-  loadingIndex = (loadingIndex+1)%loadingChars.length
-} , 150)
+import Build from '../components/Build.svelte';
+import Canvas from '../components/Canvas.astro';
 ---
-<Layout title="Welcome to Astro.">
+<Layout title="I am Zuri Pabón">
 	<main class="center">
 		<h1 class="title uppercase">I am <span class="text-gradient">Zuri Pabón</span></h1>
 		<p class="desc">
 			Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.
 		</p>
 		<!-- <p class="desc"> Let's build something <Start progress={100}>together</Start></p> -->
-		<p class="desc"> Let's <Start progress={counter}>build</Start> something awesome together</p>
-		<p class="desc-terminal">$> ./build --something-awesome --together <span class="loading-chars">{loadingChars[loadingIndex]}</span></p>
-		
+		<Build client:visible /> 
+		<!-- <p class="desc-terminal">$> ./build --something-awesome --together <span class="loading-chars">{loadingChars[loadingIndex]}</span></p> -->
 	</main>
+  <!-- <Canvas client:visible/> -->
 </Layout>
 
-<style>
+<style is:global>
 	.uppercase {
 		text-transform: uppercase;
 	}

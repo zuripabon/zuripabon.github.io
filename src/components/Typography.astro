@@ -1,0 +1,39 @@
+---
+interface Props {
+	variant: string;
+  uppercase?: boolean;
+}
+
+const { variant, uppercase = false } = Astro.props;
+---
+
+{variant === 'heading' && <h1 class:list={[ 'heading-text', { uppercase }]}><slot/></h1>}
+{variant === 'paragraph' && <p class:list={[ 'paragraph-text', { uppercase }]}><slot/></p>}
+
+<style>
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+	.heading-text {
+		font-family: Inter, system-ui;
+    line-height: 1.1;
+    font-size: 6rem;
+    font-weight: 600;
+    letter-spacing: -0.15rem;
+    text-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+	}
+
+  .paragraph-text {
+		font-family: Inter, system-ui;
+    line-height: 1.3;
+    font-size: 2.4rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    margin: 0;
+    padding: 0;
+    max-width: 875px;
+	}
+</style>

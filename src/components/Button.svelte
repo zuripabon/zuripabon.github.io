@@ -2,7 +2,7 @@
   export let loading = true
 </script>
 
-<p class="cta-container"><button type="button" class="cta text-gradient" class:loading={loading} class:disabled={loading}>Let's build</button> something awesome together</p>
+<p class="cta-container"><button type="button" class="cta text-gradient" class:loading={loading} class:disabled={loading}>Let's build</button> awesome experiences together.</p>
 
 <style>
 	

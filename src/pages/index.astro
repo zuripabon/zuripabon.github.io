@@ -1,20 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Typography from '../components/Typography.astro';
 import Build from '../components/Build.svelte';
 import Canvas from '../components/Canvas.astro';
 ---
 <Layout title="I am Zuri Pabón">
 	<main class="center">
-		<h1 class="title uppercase">I am <span class="text-gradient">Zuri Pabón</span></h1>
-    <div class="title-mobile">
-      <h1 class="uppercase">I am</h1>
-      <h1 class="uppercase"><span class="text-gradient">Zuri Pabón</span></h1>
+    <header class="header-container">
+      <Typography variant="heading" uppercase>I am <span class="text-gradient">Zuri Pabón</span></Typography>
+    </header>
+    <div class="mobile">
+      <Typography variant="heading" uppercase>I am</Typography>
+      <Typography variant="heading" uppercase><span class="text-gradient">Zuri Pabón</span></Typography>
     </div>
-		<div class="portfolio-summary-container">
-      <p class="desc subtitle">
-        Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.
-      </p>
-    </div>
+		<section class="body-container">
+      <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+    </section>
 		<!-- <p class="desc"> Let's build something <Start progress={100}>together</Start></p> -->
 		<Build client:visible /> 
 		<!-- <p class="desc-terminal">$> ./build --something-awesome --together <span class="loading-chars">{loadingChars[loadingIndex]}</span></p> -->
@@ -24,27 +25,25 @@ import Canvas from '../components/Canvas.astro';
 
 <style is:global>
 
-  .portfolio-summary-container {
+  .body-container {
     display: flex;
     flex-direction: column;
     align-items: end;
+    text-align: end;
+    margin-bottom: var(--spacing);
   }
 
-	.uppercase {
-		text-transform: uppercase;
-	}
-
-  .title-mobile {
+  .mobile {
 		font-size: 1.8rem;
 	}
 
-  .title {
+  .header-container {
     display: none;
-    font-size: 6rem;
   }
+
   .subtitle {
     text-align: end;
-    margin: 0;
+    margin-top: 100px;
     max-width: 875px;
   }
 
@@ -52,19 +51,13 @@ import Canvas from '../components/Canvas.astro';
 		font-size: 1.7rem;
 	}
 
-  .desc-terminal {
-    display: flex;
-    justify-content: space-between;
-    font-size: 2.4rem;
-  }
-
 	.center {
 		display: flex;
     flex-direction: column;
     justify-content: center;
     width: 90%;
 		max-width: 1080px;
-    row-gap: 48px;
+    row-gap: var(--spacing);
     overflow: clip;
     height: 100%;
     margin: 3rem auto;
@@ -77,22 +70,6 @@ import Canvas from '../components/Canvas.astro';
 		background-size: 400%;
 		background-position: 0%;
 	}
-	
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
 
   @media only screen and (min-height: 560px) {
     
@@ -104,8 +81,9 @@ import Canvas from '../components/Canvas.astro';
 
   @media only screen and (min-width: 650px) {
     
-    .title-mobile {
+    .mobile {
       font-size: 2.5rem;
+      display: block;
     }
 
     .desc {
@@ -114,15 +92,11 @@ import Canvas from '../components/Canvas.astro';
   }
 
   @media only screen and (min-width: 905px) {
-    .title {
+    .header-container {
       display: block;
     }
-    .title-mobile {
+    .mobile {
       display: none;
-    }
-
-    .desc {
-      font-size: 2.4rem;
     }
   }
 </style>

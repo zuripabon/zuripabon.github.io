@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Typography from '../components/Typography.svelte';
 import TextGradient from '../components/TextGradient.svelte';
-import Build from '../components/Build.svelte';
+import StartButton from '../components/StartButton.svelte';
 import Canvas from '../components/Canvas.svelte';
 ---
 <Layout title="I am Zuri Pabón">
@@ -17,7 +17,7 @@ import Canvas from '../components/Canvas.svelte';
 		<section class="body-container">
       <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <TextGradient strong>UI</TextGradient> and <TextGradient strong>CLI</TextGradient> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
     </section>
-		<Build client:visible /> 
+		<StartButton client:visible /> 
 	</main>
   <Canvas client:visible/>
 </Layout>
@@ -65,7 +65,7 @@ import Canvas from '../components/Canvas.svelte';
   @media only screen and (min-height: 560px) {
     
     .center {
-      height: calc(100vh - 6rem);
+      /* height: calc(100vh - 6rem); */
       margin: 3rem auto;
 	  }
   }

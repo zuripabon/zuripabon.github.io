@@ -1,10 +1,18 @@
 <script>
   import TextGradient from './TextGradient.svelte';
   export let loading = true
+  export let onClick;
+
+  const handleOnClick = () => {
+    if(loading){
+      return;
+    }
+    onClick()
+  }
 </script>
 
 <p class="cta-container">
-  <button type="button" class="cta" class:loading={loading} class:disabled={loading}><TextGradient strong>Let's build</TextGradient></button> awesome experiences together.
+  <button type="button" disabled={loading} on:click={handleOnClick} class="cta" class:loading={loading} class:disabled={loading} ><TextGradient strong>Let's build</TextGradient></button> awesome experiences together.
 </p>
 
 <style>
@@ -28,6 +36,7 @@
   }
 
 	.cta {
+    background: #1d1a20;
     border: none;
     position: relative;
     display: inline;

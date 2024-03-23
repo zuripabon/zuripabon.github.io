@@ -1,24 +1,22 @@
 <script>
   import { onMount } from 'svelte';
-  import { loader } from '../lib/loader'
-  import start from '../lib/3d'
+  import { loader } from '../lib/store'
+  import { loadGame } from '../lib/3d'
 
   onMount(() => {
-    start(".webgl", (progress) => {
-      loader.set(progress);
-    })
+    loadGame((progress) => loader.set(progress))
 	});
 
 </script>
 
 <section class="webgl">
-  <!-- <div class="ui">
+  <div class="webgl-ui">
     <div class="info">
       <div class="message-card">
           Here the content
       </div>
       <div class="info-container">
-          <img class="logo-pic" src="assets/progressLogo.png" alt="zuripabon" title="zuripabon"/>
+          <img class="logo-pic" src="docs/assets/progressLogo.png" alt="zuripabon" title="zuripabon"/>
           <div class="info-contact">
               <p>Software Developer</p>
               <p>reach.zuripabon@gmail.com</p>
@@ -31,42 +29,45 @@
           Here the content
       </div>
     </div>
-  </div> -->
-  <canvas class="canvas"/>
+  </div>
+  <canvas id="canvas" class="canvas"/>
 </section>
 
 <style>
-  /* .webgl {
-    width: 100vw;
-    height: 100vh;
-    display: none;
+
+  .canvas {
+    width: 100%;
+    height: 100%;
     position:absolute;
     top:0;
     left:0;
     max-width: 100%;
     max-height: 100%;
-  }
-
-  .ui {
+    z-index:10;
     display: none;
   }
 
-  .ui .info {
+  .webgl-ui {
+    display: none;
+  }
+
+  .info {
     position: absolute;
     left: 0;
     bottom: 0;
     display: flex;
     flex-direction: column;
-    z-index: 110;
+    z-index: 20;
     margin: 30px;
   }
 
   .info-container {  
     display: flex;
     align-items: center;
+    background: transparent;
   }
 
-  .ui .message-desktop {
+  .message-desktop {
     position: absolute;
     left: 0;
     top:0;
@@ -87,12 +88,12 @@
     text-align: center;
   }
 
-  .info .message-card {
+  .message-card {
       display: none;
       margin-bottom: 20px;
   }
 
-  .info .message-card::after {
+  .message-card::after {
       content: '(external link)';
       display: inline-block;
       width: 1em;
@@ -109,20 +110,20 @@
       left: 2px;
     }
 
-  .info .logo-pic {
+  .logo-pic {
       width: 90px;
       height: 85px;
   }
 
-  .info .info-contact{
+  .info-contact{
       font-size: 18px; 
       color: #E0DADB;
       margin-left: 10px;
   }
 
-  .info .info-contact .hashtag{
+  .hashtag{
       font-size: 30px; 
       color: #EE9CA8;
-  } */
+  }
 
 </style>

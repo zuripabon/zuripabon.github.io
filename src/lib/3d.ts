@@ -1,5 +1,12 @@
-let onGameObjectClick;
-let onGameObjectHover;
+
+declare global {
+  interface Window {
+    onGameObjectClick: (id:string) => void;
+    onGameObjectHover: (id:string, isHoverIn:boolean) => void;
+  }
+}
+
+
 const info = function(m:string, {bg='', color='white', bold=false, fontSize = 10} = {}){
   console.log(`%c${m}`,`background-color:${bg};color: ${color};font-size:${fontSize}pt;${bold && 'font-weight:bold;'}`);
 };
@@ -26,7 +33,6 @@ const openInNewTab = (url:string) => {
       w.focus();
   }
 }
-
 
 const navigateUrlFromGameObject = (id:string) => {
 
@@ -122,36 +128,20 @@ const handleGameObjectClick = (id: string) => {
 
 }
 
-
-function setupUnity(selector: string, onProgress:  (progress: number)=> void, callback: { (unityInstance: any): void; (arg0: any): void; }) {
-  const gameCanvas = q(selector, 'canvas') as HTMLCanvasElement;
-  const messageParentElement = q(' .main .ui .message-desktop') as HTMLElement;
-
-  // const audioElement = q(selector, '.loading .container .clip');
-
-  const buildUrl = "Build";
-  const loaderUrl = buildUrl + "/docs.loader.js";
-  const config = {
-      dataUrl: buildUrl + "/docs.data",
-      frameworkUrl: buildUrl + "/docs.framework.js",
-      codeUrl: buildUrl + "/docs.wasm",
-      // with gzip enabled
-      // dataUrl: buildUrl + "/docs.data.gz",
-      // frameworkUrl: buildUrl + "/docs.framework.js.gz",
-      // codeUrl: buildUrl + "/docs.wasm.gz",
-  };
+function startUnity(selector: string) {
+  const messageParentElement = q(selector, '.main .ui .message-desktop') as HTMLElement;
 
   const isMobile = mobileCheck();
 
   if(typeof window !== 'undefined'){
-    onGameObjectClick = function(id: string){
+    window.onGameObjectClick = function(id: string){
       if(!isMobile){
           return navigateUrlFromGameObject(id);
       }
       handleGameObjectClick(id);
     }
 
-    onGameObjectHover = function(id: any, isHoverIn: any){
+    window.onGameObjectHover = function(id: any, isHoverIn: any){
         if(isMobile){
             return;
         }
@@ -161,25 +151,44 @@ function setupUnity(selector: string, onProgress:  (progress: number)=> void, ca
  
   document.addEventListener('mousemove', function(e){
 
-      if(!isMessageCardEnabled || !messageParentElement){
-          return;
-      }
+    if(!isMessageCardEnabled || !messageParentElement){
+        return;
+    }
 
-      messageParentElement.style.left = (e.clientX + 3) + 'px';
-      messageParentElement.style.top = (e.clientY + 3) + 'px';
-      messageParentElement.style.display = "flex";
-    });
+    messageParentElement.style.left = (e.clientX + 3) + 'px';
+    messageParentElement.style.top = (e.clientY + 3) + 'px';
+    messageParentElement.style.display = "flex";
+  });
+
+    // toggleCanvasView();
+
+  onStart(selector)
+}
+
+function setupUnity(selector: string, onProgress:  (progress: number) => void) {
+  const gameCanvas = q(selector, 'canvas') as HTMLCanvasElement;
+
+  const buildUrl = "docs/Build";
+  const loaderUrl = buildUrl + "/docs.loader.js";
+  // const loaderUrl = buildUrl + "/build.loader.js";
+
+  const config = {
+      dataUrl: buildUrl + "/docs.data",
+      frameworkUrl: buildUrl + "/docs.framework.js",
+      codeUrl: buildUrl + "/docs.wasm",
+      // dataUrl: buildUrl + "/build.data.gz",
+      // frameworkUrl: buildUrl + "/build.framework.js.gz",
+      // codeUrl: buildUrl + "/build.wasm.gz",
+  };
 
   const script = document.createElement("script");
   script.src = loaderUrl;
   script.onload = () => {
       createUnityInstance(gameCanvas, config, (progress: number) => {
-        onProgress(100 * progress)
-      }).then((unityInstance) => {
-          info("Game loaded");
+        onProgress((100 * progress)-1)
+      }).then(() => {
           setTimeout(() => {
-              toggleCanvasView();
-              callback(unityInstance);
+            onProgress(100)
           }, 3*1000);
       }).catch((message) => {
         error(message);
@@ -187,31 +196,35 @@ function setupUnity(selector: string, onProgress:  (progress: number)=> void, ca
   };
   
   document.body.appendChild(script);
-
 }
 
-function resizeCanvas(){
-  window.onresize = function(){  toggleCanvasView(); }
+function resizeCanvas(selector:string){
+  const uiElement = q(selector, '.webgl-ui') as HTMLElement;
+  const canvas = q(selector, 'canvas') as HTMLElement
+  canvas.style.display = "block";
+  uiElement.style.display = "block";
+  // window.onresize = function(){  toggleCanvasView(); }
 };
 
-function toggleCanvasView(){
-  const toggleOrientationElement = q('.main .loading .container .landscape-loading') as HTMLElement;
-  const uiElement = q('.main .ui') as HTMLElement;
+// function toggleCanvasView(){
+  
+//   const toggleOrientationElement = q('.main .loading .container .landscape-loading') as HTMLElement;
+//   const uiElement = q('webgl-ui') as HTMLElement;
+  
+//   if(isLandscapeOrientation()){
+//       toggleOrientationElement.style.display = " none";
+//       uiElement.style.display = "block";
+//   }
+//   else{
+//       toggleOrientationElement.style.display = " block";
+//       uiElement.style.display = "none";
+//   }
+// }
 
-  if(isLandscapeOrientation()){
-      toggleOrientationElement.style.display = " none";
-      uiElement.style.display = "block";
-  }
-  else{
-      toggleOrientationElement.style.display = " block";
-      uiElement.style.display = "none";
-  }
-}
 
-
-function onStart(selector:string, unityInstance: any){
-    const messageElement = q('.main .ui .info .message-card') as HTMLElement;
-    resizeCanvas();
+function onStart(selector:string){
+    const messageElement = q(selector, '.main .ui .info .message-card') as HTMLElement;
+    resizeCanvas(selector);
     const isMobile = mobileCheck();
     if(!isMobile){
         return;
@@ -227,22 +240,26 @@ function isLandscapeOrientation(){
     return window.innerWidth > window.innerHeight;
 }
 
-export default function start(selector=".webgl", onProgress: (progress: number) => void){
+export function loadGame(onProgress: (progress: number) => void){
     
-    info(`I'm using Astro, Svelte and ThreeJs`, {bg: '#543375', fontSize: 14});
-    info(`wanna know more? talk to me at reach.zuripabon@gmail.com`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
+  info(`I'm using Astro, Svelte and ThreeJs`, {bg: '#543375', fontSize: 14});
+  info(`wanna know more? talk to me at reach.zuripabon@gmail.com`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
 
-    let progress = 0;
-    let c = setInterval(()=>{
-        progress += 10;
-        if(progress >= 100){
-            onProgress(100);
-            clearInterval(c);
-            return;
-        }
-        onProgress(progress)
-        
-    }, 300)
-    
-    // setupUnity(selector, onProgress, (unityInstance: any)=> onStart(selector, unityInstance));
+  // let progress = 0;
+  // let c = setInterval(()=>{
+  //     progress += 10;
+  //     if(progress >= 100){
+  //         onProgress(100);
+  //         clearInterval(c);
+  //         return;
+  //     }
+  //     onProgress(progress)
+      
+  // }, 300)
+
+  setupUnity(".webgl", onProgress);
+}
+
+export function startGame(){
+  startUnity(".webgl");
 }

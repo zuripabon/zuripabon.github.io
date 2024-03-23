@@ -1,14 +1,16 @@
----
-interface Props {
-	variant: string;
-  uppercase?: boolean;
-}
+<script>
 
-const { variant, uppercase = false } = Astro.props;
----
+  export let variant = 'paragraph';
+  export let uppercase = false;
+</script>
 
-{variant === 'heading' && <h1 class:list={[ 'heading-text', { uppercase }]}><slot/></h1>}
-{variant === 'paragraph' && <p class:list={[ 'paragraph-text', { uppercase }]}><slot/></p>}
+{#if variant === 'heading'}
+<h1 class="heading-text" class:uppercase={uppercase}><slot/></h1>
+{/if}
+
+{#if variant === 'paragraph'}
+<p class="paragraph-text" class:uppercase={uppercase}><slot/></p>
+{/if}
 
 <style>
   .uppercase {

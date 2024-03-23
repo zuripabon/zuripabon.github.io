@@ -1,26 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Typography from '../components/Typography.astro';
+import Typography from '../components/Typography.svelte';
+import TextGradient from '../components/TextGradient.svelte';
 import Build from '../components/Build.svelte';
-import Canvas from '../components/Canvas.astro';
+import Canvas from '../components/Canvas.svelte';
 ---
 <Layout title="I am Zuri Pabón">
 	<main class="center">
     <header class="header-container">
-      <Typography variant="heading" uppercase>I am <span class="text-gradient">Zuri Pabón</span></Typography>
+      <Typography variant="heading" uppercase>I am <TextGradient>Zuri Pabón</TextGradient></Typography>
     </header>
     <div class="mobile">
       <Typography variant="heading" uppercase>I am</Typography>
-      <Typography variant="heading" uppercase><span class="text-gradient">Zuri Pabón</span></Typography>
+      <Typography variant="heading" uppercase><TextGradient>Zuri Pabón</TextGradient></Typography>
     </div>
 		<section class="body-container">
-      <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <strong class="text-gradient">UI</strong> and <strong class="text-gradient">CLI</strong> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+      <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <TextGradient strong>UI</TextGradient> and <TextGradient strong>CLI</TextGradient> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
     </section>
-		<!-- <p class="desc"> Let's build something <Start progress={100}>together</Start></p> -->
 		<Build client:visible /> 
-		<!-- <p class="desc-terminal">$> ./build --something-awesome --together <span class="loading-chars">{loadingChars[loadingIndex]}</span></p> -->
 	</main>
-  <!-- <Canvas client:visible/> -->
+  <Canvas client:visible/>
 </Layout>
 
 <style is:global>
@@ -61,14 +60,6 @@ import Canvas from '../components/Canvas.astro';
     overflow: clip;
     height: 100%;
     margin: 3rem auto;
-	}
-	
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
 	}
 
   @media only screen and (min-height: 560px) {

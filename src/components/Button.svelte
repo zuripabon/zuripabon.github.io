@@ -1,8 +1,11 @@
 <script>
+  import TextGradient from './TextGradient.svelte';
   export let loading = true
 </script>
 
-<p class="cta-container"><button type="button" class="cta text-gradient" class:loading={loading} class:disabled={loading}>Let's build</button> awesome experiences together.</p>
+<p class="cta-container">
+  <button type="button" class="cta" class:loading={loading} class:disabled={loading}><TextGradient strong>Let's build</TextGradient></button> awesome experiences together.
+</p>
 
 <style>
 	
@@ -30,7 +33,6 @@
     display: inline;
     outline: none;
     z-index: 0;
-    font-weight: bold;
     font-size: 1.7rem;
     cursor: pointer;
     margin-right: 5px;

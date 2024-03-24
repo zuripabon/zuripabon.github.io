@@ -2,9 +2,30 @@
   import { onMount } from 'svelte';
   import { loader } from '../lib/store'
   import { loadGame } from '../lib/3d'
+  import Copies from '../lib/copies';
+
+  let section = null;
+  let isOpen = false;
+  let messageElement;
+
+  const handleOnLoad = (progress) => loader.set(progress);
+  const handleOnItemHover = (id, state) => {
+    section = id;
+    isOpen= state;
+  }
+  const handleOnItemClick = (id) => {
+    console.log('click', id)
+  }
 
   onMount(() => {
-    loadGame((progress) => loader.set(progress))
+    loadGame(handleOnLoad, handleOnItemHover, handleOnItemClick)
+    document.addEventListener('mousemove', function(e) {
+      if(!messageElement || !isOpen){
+        return;
+      }
+      messageElement.style.left = (e.clientX + 3) + 'px';
+      messageElement.style.top = (e.clientY + 3) + 'px';
+    });
 	});
 
 </script>
@@ -12,25 +33,20 @@
 <section class="webgl">
   <div class="webgl-ui">
     <div class="info">
-      <div class="message-card">
-          Here the content
-      </div>
-      <div class="info-container">
-          <img class="logo-pic" src="docs/assets/progressLogo.png" alt="zuripabon" title="zuripabon"/>
-          <div class="info-contact">
-              <p>Software Developer</p>
-              <p>reach.zuripabon@gmail.com</p>
-              <p class="hashtag">zuripabon</p>
-          </div>
-      </div>
+        <img class="logo-pic" src="docs/assets/progressLogo.png" alt="zuripabon" title="zuripabon"/>
+        <div class="info-contact">
+            <p class="hashtag">zuripabon</p>
+            <p>hola@zuripabon.es</p>
+            <p>telegram | twitter | linkedin | calendy</p>
+        </div>
     </div>
-    <div class="message-desktop">
+    <div class="message" bind:this={messageElement} class:hidden={!isOpen}>
       <div class="message-card">
-          Here the content
+          {Copies(section)}
       </div>
     </div>
   </div>
-  <canvas id="canvas" class="canvas"/>
+  <canvas id="canvas" class="canvas" class:cursor={isOpen}/>
 </section>
 
 <style>
@@ -47,6 +63,10 @@
     display: none;
   }
 
+  .cursor {
+    cursor: pointer !important;
+  }
+
   .webgl-ui {
     display: none;
   }
@@ -56,41 +76,40 @@
     left: 0;
     bottom: 0;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    background: transparent;
     z-index: 20;
     margin: 30px;
   }
 
-  .info-container {  
+
+  .message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     display: flex;
-    align-items: center;
-    background: transparent;
+    z-index: 20;
+    place-content: center;
+    place-items: center;
+    max-width: 250px;
+    transition: all;
+    transition-duration: 200ms;
   }
 
-  .message-desktop {
-    position: absolute;
-    left: 0;
-    top:0;
-    display: flex;
-    z-index: 110;
-    align-items: center;
-    max-width: 250px;
+  .hidden {
     display: none;
   }
 
-  .message-desktop .message-card, .info .message-card {
+  .message-card {
     font-size: 18px;
+    font-weight: bold;
     color: #2e2e2e;
     background-color: #bbb8b8;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     border-bottom: 5px solid #e16d81;
     text-align: center;
-  }
-
-  .message-card {
-      display: none;
-      margin-bottom: 20px;
+    text-wrap: nowrap;
   }
 
   .message-card::after {
@@ -116,6 +135,8 @@
   }
 
   .info-contact{
+    display: flex;
+    flex-direction: column;
       font-size: 18px; 
       color: #E0DADB;
       margin-left: 10px;

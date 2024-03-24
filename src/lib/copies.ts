@@ -1,12 +1,11 @@
-const copies:{[key:string]:string} = {
-    'tent': "I graduated with a bachelor's degree in IT", // academic
-    'campfire': 'Wanna drink a hot cocoa with me?', // curiosities
-    'fox': 'My aside pet-projects', // aside projects
-    'box': 'Currently working at Cober.io', // professional
-    'boat': "Success & failure stories", // companies
-}
+import es from './locales/es'
+import en from './locales/en'
 
+export function translate(key: string, locale='en'){
 
-export default function get(section: string){
-    return copies[section]
+    if(locale === 'es'){
+        return es[key]
+    }
+
+    return en[key]
 }

@@ -51,10 +51,10 @@ const navigateUrlFromGameObject = (id:string) => {
 const q = (parentSelector:string, ...q: (string | undefined)[]) => document.querySelector(`${parentSelector}${q.reduce((acc, q) => `${acc} ${q}`, '')}`);
 
 function startUnity(selector: string) {
-  const uiElement = q(selector, '.webgl-ui') as HTMLElement;
+  const uiElement = q(selector, '.profile') as HTMLElement;
   const canvas = q(selector, 'canvas') as HTMLElement
   canvas.style.display = "block";
-  uiElement.style.display = "block";
+  uiElement.style.display = "flex";
 }
 
 function setupUnity(selector: string, onProgress:  (progress: number) => void) {

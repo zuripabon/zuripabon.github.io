@@ -1,3 +1,11 @@
+# Ideas 
+
+* La Tienda
+* Mensaje en el canvas para indicar que use el raton o el tab para moverse por los elementos del canvas (tipico de WASD...)
+* En la pagina principal svg con diferentes skills icons: typescript, rust, postgres, nextjs, react, ddd, hexagonal, rabbitmq, aws, kubernetes
+
+
+
 # Astro Starter Kit: Basics
 
 ```sh

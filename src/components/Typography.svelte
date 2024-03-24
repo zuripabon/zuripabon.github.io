@@ -2,14 +2,15 @@
 
   export let variant = 'paragraph';
   export let uppercase = false;
+  export let mode = 'light';
 </script>
 
 {#if variant === 'heading'}
-<h1 class="heading-text" class:uppercase={uppercase}><slot/></h1>
+<h1 class="heading-text" class:uppercase={uppercase} class:light-mode={mode === 'light'} class:dark-mode={mode === 'dark'} ><slot/></h1>
 {/if}
 
 {#if variant === 'paragraph'}
-<p class="paragraph-text" class:uppercase={uppercase}><slot/></p>
+<p class="paragraph-text" class:uppercase={uppercase} class:light-mode={mode === 'light'} class:dark-mode={mode === 'dark'} ><slot/></p>
 {/if}
 
 <style>
@@ -38,4 +39,13 @@
     padding: 0;
     max-width: 875px;
 	}
+
+
+  .light-mode {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .dark-mode {
+    color: rgba(255, 255, 255, 0.8);
+  }
 </style>

@@ -1,4 +1,6 @@
 ---
+import '@fontsource/work-sans';
+
 interface Props {
 	title: string;
 }
@@ -34,8 +36,7 @@ const { title } = Astro.props;
 		--spacing: 48px;
 	}
 	html, * {
-		font-family: system-ui, sans-serif;
-		color: white;
+		font-family: ui-sans-serif, system-ui, sans-serif;
 		margin: 0;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -43,5 +44,12 @@ const { title } = Astro.props;
 	
 	body {
 		background: #1d1a20;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.link {
+		color: rgba(255, 255, 255, 0.8);
+		text-decoration: none;
+		border-bottom: 1px dashed rgba(255, 255, 255, 0.8);
 	}
 </style>

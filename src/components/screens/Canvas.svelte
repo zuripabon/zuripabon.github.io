@@ -1,12 +1,13 @@
 <script>
   import { onMount } from 'svelte';
-  import ProfileCard from './ProfileCard.svelte';
-  import HoverMessageCard from './HoverMessageCard.svelte';
-  import HeroModal from './HeroModal.svelte';
+  import ProfileCard from '../molecules/ProfileCard.svelte';
+  import HoverMessageCard from '../molecules/MessageCard.svelte';
+  import HeroModal from '../molecules/Modal.svelte';
   import AcademicBackground from './AcademicBackground.svelte';
+  import About from './About.svelte';
   
-  import { loader } from '../lib/store'
-  import { loadGame } from '../lib/3d'
+  import { loader } from '../../lib/store'
+  import { loadGame } from '../../lib/3d'
 
   let section = null;
   let isMessageCardOpen = false;
@@ -44,6 +45,8 @@
   <HeroModal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
     {#if section === 'tent'}
       <AcademicBackground />
+    {:else if section === 'campfire'}
+      <About/>
     {/if}
   </HeroModal>
   <canvas id="canvas" class="canvas" class:cursor={isMessageCardOpen}/>

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { translate } from '../lib/copies';
+  import { translate } from '../../lib/copies';
   export let section = ''
   export let isOpen = false
   export let onClick = () => null
@@ -59,6 +59,8 @@
     border-bottom: 5px solid #e16d81;
     text-align: center;
     text-wrap: nowrap;
+    /* text-transform: uppercase; */
+    letter-spacing: -0.05rem;
   }
 
 </style>

@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Typography from '../components/Typography.svelte';
-import TextGradient from '../components/TextGradient.svelte';
-import StartButton from '../components/StartButton.svelte';
-import Canvas from '../components/Canvas.svelte';
+import Typography from '../components/atoms/Typography.svelte';
+import TextGradient from '../components/atoms/TextGradient.svelte';
+import StartButton from '../components/molecules/StartButton.svelte';
+import Canvas from '../components/screens/Canvas.svelte';
 ---
 <Layout title="I am Zuri Pabón">
 	<main class="center">
@@ -15,21 +15,27 @@ import Canvas from '../components/Canvas.svelte';
       <Typography variant="heading" uppercase><TextGradient>Zuri Pabón</TextGradient></Typography>
     </div>
 		<section class="body-container">
-      <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <TextGradient strong>UI</TextGradient> and <TextGradient strong>CLI</TextGradient> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+      <div class="body-text">
+        <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <TextGradient strong>UI</TextGradient> and <TextGradient strong>CLI</TextGradient> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+      </div>
     </section>
 		<StartButton client:visible /> 
 	</main>
   <Canvas client:visible/>
 </Layout>
 
-<style is:global>
+<style>
 
   .body-container {
     display: flex;
-    flex-direction: column;
+    justify-content: end;
     align-items: end;
     text-align: end;
     margin-bottom: var(--spacing);
+  }
+
+  .body-text {
+    max-width: 875px;
   }
 
   .mobile {

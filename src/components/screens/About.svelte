@@ -12,6 +12,10 @@
   <Typography variant="body">
     <Translate key="intro.about"/>
   </Typography>
+
+  <Typography variant="body">
+    <Translate key="write.about"/>
+  </Typography>
   
   <Typography variant="body">
     <Translate key="hobbies.about"/>
@@ -19,19 +23,17 @@
 
   <div class="anime-posters">
     <div class="aspect-ratio">
-      <img class="image" src="/haikyu.png" alt="1. Haikyu"/>
+      <img class="image" src="/haikyu.webp" alt="1. Haikyu"/>
     </div>
     <div class="aspect-ratio">
-      <img class="image" src="/dragonballz.jpg" alt="2. Dragon Ball Z"/>
+      <img class="image" src="/dragonballz.webp" alt="2. Dragon Ball Z"/>
     </div>
     <div class="aspect-ratio">
-      <img class="image" src="/hunterxhunter.jpg" alt="3. Hunter x Hunter"/>
+      <img class="image" src="/hunterxhunter.webp" alt="3. Hunter x Hunter"/>
     </div>
   </div>
   
-  <Typography variant="body">
-    <Translate key="write.about"/>
-  </Typography>
+  
 </div>
 
 <style>
@@ -49,8 +51,9 @@
 
   .aspect-ratio {
     position: relative;
-    aspect-ratio: 9 / 16;
-    max-width: 230px;
+    aspect-ratio: 9 / 14;
+    /* max-width: 230px; */
+    /* max-height: 550px; */
   }
 
   .image {

@@ -5,6 +5,7 @@
   import HeroModal from '../molecules/Modal.svelte';
   import AcademicBackground from './AcademicBackground.svelte';
   import About from './About.svelte';
+  import Experiments from './Experiments.svelte';
   
   import { loader } from '../../lib/store'
   import { loadGame } from '../../lib/3d'
@@ -47,6 +48,8 @@
       <AcademicBackground />
     {:else if section === 'campfire'}
       <About/>
+    {:else if section === 'fox'}
+      <Experiments/>
     {/if}
   </HeroModal>
   <canvas id="canvas" class="canvas" class:cursor={isMessageCardOpen}/>

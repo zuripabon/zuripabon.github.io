@@ -7,6 +7,10 @@
 <h1 class="heading-text" class:uppercase={uppercase} ><slot/></h1>
 {/if}
 
+{#if variant === 'subheading'}
+<h1 class="subheading-text" class:uppercase={uppercase} ><slot/></h1>
+{/if}
+
 {#if variant === 'paragraph'}
 <p class="paragraph-text" class:uppercase={uppercase} ><slot/></p>
 {/if}
@@ -25,6 +29,17 @@
     font-size: 6rem;
     font-weight: 600;
     letter-spacing: -0.15rem;
+    text-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    color: currentColor;
+	}
+
+  .subheading-text {
+    line-height: 1.1;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -0.05rem;
     text-wrap: nowrap;
     margin: 0;
     padding: 0;

@@ -56,6 +56,9 @@ const copies:{[key:string]:string} = {
     'experiments.desc.bigmouse': '<a class="link" href="https://big-mouse.github.io/examples/" target="_blank">Big Mouse</a> is a browser library aimed to extend the mouse cursor capabilities with data-centric visualizations. <a class="link" href="https://big-mouse.github.io/examples/" target="_blank">Big Mouse</a> allow websites to render contextual information in the form of data viz so users can make better choices and have better experience when interacting with links or other interactive DOM elements.',
     // https://github.com/big-mouse
 
+    'title.jobs': "Career Path",
+    'subtitle.jobs': "",
+
 }
 
 export default copies;

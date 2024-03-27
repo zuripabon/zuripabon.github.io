@@ -6,6 +6,7 @@
   import AcademicBackground from './AcademicBackground.svelte';
   import About from './About.svelte';
   import Experiments from './Experiments.svelte';
+  import Jobs from './Jobs.svelte';
   
   import { loader } from '../../lib/store'
   import { loadGame } from '../../lib/3d'
@@ -50,6 +51,8 @@
       <About/>
     {:else if section === 'fox'}
       <Experiments/>
+    {:else if section === 'box'}
+      <Jobs />
     {/if}
   </HeroModal>
   <canvas id="canvas" class="canvas" class:cursor={isMessageCardOpen}/>

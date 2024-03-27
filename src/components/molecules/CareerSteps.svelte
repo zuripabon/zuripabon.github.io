@@ -13,78 +13,58 @@
   
   let companies = [
     {title: 'Cober', active: true, dates: '10/2023 - ?', startAt: 'Oct 2023', months: 0},
-    {title: 'Spotahome', active: false, dates: '03/2019 - 11/2023', startAt: 'Apr 2019', months: 57 },
+    {title: 'Spotahome', active: false, dates: '04/2019 - 11/2023', startAt: 'Apr 2019', months: 55 },
     {title: 'Valo', active: false, dates: '03/2015 - 02/2019', startAt: 'May 2015', months: 47 },
-    {title: 'GSR', active: false, dates: '09/2014 - 03/2015', startAt: 'Sep 2014', months: 9 },
-    {title: 'Ebury', active: false, dates: '11/2013 - 09/2014', startAt: 'Nov 2013', months: 11 }
+    {title: 'GSR', active: false, dates: '09/2014 - 03/2015', startAt: 'Sep 2014', months: 7 },
+    {title: 'Ebury', active: false, dates: '11/2013 - 09/2014', startAt: 'Nov 2013',  months: 10 }
   ]
   
   const totalMonths = calculateMonthsDifference()
-  // const totalCompanyMonths = companies.filter(c => !c.active).reduce((a, c) => a + c.months, 0)
-  // companies[0].months = totalMonths - totalCompanyMonths 
+  const totalCompanyMonths = companies.filter(c => !c.active).reduce((a, c) => a + c.months, 0)
+  console.log(totalMonths)
+  companies[0].months = totalMonths - totalCompanyMonths 
   companies = companies.map(c => ({...c, timelapse: (c.months/totalMonths)*100}))
 
+  console.log(companies.reduce((a, c) => a + c.timelapse, 0))
   console.log({companies})
 </script>
   
-<ul>
+<section class="companies">
   {#each companies as company }
-    <li 
+    <div 
       class="company-item"
       class:active={company.active === true} 
       class:inactive={company.active === false} 
       data-text={company.startAt}
       style:width={`${company.timelapse}%`}>
       <a class="company-link" href="#" title={company.dates}>{company.title}</a>
-    </li>
+    </div>
   {/each}
   
-</ul>
+</section>
 
 <style>
 
+  .companies {
+    display: flex;
+  }
+
   .company-item {
-    list-style: none;
-    display: inline-block;
     position: relative;
-    text-align: center;
-    cursor: pointer;
+    margin: 0;
+    padding: 0;
   }
 
   .company-link {
     color: rgb(163, 163, 163);
     text-decoration: none;  
-    text-align: center;
+    text-align: right;
     display: block;
-    position: relative;
-    left: -25px;
     text-transform: uppercase;
   }
 
   .company-item:first-child .company-link {
     color: white;
-    left: 0;
-  }
-
-  .company-item:before {
-    content: attr(data-text);
-    font-size: 0.8rem;
-    width: 50px;
-    height: 50px;
-    line-height : 50px;
-    border-radius: 100%;
-    display: block;
-    text-align: center;
-    margin: 0 0 10px auto;
-    border: 1px solid rgb(163, 163, 163);
-    background-color: rgb(163, 163, 163);
-    color: black;
-    font-weight: bold;
-  }
-
-  .company-item:first-child:before {
-    border: 1px solid white;
-    background-color: white;
   }
 
   .company-item:after {
@@ -93,14 +73,12 @@
     width: 100%;
     height: 3px;
     top: 25px;
-    left: 0px;
-    z-index: -1;
     background-color: rgb(163, 163, 163);
   }
 
-  .company-item:first-child:after {
+  /* .company-item:first-child:after {
     content: none;
-  }
+  } */
 
   .inactive {
     color: rgb(163, 163, 163);
@@ -111,7 +89,11 @@
   }
 
   .company-link:hover {
-    font-weight: bold;
+    color:white;
+  }
+  
+  .company-item:hover::after {
+    background:white;
   }
 
 </style>

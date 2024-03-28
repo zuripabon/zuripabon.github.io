@@ -19,6 +19,10 @@
 <p class="body-text" class:uppercase={uppercase} ><slot/></p>
 {/if}
 
+{#if variant === 'label'}
+<span class="label-text" class:uppercase={uppercase} ><slot/></span>
+{/if}
+
 <style>
   .uppercase {
     text-transform: uppercase;
@@ -61,6 +65,17 @@
     line-height: 1.3;
     font-size: 1.8rem;
     font-weight: 400;
+    letter-spacing: -0.01rem;
+    margin: 0;
+    padding: 0;
+    color: currentColor;
+  }
+  
+  .label-text {
+    font-family: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.3;
+    font-size: 1.3rem;
+    font-weight: 300;
     letter-spacing: -0.01rem;
     margin: 0;
     padding: 0;

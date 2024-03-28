@@ -1,4 +1,6 @@
 <script>
+  import Typography from "../atoms/Typography.svelte";
+  import { mode } from '../../lib/store'
 
   function calculateMonthsDifference() {
     const startDate = new Date('2013-11-01');
@@ -11,22 +13,24 @@
   }
 
   
+  
   let companies = [
-    {title: 'Cober', active: true, dates: '10/2023 - ?', startAt: 'Oct 2023', months: 0},
-    {title: 'Spotahome', active: false, dates: '04/2019 - 11/2023', startAt: 'Apr 2019', months: 55 },
-    {title: 'Valo', active: false, dates: '03/2015 - 02/2019', startAt: 'May 2015', months: 47 },
-    {title: 'GSR', active: false, dates: '09/2014 - 03/2015', startAt: 'Sep 2014', months: 7 },
-    {title: 'Ebury', active: false, dates: '11/2013 - 09/2014', startAt: 'Nov 2013',  months: 10 }
+    {title: 'Cober', active: true, dates: 'From Oct 2023', url: '', startAt: '2023', months: 0},
+    {title: 'Spotahome', active: false, dates: 'Apr 2019 to Nov 2023', url: '', startAt: '2019', months: 55 },
+    {title: 'Valo', active: false, dates: 'Mar 2015 to Feb 2019', url: '', startAt: '2015', months: 47 },
+    {title: 'GSR', active: false, dates: 'Sep 2014 to Mar 2015', url: '', startAt: '2014', months: 7 },
+    {title: 'Ebury', active: false, dates: 'Nov 2013 to Sep 2014', url: '', startAt: '2013',  months: 10 }
   ]
+
+  const baseWidth = 5
   
   const totalMonths = calculateMonthsDifference()
   const totalCompanyMonths = companies.filter(c => !c.active).reduce((a, c) => a + c.months, 0)
   console.log(totalMonths)
   companies[0].months = totalMonths - totalCompanyMonths 
-  companies = companies.map(c => ({...c, timelapse: (c.months/totalMonths)*100}))
+  companies = companies.map(c => ({...c, timelapse: (c.months/totalMonths)*(100 - baseWidth * companies.length)}))
 
-  console.log(companies.reduce((a, c) => a + c.timelapse, 0))
-  console.log({companies})
+  console.log(mode, 11123)
 </script>
   
 <section class="companies">
@@ -34,10 +38,12 @@
     <div 
       class="company-item"
       class:active={company.active === true} 
-      class:inactive={company.active === false} 
-      data-text={company.startAt}
-      style:width={`${company.timelapse}%`}>
-      <a class="company-link" href="#" title={company.dates}>{company.title}</a>
+      class:dark={$mode === 'dark'} 
+      style:width={`${baseWidth + company.timelapse}%`}>
+      <a class="company-link" href={company.url} title={company.dates}>
+        <p class="company-title"><Typography variant="label">{company.title}</Typography></p>
+        <p class="company-start"><Typography variant="label">{company.startAt}</Typography></p>
+      </a>
     </div>
   {/each}
   
@@ -48,52 +54,46 @@
   .companies {
     display: flex;
   }
-
   .company-item {
     position: relative;
     margin: 0;
     padding: 0;
+    cursor: pointer;
+    /* color: rgb(163, 163, 163); */
+    text-align: right;
+  }
+
+  .company-item:hover {
+    color: black;
+  }
+  
+  .company-item.dark:hover {
+    color:white;
+  }
+
+  .company-start {
+    padding-top: 5px;
+    transition: all;
+    transition-duration: 300ms;
+  }
+
+  .company-title {
+    padding-bottom: 5px;
+    border-bottom: 3px solid currentColor;
+    transition: all;
+    transition-duration: 300ms;
   }
 
   .company-link {
-    color: rgb(163, 163, 163);
     text-decoration: none;  
-    text-align: right;
     display: block;
     text-transform: uppercase;
-  }
-
-  .company-item:first-child .company-link {
-    color: white;
-  }
-
-  .company-item:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    top: 25px;
-    background-color: rgb(163, 163, 163);
-  }
-
-  /* .company-item:first-child:after {
-    content: none;
-  } */
-
-  .inactive {
-    color: rgb(163, 163, 163);
+    color: currentColor;
   }
   
-  .active {
+  /* .active, .active:hover {
     color: rgb(163, 163, 163);
   }
-
-  .company-link:hover {
-    color:white;
-  }
-  
-  .company-item:hover::after {
-    background:white;
-  }
+   */
 
 </style>

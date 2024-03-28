@@ -1,13 +1,27 @@
 <script>
   import SunIcon from '../icons/Sun.svelte'
   import MoonIcon from '../icons/Moon.svelte'
-  export let onClick = () => null
-  export let mode = "light"
+  import { mode } from '../../lib/store'
+
+  $: themeMode = $mode;
+
+  const handleToggleMode = () => {
+    if(themeMode === 'light'){
+      mode.set('dark')
+      return
+    }
+
+    if(themeMode === 'dark'){
+      mode.set('light')
+      return
+    }
+  }
+
 </script>
 
 <div class="{$$restProps.class || ''}">
-  <button type="button" class="btn" class:light-mode={mode==='light'} class:dark-mode={mode==='dark'} on:click={onClick}>
-    {#if mode === 'light'}
+  <button type="button" class="btn" class:light-mode={themeMode==='light'} class:dark-mode={themeMode==='dark'} on:click={handleToggleMode}>
+    {#if themeMode === 'light'}
     <MoonIcon/>
     {:else }
     <SunIcon/>

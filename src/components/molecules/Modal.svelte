@@ -1,25 +1,13 @@
 <script>
   import CloseButton from "./CloseButton.svelte"
   import ModeButton from "./ModeButton.svelte"
+  import { mode } from '../../lib/store'
 
   export let isOpen = false
-  export let mode = 'dark'
   export let onClose = () => null
 
-  const handleOnClose = (event) => {
+  const handleOnClose = () => {
       onClose();
-  }
-
-  const handleToggleMode = () => {
-    if(mode === 'light'){
-      mode = 'dark';
-      return
-    }
-
-    if(mode === 'dark'){
-      mode = 'light';
-      return
-    }
   }
 
 </script>
@@ -31,9 +19,9 @@
     <CloseButton onClick={handleOnClose} />
   </div>
   <div class="mode-container">
-    <ModeButton onClick={handleToggleMode} mode={mode}/>
+    <ModeButton />
   </div>
-  <div class="content" class:animate={isOpen} class:light-mode={mode==='light'} class:dark-mode={mode==='dark'} >
+  <div class="content" class:animate={isOpen} class:light-mode={$mode==='light'} class:dark-mode={$mode === 'dark'} >
     <article class="article">
       <slot/>
     </article>

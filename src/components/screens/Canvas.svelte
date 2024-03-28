@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
   import ProfileCard from '../molecules/ProfileCard.svelte';
   import HoverMessageCard from '../molecules/MessageCard.svelte';
-  import HeroModal from '../molecules/Modal.svelte';
+  import Modal from '../molecules/Modal.svelte';
   import AcademicBackground from './AcademicBackground.svelte';
   import About from './About.svelte';
   import Experiments from './Experiments.svelte';
@@ -44,17 +44,17 @@
 <section class="webgl">
   <ProfileCard />
   <HoverMessageCard section={section} isOpen={isMessageCardOpen} onClick={handleOnItemClick}/>
-  <HeroModal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
+  <Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
     {#if section === 'tent'}
-      <AcademicBackground />
+      <AcademicBackground/>
     {:else if section === 'campfire'}
       <About/>
     {:else if section === 'fox'}
       <Experiments/>
     {:else if section === 'box'}
-      <Jobs />
+      <Jobs/>
     {/if}
-  </HeroModal>
+  </Modal>
   <canvas id="canvas" class="canvas" class:cursor={isMessageCardOpen}/>
 </section>
 

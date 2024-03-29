@@ -36,7 +36,7 @@
     </Typography> • <Typography variant="label">
       {date}
     </Typography>
-    <Typography variant="body">
+    <Typography variant="body-big">
       <Translate key={`${name}.challenges`}/>
     </Typography>
   </div>

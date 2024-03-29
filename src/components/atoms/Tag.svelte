@@ -9,7 +9,7 @@
   class:mid={variant === 'mid'}
   class:low={variant === 'low'}
   >
-  <Typography variant="label" uppercase><slot/></Typography>
+  <Typography variant="label-small" uppercase><slot/></Typography>
 </div>
 
 <style>

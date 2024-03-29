@@ -1,22 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Typography from '../components/atoms/Typography.svelte';
-import TextGradient from '../components/atoms/TextGradient.svelte';
 import StartButton from '../components/molecules/StartButton.svelte';
 import Canvas from '../components/screens/Canvas.svelte';
 ---
 <Layout title="I am Zuri Pabón">
 	<main class="center">
     <header class="header-container">
-      <Typography variant="heading" uppercase>I am <TextGradient>Zuri Pabón</TextGradient></Typography>
+      <Typography variant="heading" uppercase big>I am <Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
     </header>
     <div class="mobile">
       <Typography variant="heading" uppercase>I am</Typography>
-      <Typography variant="heading" uppercase><TextGradient>Zuri Pabón</TextGradient></Typography>
+      <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
     </div>
 		<section class="body-container">
       <div class="body-text">
-        <Typography variant="paragraph">Over a decade of experience in computer science. I specialize in <TextGradient strong>UI</TextGradient> and <TextGradient strong>CLI</TextGradient> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
       </div>
     </section>
 		<StartButton client:visible /> 

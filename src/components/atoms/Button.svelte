@@ -1,5 +1,5 @@
 <script>
-  import TextGradient from './TextGradient.svelte';
+  import Typography from './Typography.svelte';
   export let loading = true
   export let onClick;
 
@@ -12,7 +12,9 @@
 </script>
 
 <p class="cta-container">
-  <button type="button" disabled={loading} on:click={handleOnClick} class="cta" class:loading={loading} class:disabled={loading} ><TextGradient strong>Let's build</TextGradient></button> awesome experiences together.
+  <button type="button" disabled={loading} on:click={handleOnClick} class="cta" class:loading={loading} class:disabled={loading} >
+    <Typography variant="gradient" strong>Let's build</Typography>
+  </button> awesome experiences together.
 </p>
 
 <style>

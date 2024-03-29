@@ -1,10 +1,11 @@
 const copies:{[key:string]:string} = {
 
-    'cta.tent': "My Academic Background",
-    'cta.campfire': 'Wanna have a cup of hot cocoa and churros with me?',
-    'cta.fox': 'My Pet-Projects',
+    'cta.tent': "Academic Background",
+    'cta.campfire': 'Want a cup of hot cocoa with churros?',
+    'cta.fox': 'Aside Projects',
     'cta.box': 'Currently working at Cober.io',
-    'cta.boat': "Success & Failure Stories",
+    // 'cta.boat': "Success & Failure Stories",
+    'cta.boat': "Hire me",
 
     'title.box': 'Professional Experience', 
     'title.boat': "Failures & Victories",
@@ -20,7 +21,7 @@ const copies:{[key:string]:string} = {
     
     'title.about': "About me",
     'intro.about': 'According to <a class="link" href="https://www.biblegateway.com/passage/?search=Genesis+25%3A27&version=KJ21" target="_blank">biblical</a> history, Ya\'akov was a calm man who preferred staying home, while his brother, Esav, was a cunning hunter always in pursuit of new prey. I think I resemble Ya\'akov more than Esav.',
-    'hobbies.about': 'This is me, taking a nice bike ride through the countryside, drinking hot cocoa with churros, and watching anime shows. My best top 3 ever:',
+    'hobbies.about': 'This is me, taking a nice bike ride through the countryside, eating churros dipped in delicious hot cocoa, and watching anime shows. My best top 3 ever:',
     'write.about': 'My favorite hobbies are simple. I enjoy good talks and writing light novels. Currently, I\'m working on <a class="link" href="https://zuripabon.es/blog/light%20novels/2021/07/18/my-life-prenatal-contract.html" target="_blank">"My Prenatal Life Contract"</a> and <a class="link" href="https://zuripabon.es/blog/light%20novels/2019/02/23/anane-the-volunteer.html" target="_blank">"Anane the Volunteer"</a>',
 
     'title.experiments': "Experiments",
@@ -59,11 +60,11 @@ const copies:{[key:string]:string} = {
     'title.jobs': "Career Path",
     'cober.role': "Principal Software Engineer",
     'cober.desc': 'At <a class="link" href="https://www.cober.io/" target="_blank">Cober</a> we have the mission of making accessible the insurance sector to iGen and helping businesses to reduce time and cost intensive operatives by improving their bottom line and reducing churn and rejection rates, increasing conversion and average ticket size through innovative proposals related to AI bot assistance',
-    'cober.challenges': 'As an innovative startup, challenges arise everywhere. From technical point of view, we had to research on how to implement a specialized LLM for insurances to get cheaper and quicker response ratios, leveraging a hybrid model in which we use LLMs to classify user requirements and non-AI tasks to work out usable and intuitive user funnels. Building a market of plug & play customizable components to augment AI capabilities and working on alert notifications based on complex behavior such as "Ask for human interaction when user request an insurance quote and a negative emotion is detected" has been the most attractive and cool challenges we re facing at Cober',
+    'cober.challenges': 'As an innovative startup, challenges arise everywhere. From technical point of view, we research on LLMs for insurances to get cheaper and quicker response ratios, leveraging a hybrid model in which we use LLMs to classify user requirements and non-AI tasks to work out usable and intuitive user funnels. Building a market of plug & play customizable components to augment AI capabilities and working on alert notifications based on complex behavior such as "Ask for human interaction when user request an insurance quote and a negative emotion is detected" has been the most attractive and cool challenges we are facing at Cober',
 
     'spotahome.role': "Senior Software Engineer",
     'spotahome.desc': '<a class="link" href="https://www.spotahome.com/" target="_blank">Spotahome</a> follows a similar business model to online holiday rentals, but  focuses on long-term stays, with a minimum of 30 days, offering a 100% online booking process.',
-    'spotahome.challenges': 'I worked as senior frontend engineer as part of the landlord\'s experience and lead multiple projects for the landlord\'s platform and backoffice systems, including main customer funnels as adding a new listing or the publication and edition funnel for existing listings. With about 50K active users per day, becoming fully available and providing a good experience by maintaining our design system, optimizing data fetching with GQL and optimistic strategies, working on queries performance, cache validations or bundle and assets optimization were part of my key contributions to the company. How to approach A/B testing, dealing with data noise, flaky e2e, false negatives from third party code or debugging performance issues happening client-side but having its roots in a slow query operation in a RabbitMQ consumer queue in some microservice were some of the common challenges I faced at spotahome',
+    'spotahome.challenges': 'I worked as senior frontend engineer as part of the landlord\'s experience and lead multiple projects for the landlord\'s platform and backoffice systems, including main customer funnels as the listing creation, edition and publication funnels. With about 50K active users per day, becoming fully available and providing a good experience by maintaining our design system, optimizing data fetching with GQL and optimistic strategies, working on queries performance, cache validations or bundle and assets optimization were part of my key contributions to the company. How to approach A/B testing, dealing with data noise, flaky e2e, false negatives from third party code or debugging performance issues happening client-side but having its roots in a slow query operation in a RabbitMQ consumer queue in some microservice were some of the common challenges I faced at spotahome',
 
     'valo.role': "Mid/Senior Software Engineer",
     'valo.desc': 'Valo was an amazing piece of engineering focused on a Big Data engine for real-time analytics. The project was merged into <a class="link" href="https://www.itrsgroup.com/" target="_blank">ITRS Group</a> Geneos in February 2018.',
@@ -74,8 +75,14 @@ const copies:{[key:string]:string} = {
     'gsr.challenges': 'The main role I played on GSR was to support the team with the creation of automated trading bots and P&L report generation by using nodejs agents connecting to the Ripple protocol',
 
     'ebury.role': "Junior Software Engineer",
-    'ebury.desc': '<a class="link" href="https://www.ebury.com/" target="_blank">Ebury</a> specialises in simplifying international forex trading offering competitive rates',
-    'ebury.challenges': "I started my journey as software engineer at Ebury, working with Python and Django. As a Junion developer, I mainly worked with minor projects in the Ebury\'s backoffice and the Django admin panel. Documenting and maintaining unit and e2e test scenarios. The most challenge project I worked on was a major migration of Django from a very outdated version going through multiple minor and major version updates making sure the system was stable on each new update until migration process was over",
+    'ebury.desc': '<a class="link" href="https://www.ebury.com/" target="_blank">Ebury</a> specializes in simplifying international forex trading offering competitive rates',
+    'ebury.challenges': "I started my journey as software engineer at Ebury, working with Python and Django. As a Junior developer, I mainly worked with minor projects in the Ebury\'s backoffice and the Django admin panel. Documenting and maintaining unit and e2e test scenarios. The most challenge project I worked on was a major migration of Django from a very outdated version going through multiple minor and major version updates making sure the system was stable on each new update until migration process was over",
+
+    'title.companies': "Logbook",
+    'desc.companies': "Welcome brave adventure!, exciting experiences of failed attempts into becoming a successful entrepreneur awaits you ahead. Hope this can be somewhat useful to your noble and worthy goal of discovering new lands of abundance.",
+    
+    'title.shop': "Hire me",
+    'desc.shop': "I can help you start to materialize your business idea end-to-end and production ready",
 
 }
 

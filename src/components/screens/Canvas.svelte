@@ -3,10 +3,11 @@
   import ProfileCard from '../molecules/ProfileCard.svelte';
   import HoverMessageCard from '../molecules/MessageCard.svelte';
   import Modal from '../molecules/Modal.svelte';
-  import AcademicBackground from './AcademicBackground.svelte';
+  import Education from './Education.svelte';
   import About from './About.svelte';
   import Experiments from './Experiments.svelte';
   import Jobs from './Jobs.svelte';
+  import Shop from './Shop.svelte';
   
   import { loader } from '../../lib/store'
   import { loadGame } from '../../lib/3d'
@@ -46,13 +47,15 @@
   <HoverMessageCard section={section} isOpen={isMessageCardOpen} onClick={handleOnItemClick}/>
   <Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
     {#if section === 'tent'}
-      <AcademicBackground/>
+      <Education/>
     {:else if section === 'campfire'}
       <About/>
     {:else if section === 'fox'}
       <Experiments/>
     {:else if section === 'box'}
       <Jobs/>
+    {:else if section === 'boat'}
+      <Shop/>
     {/if}
   </Modal>
   <canvas id="canvas" class="canvas" class:cursor={isMessageCardOpen}/>

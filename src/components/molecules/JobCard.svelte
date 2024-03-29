@@ -4,8 +4,8 @@
   import Translate from '../atoms/Translate.svelte';
 
   export let name = ''
-  export let url = ''
-  export let pictureUrl = ''
+  // export let url = ''
+  // export let pictureUrl = ''
   export let date = ''
   export let stack = []
 </script>

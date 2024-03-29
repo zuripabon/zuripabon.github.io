@@ -1,7 +1,7 @@
 const copies:{[key:string]:string} = {
 
     'cta.tent': "My Academic Background",
-    'cta.campfire': 'Wanna have a cup of hot cocoa with me?',
+    'cta.campfire': 'Wanna have a cup of hot cocoa and churros with me?',
     'cta.fox': 'My Pet-Projects',
     'cta.box': 'Currently working at Cober.io',
     'cta.boat': "Success & Failure Stories",
@@ -9,7 +9,7 @@ const copies:{[key:string]:string} = {
     'title.box': 'Professional Experience', 
     'title.boat': "Failures & Victories",
     
-    'title.academic': "Academic Background",
+    'title.academic': "Education",
     'intro.academic': "I started my academic education journey at the Higher Technical School of Computer Engineering in Málaga (UMA). After that, I ventured to Finland, where I pursued my academic aspirations at the University of Applied Sciences in Mikkeli where finally graduated in Systems Engineering and Information Technology in the year 2012.",
     "intro.results.academic": "Throughout my academic tenure, I developed a solid background in computational calculus and software engineering, achieving distinction in subjects such as Abstract Data Types, Numerical Methods, Functional Programming, and Algebra.",
     'intership.academic': 'During the final stage of my academic training, I undertook a 6-month internship at <a class="link" href="https://www.generanet.com/" target="_blank">Generanet</a>. This experience provided me with a closer insight into professional software development and teamwork.',
@@ -20,7 +20,7 @@ const copies:{[key:string]:string} = {
     
     'title.about': "About me",
     'intro.about': 'According to <a class="link" href="https://www.biblegateway.com/passage/?search=Genesis+25%3A27&version=KJ21" target="_blank">biblical</a> history, Ya\'akov was a calm man who preferred staying home, while his brother, Esav, was a cunning hunter always in pursuit of new prey. I think I resemble Ya\'akov more than Esav.',
-    'hobbies.about': 'This is me, taking a leisurely bike ride through the countryside. Cooking in a wood-fired oven, or watching anime shows. My best top 3 ever is ...',
+    'hobbies.about': 'This is me, taking a nice bike ride through the countryside, drinking hot cocoa with churros, and watching anime shows. My best top 3 ever:',
     'write.about': 'My favorite hobbies are simple. I enjoy good talks and writing light novels. Currently, I\'m working on <a class="link" href="https://zuripabon.es/blog/light%20novels/2021/07/18/my-life-prenatal-contract.html" target="_blank">"My Prenatal Life Contract"</a> and <a class="link" href="https://zuripabon.es/blog/light%20novels/2019/02/23/anane-the-volunteer.html" target="_blank">"Anane the Volunteer"</a>',
 
     'title.experiments': "Experiments",

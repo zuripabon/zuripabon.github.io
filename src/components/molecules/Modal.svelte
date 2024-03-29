@@ -112,7 +112,7 @@
   }
 
   .article {
-    margin: 4rem auto;
+    margin: 0 auto;
     padding: 4rem;
     width: 70%;
     max-width: 1080px;

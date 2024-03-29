@@ -52,6 +52,7 @@
   .aspect-ratio {
     position: relative;
     aspect-ratio: 9 / 14;
+    width: 33.3%;
     /* max-width: 230px; */
     /* max-height: 550px; */
   }

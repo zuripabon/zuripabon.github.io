@@ -19,6 +19,10 @@
 <p class="body-text" class:uppercase={uppercase} ><slot/></p>
 {/if}
 
+{#if variant === 'body-small'}
+<p class="body-text body-small-text" class:uppercase={uppercase} ><slot/></p>
+{/if}
+
 {#if variant === 'label'}
 <span class="label-text" class:uppercase={uppercase} ><slot/></span>
 {/if}
@@ -70,6 +74,10 @@
     padding: 0;
     color: currentColor;
   }
+
+  .body-small-text {
+    font-size: 1.5rem;
+  }
   
   .label-text {
     font-family: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
@@ -80,6 +88,6 @@
     margin: 0;
     padding: 0;
     color: currentColor;
-  }
+  }  
 
 </style>

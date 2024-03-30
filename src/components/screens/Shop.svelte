@@ -29,6 +29,7 @@
         {name: 'Starting Design System Kit'}, 
         {name: 'Initial Project Prototype'}, 
         {name: 'Production Ready Landing Page'},
+        {name: 'Lifetime access to boilerplate'},
         {name: 'Full Support & Guidance'},
       ]}
     />

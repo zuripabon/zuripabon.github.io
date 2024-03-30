@@ -2,11 +2,16 @@
   export let variant = 'paragraph';
   export let uppercase = false;
   export let strong = false;
+  export let strike = false;
   export let big = false;
 </script>
 
 {#if variant === 'heading'}
 <h1 class="heading-text" class:uppercase={uppercase} class:heading-text-big={big}><slot/></h1>
+{/if}
+
+{#if variant === 'heading-small'}
+<h1 class="heading-text heading-small-text" class:uppercase={uppercase} class:heading-text-big={big}><slot/></h1>
 {/if}
 
 {#if variant === 'subheading'}
@@ -18,11 +23,11 @@
 {/if}
 
 {#if variant === 'body'}
-<p class="body-text" class:uppercase={uppercase} ><slot/></p>
+<p class="body-text" class:uppercase={uppercase} class:strong={strong} class:strike={strike}><slot/></p>
 {/if}
 
 {#if variant === 'body-small'}
-<p class="body-text body-small-text" class:uppercase={uppercase} ><slot/></p>
+<p class="body-text body-small-text" class:uppercase={uppercase} class:strong={strong}><slot/></p>
 {/if}
 
 {#if variant === 'body-big'}
@@ -30,11 +35,11 @@
 {/if}
 
 {#if variant === 'label'}
-<span class="label-text" class:uppercase={uppercase} ><slot/></span>
+<span class="label-text" class:uppercase={uppercase} class:strong={strong} class:strike={strike}><slot/></span>
 {/if}
 
 {#if variant === 'label-small'}
-<span class="label-text label-small-text" class:uppercase={uppercase} ><slot/></span>
+<span class="label-text label-small-text" class:uppercase={uppercase} class:strong={strong} class:strike={strike}><slot/></span>
 {/if}
 
 {#if variant === 'gradient'}
@@ -42,13 +47,6 @@
 {/if}
 
 <style>
-  .uppercase {
-    text-transform: uppercase;
-  }
-
-  .strong {
-    font-weight: bold;
-  }
 
   .text-gradient {
 		background-image: var(--accent-gradient);
@@ -70,6 +68,12 @@
     padding: 0;
     color: currentColor;
 	}
+
+  .heading-small-text {
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: -0.05rem;
+  }
 
   .heading-text-big {
     font-size: 6rem;
@@ -132,6 +136,18 @@
 
   .label-small-text {
     font-size: 1rem;
+  }
+
+  .uppercase {
+    text-transform: uppercase;
+  }
+
+  .strong {
+    font-weight: bold;
+  }  
+  
+  .strike {
+    text-decoration: line-through;
   }
   
 

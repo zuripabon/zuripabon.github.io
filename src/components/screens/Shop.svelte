@@ -1,9 +1,7 @@
 <script>
   import Typography from '../atoms/Typography.svelte';
   import Translate from '../atoms/Translate.svelte';
-  import JobCard from '../molecules/JobCard.svelte';
-  import CareerSteps from '../molecules/CareerSteps.svelte';
-  import * as Skills from '../../lib/skills';
+  import ShopCard from '../molecules/ShopCard.svelte';
 </script>
 
 
@@ -19,63 +17,39 @@
     </Typography>
   </header>
 
-  <JobCard 
-    name="Kalzate"
-    url="https://github.com/tsur/vtt-to-srt"
-    date="Current"
-    stack={[
-      {name: Skills.NEXT_JS, level: Skills.HIGH},
-      {name: Skills.RSC, level: Skills.HIGH},
-      {name: Skills.SSR, level: Skills.HIGH},
-      {name: Skills.LLM, level: Skills.HIGH},
-      {name: Skills.PWA, level: Skills.HIGH},
-      {name: Skills.SUPABASE, level: Skills.HIGH},
-      {name: Skills.POSTGRES, level: Skills.HIGH},
-      {name: Skills.DDD, level: Skills.HIGH},
-      {name: Skills.TELEGRAM, level: Skills.HIGH},
-      {name: Skills.WHATSAPP, level: Skills.HIGH},
-      {name: Skills.K8S, level: Skills.HIGH},
-      {name: Skills.OPEN_AI, level: Skills.MID},
-      {name: Skills.MISTRAL, level: Skills.MID},
-      {name: Skills.SNS, level: Skills.MID},
-      {name: Skills.EKS, level: Skills.MID}
-    ]}
-    pictureUrl="/cober.png"
-  />
-  <JobCard 
-    name="Power bargain"
-    url="https://github.com/tsur/vtt-to-srt"
-    date="Joined Apr 2019"
-    stack={[
-      {name: Skills.BFF, level: Skills.HIGH},
-      {name: Skills.ADVANCED_REACT, level: Skills.HIGH},
-      {name: Skills.GQL, level: Skills.HIGH},
-      {name: Skills.DESIGN_SYSTEM, level: Skills.HIGH},
-      {name: Skills.EMOTION, level: Skills.HIGH},
-      {name: Skills.STORYBOOK, level: Skills.HIGH},
-      {name: Skills.DDD, level: Skills.HIGH},
-      {name: Skills.HEXAGONAL, level: Skills.HIGH},
-      {name: Skills.RABBITMQ, level: Skills.HIGH},
-      {name: Skills.TESTING_LIB, level: Skills.HIGH},
-      {name: Skills.JEST, level: Skills.HIGH},
-      {name: Skills.CYPRESS, level: Skills.MID},
-      {name: Skills.AB_TESTING, level: Skills.MID},
-      {name: Skills.GTM, level: Skills.MID},
-      {name: Skills.GRAFANA, level: Skills.MID},
-      {name: Skills.LOKI, level: Skills.MID},
-      {name: Skills.PROMETHEUS, level: Skills.MID},
-      {name: Skills.MONGO, level: Skills.MID},
-      {name: Skills.MYSQL, level: Skills.MID},
-      {name: Skills.K8S, level: Skills.MID},
-      {name: Skills.AWS, level: Skills.MID},
-      {name: Skills.CUSTOMERIO, level: Skills.MID},
-      {name: Skills.ARGO, level: Skills.MID},
-      {name: Skills.HARBOR, level: Skills.MID},
-      {name: Skills.HOTJAR, level: Skills.MID},
-    ]} 
-    pictureUrl="/vtt.webp"
-  />
-  
+  <div class="plans">
+    <ShopCard 
+      title="One-shot Session" 
+      subtitle="Best option for personal portfolio or single-product selling landing page" 
+      hint="Includes 1hr private meeting to help you land your project and landing page ready to ship"
+      offer="480€"
+      price="399€"
+      features={[
+        // {name: 'Kick off your business idea'},
+        {name: 'Starting Design System Kit'}, 
+        {name: 'Initial Project Prototype'}, 
+        {name: 'Production Ready Landing Page'},
+        {name: 'Full Support & Guidance'},
+      ]}
+    />
+    <ShopCard 
+      isPopular
+      title="3 weeks fulltime" 
+      subtitle="Get your custom product idea MVP production ready in 3 weeks" 
+      price="1,399€/week"
+      features={[
+        {name: 'Full-time dedication'},
+        {name: 'Domain Driven Design & Hexagonal Architecture'}, 
+        {name: 'Auth & Magic Links'}, 
+        {name: 'Postgres/Mongo Database'}, 
+        {name: 'Stripe Payments'}, 
+        {name: 'SEO & Blog'}, 
+        {name: 'AWS Cloud Deployment'}, 
+        {name: 'Full Support & Guidance'},
+      ]}
+      hint="MVP including only core product features. Price charged weekly. Cancel anytime."
+      />
+  </div>
 </div>
 
 <style>
@@ -85,10 +59,16 @@
     row-gap: 1rem;
   }
 
-  .container{
+  .container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    row-gap: 6rem;
+    justify-content: center;
+    row-gap: 4rem;
   }
+  
+  .plans {
+    display: flex;
+    gap: 1rem;
+  }
+
 </style>

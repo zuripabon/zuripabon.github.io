@@ -15,7 +15,11 @@
 {/if}
 
 {#if variant === 'subheading'}
-<h1 class="subheading-text" class:uppercase={uppercase} ><slot/></h1>
+<h1 class="subheading-text" class:uppercase={uppercase} class:strong={strong}><slot/></h1>
+{/if}
+
+{#if variant === 'subheading-s'}
+<h1 class="subheading-text subheading-s-text" class:uppercase={uppercase} class:strong={strong}><slot/></h1>
 {/if}
 
 {#if variant === 'paragraph'}
@@ -88,6 +92,11 @@
     margin: 0;
     padding: 0;
     color: currentColor;
+	}
+
+  .subheading-s-text {
+    line-height: 1;
+    font-size: 2.2rem;
 	}
 
   .paragraph-text {

@@ -1,6 +1,6 @@
 <script>
-    export let fill = "currentColor"
-    export let color = "white"
+    // export let fill = "currentColor"
+    // export let color = "white"
 </script>
 
 <svg width="22" height="22" viewBox="0 0 20 20" fill="none" class="{$$restProps.class || ''}" xmlns="http://www.w3.org/2000/svg">

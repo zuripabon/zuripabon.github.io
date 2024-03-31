@@ -17,37 +17,6 @@ const error = function(m:string){
 };
 
 
-const openInNewTab = (url:string) => {
-  const w = window.open(url, '_blank');
-  if(w && w.focus){
-      w.focus();
-  }
-}
-
-const navigateUrlFromGameObject = (id:string) => {
-
-  if(id === "tent"){
-      return openInNewTab("https://zuripabon.es/blog")
-  }
-
-  if(id === "campfire"){
-      return openInNewTab("https://tidycal.com/zuripabon/15-minute-meeting")
-  }
-
-  if(id === "box"){
-      return openInNewTab("https://www.npmjs.com/~tsur")
-  }
-
-  if(id === "boat"){
-      return openInNewTab("https://es.linkedin.com/in/zuripabon")
-  }
-
-  if(id === "fox"){
-      return openInNewTab("https://github.com/zuripabon")
-  }
-  
-}
-
 const q = (parentSelector:string, ...q: (string | undefined)[]) => document.querySelector(`${parentSelector}${q.reduce((acc, q) => `${acc} ${q}`, '')}`);
 
 function startUnity(selector: string) {

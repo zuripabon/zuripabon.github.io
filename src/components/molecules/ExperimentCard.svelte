@@ -77,6 +77,11 @@
   .link-repo {
     color: currentColor;
     vertical-align: middle;
+    display: inline-flex;
+
+    & > svg {
+      width: 24px;
+    }
   }
 
 </style>

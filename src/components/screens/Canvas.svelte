@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import ProfileCard from '../molecules/ProfileCard.svelte';
   import HoverMessageCard from '../molecules/MessageCard.svelte';
+  import NavigationMenu from '../molecules/NavigationMenu.svelte';
   import Modal from '../molecules/Modal.svelte';
   import Education from './Education.svelte';
   import About from './About.svelte';
@@ -25,12 +26,21 @@
     isMessageCardOpen= state;
   }
   const handleOnItemClick = () => {
+
     if(!isMessageCardOpen){
       return;
     }
+
     isModalOpen = true
     isMessageCardOpen= false;
   }
+
+  const handleOnSectionClick = (id) => {
+    section = id;
+    isModalOpen = true
+    isMessageCardOpen= false;
+  }
+
   const handleOnCloseModal = () => {
     isModalOpen = false
   }
@@ -45,6 +55,7 @@
 <section class="webgl">
   <ProfileCard />
   <HoverMessageCard section={section} isOpen={isMessageCardOpen} onClick={handleOnItemClick}/>
+  <NavigationMenu onClick={handleOnSectionClick} />
   <Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
     {#if section === 'tent'}
       <Education/>

@@ -27,7 +27,7 @@
   }
   
   .mid {
-    background: rgba(255, 190, 11, 0.15);
+    background: rgba(236, 113, 113, 0.5);
   }  
   
   .low {

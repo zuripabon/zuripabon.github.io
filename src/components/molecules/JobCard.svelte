@@ -116,7 +116,7 @@
     border-radius: 100%;
     width: 20px;
     height: 20px;
-    background-color: rgba(255, 190, 11, 0.15);
+    background-color: rgba(236, 113, 113, 0.5);
   }
 
   .skills-title {

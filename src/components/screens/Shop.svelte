@@ -26,8 +26,7 @@
       price="399€"
       features={[
         // {name: 'Kick off your business idea'},
-        {name: 'Starting Design System Kit'}, 
-        {name: 'Initial Project Prototype'}, 
+        {name: 'Starting Design System Kit'},
         {name: 'Production Ready Landing Page'},
         {name: 'Lifetime access to boilerplate'},
         {name: 'Full Support & Guidance'},
@@ -35,8 +34,8 @@
     />
     <ShopCard 
       isPopular
-      title="3 weeks fulltime" 
-      subtitle="Get your custom product idea MVP production ready in 3 weeks" 
+      title="3 months fulltime" 
+      subtitle="Get your custom product idea MVP production ready in 3 months" 
       price="1,399€/week"
       features={[
         {name: 'Full-time dedication'},
@@ -45,7 +44,7 @@
         {name: 'Postgres/Mongo Database'}, 
         {name: 'Stripe Payments'}, 
         {name: 'SEO & Blog'}, 
-        {name: 'AWS Cloud Deployment'}, 
+        {name: 'AWS Cloud'}, 
         {name: 'Full Support & Guidance'},
       ]}
       hint="MVP including only core product features. Price charged weekly. Cancel anytime."

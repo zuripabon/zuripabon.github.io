@@ -20,10 +20,12 @@ const error = function(m:string){
 const q = (parentSelector:string, ...q: (string | undefined)[]) => document.querySelector(`${parentSelector}${q.reduce((acc, q) => `${acc} ${q}`, '')}`);
 
 function startUnity(selector: string) {
-  const uiElement = q(selector, '.profile') as HTMLElement;
+  const profileCardElement = q(selector, '.profile') as HTMLElement;
+  const menuElement = q(selector, '.navbar') as HTMLElement;
   const canvas = q(selector, 'canvas') as HTMLElement
   canvas.style.display = "block";
-  uiElement.style.display = "flex";
+  profileCardElement.style.display = "flex";
+  menuElement.style.display = "flex";
 }
 
 function setupUnity(selector: string, onProgress:  (progress: number) => void) {

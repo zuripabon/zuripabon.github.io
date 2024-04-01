@@ -12,7 +12,7 @@
 <card class="profile">
   <img class="profile-image" src="docs/assets/progressLogo.png" alt="zuripabon" title="zuripabon"/>
   <div class="profile-content">
-      <div class="hashtag"><Typography variant="subheading-s" strong>zuripabon</Typography></div>
+      <div class="hashtag"><Typography variant="subheading-s" strong><Typography variant="gradient">zuripabon</Typography></Typography></div>
       <Typography variant="label">hola@zuripabon.es</Typography>
       <p class="icons">
         <a class="icon-link" href="https://es.linkedin.com/in/zuripabon" target="_blank"><LinkedInIcon/></a>

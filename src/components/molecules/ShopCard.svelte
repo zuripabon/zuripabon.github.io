@@ -42,7 +42,7 @@
       </ul>
       <footer class="footer">
         <div class="cta-container">
-          <a class="cta" href="https://tidycal.com/zuripabon/15-minute-meeting" target="_blank">
+          <a class="cta" href="https://cal.com/zuripabon/30-minutes" target="_blank">
             <ShieldIcon/><Typography variant="label-small" uppercase strong>Hire me</Typography>
           </a>
         </div>

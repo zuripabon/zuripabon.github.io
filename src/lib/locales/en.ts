@@ -59,7 +59,7 @@ const copies:{[key:string]:string} = {
 
     'title.jobs': "Career Path",
     'cober.role': "Principal Software Engineer",
-    'cober.desc': 'At <a class="link" href="https://www.cober.io/" target="_blank">Cober</a> we have the mission of making accessible the insurance sector to iGen and helping businesses to reduce time and cost intensive operatives by improving their bottom line reducing churn and rejection rates, increasing conversion and average ticket size through innovative proposals related to AI bot assistance',
+    'cober.desc': 'At <a class="link" href="https://www.cober.io/" target="_blank">Cober</a> we have the mission of making accessible the insurance sector to iGen, helping businesses to reduce time and cost intensive operatives by improving their bottom line reducing churn and rejection rates, increasing conversion and average ticket size through innovative proposals related to AI bot assistance',
     'cober.challenges': 'As an innovative startup, challenges arise everywhere. From technical point of view, we research on LLMs for insurances to get cheaper and quicker response ratios, leveraging a hybrid model in which we use LLMs to classify user requirements and non-AI tasks to work out usable and intuitive user funnels. Building a market of plug & play customizable components to augment AI capabilities and working on alert notifications based on complex behavior such as "Ask for human interaction when user request an insurance quote and a negative emotion is detected" has been the most attractive and cool challenges we are facing at Cober',
 
     'spotahome.role': "Senior Software Engineer",
@@ -83,6 +83,17 @@ const copies:{[key:string]:string} = {
     
     'title.shop': "Hire me",
     'desc.shop': "I can help you start to materialize your business idea end-to-end and production ready",
+
+    'title.legal': 'Legal Notice',
+    'intro.legal': 'This website, zuipabon.es, is provided for informational purposes only. Any reliance you place on the provided  information is therefore strictly at your own risk.',
+    'terms-1.legal': 'No Warranty: While I endeavor to keep the information up to date and correct, the owner of this website, zuripabon.es, makes no representations or warranties in relation to the accuracy, completeness, or reliability with respect to the website, services, or related graphics contained on the website for any purpose.',
+    'terms-2.legal': 'No Liability: Under no circumstances shall the owner of this website be liable for any direct, indirect, special, incidental, or consequential damages, including, but not limited to, loss of data or profit, arising out of the use, or the inability to use, the materials on this website.',
+    'terms-3.legal': 'Professional Advice: The information provided on this website is not intended to constitute professional advice. It is provided for general informational purposes only and should not be relied upon as a substitute for professional advice. You should consult with a qualified professional before making any decisions based on the information provided on this website.',
+    'terms-4.legal': 'Third-party Links: This website may contain links to third-party websites that are not owned or controlled by the owner of this website. The owner of this website has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites.',
+    'terms-5.legal': 'Changes to Terms: The owner of this website reserves the right to modify these terms and conditions at any time without prior notice. By continuing to access or use this website after any changes are made, you agree to be bound by the revised terms and conditions.',
+    'terms-6.legal': 'By using this website, you acknowledge and agree to the terms and conditions outlined above. If you do not agree with these terms and conditions, you should not access or use this website.',
+    'terms-7.legal': 'For any question about this legal disclaimer notice, please contact me by email at hola@zuripabon.es',
+    'game.controls': 'hover or touch to discover'
 
 }
 

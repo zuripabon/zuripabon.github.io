@@ -21,10 +21,12 @@ const q = (parentSelector:string, ...q: (string | undefined)[]) => document.quer
 
 function startUnity(selector: string) {
   const profileCardElement = q(selector, '.profile') as HTMLElement;
+  const controlsCardElement = q(selector, '.controls-card') as HTMLElement;
   const menuElement = q(selector, '.navbar') as HTMLElement;
   const canvas = q(selector, 'canvas') as HTMLElement
   canvas.style.display = "block";
   profileCardElement.style.display = "flex";
+  controlsCardElement.style.display = "flex";
   menuElement.style.display = "flex";
 }
 

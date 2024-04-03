@@ -21,7 +21,7 @@
     <ShopCard 
       title="One-shot Session" 
       subtitle="Best option for personal portfolio or single-product selling landing page" 
-      hint="Includes 1hr private meeting to help you land your project and landing page ready to ship"
+      hint="Includes private meeting to help you land your project and free basic hosting tier."
       offer="480€"
       price="399€"
       features={[
@@ -47,7 +47,7 @@
         {name: 'AWS Cloud'}, 
         {name: 'Full Support & Guidance'},
       ]}
-      hint="MVP including only core product features. Price charged weekly. Cancel anytime."
+      hint="MVP including only core product features. Hosting not included. Price charged weekly. Cancel anytime."
       />
   </div>
 </div>

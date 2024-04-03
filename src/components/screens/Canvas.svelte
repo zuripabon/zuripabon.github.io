@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import ControlsCard from '../molecules/UxControlsCard.svelte';
   import ProfileCard from '../molecules/ProfileCard.svelte';
   import HoverMessageCard from '../molecules/MessageCard.svelte';
   import NavigationMenu from '../molecules/NavigationMenu.svelte';
@@ -9,6 +10,7 @@
   import Experiments from './Experiments.svelte';
   import Jobs from './Jobs.svelte';
   import Shop from './Shop.svelte';
+  import Legal from './Legal.svelte';
   
   import { loader } from '../../lib/store'
   import { loadGame } from '../../lib/3d'
@@ -16,9 +18,11 @@
   let section = null;
   let isMessageCardOpen = false;
   let isModalOpen = false;
+  let isControlsCardOpen = true;
 
   const handleOnLoad = (progress) => loader.set(progress);
   const handleOnItemHover = (id, state) => {
+    isControlsCardOpen = false;
     if(isModalOpen){
       return;
     }
@@ -54,6 +58,7 @@
 <!-- // set on:click={handleOnItemClick} if it makes hard to select button -->
 <section class="webgl">
   <ProfileCard />
+  <ControlsCard isOpen={isControlsCardOpen}/>
   <HoverMessageCard section={section} isOpen={isMessageCardOpen} onClick={handleOnItemClick}/>
   <NavigationMenu onClick={handleOnSectionClick} />
   <Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
@@ -67,6 +72,8 @@
       <Jobs/>
     {:else if section === 'boat'}
       <Shop/>
+    {:else if section === 'legal'}
+      <Legal/>
     {/if}
   </Modal>
   <canvas id="canvas" class="canvas" class:cursor={isMessageCardOpen}/>

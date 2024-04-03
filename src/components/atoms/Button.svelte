@@ -1,5 +1,6 @@
 <script>
-  import Typography from './Typography.svelte';
+  import ArrowRight from '../icons/ArrowRight.svelte';
+import Typography from './Typography.svelte';
   export let loading = true
   export let onClick;
 
@@ -11,11 +12,14 @@
   }
 </script>
 
-<p class="cta-container">
-  <button type="button" disabled={loading} on:click={handleOnClick} class="cta" class:loading={loading} class:disabled={loading} >
-    <Typography variant="gradient" strong>Let's build</Typography>
-  </button> awesome experiences together.
-</p>
+<div class="cta-container">
+  <div class="cta-border" class:loading-border={loading}>
+    <button type="button" disabled={loading} on:click={handleOnClick} class="cta" class:loading={loading} class:disabled={loading} >
+      <Typography variant="gradient" strong>Let's build </Typography> 
+      <span class="icon"><ArrowRight/></span>
+    </button>
+  </div> awesome experiences together.
+</div>
 
 <style>
 	
@@ -31,34 +35,84 @@
   .cta-container {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
+    gap: 0.7rem;
     align-items: center;
     text-align: center;
     font-size: 1.7rem;
   }
 
+  .cta-border {
+    display: flex;
+    border-radius: 20px;
+    padding: 1px;
+  }
+
+  .cta-border:not(.loading-border) {
+    opacity: 0.9;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: var(--accent-gradient);
+  }
+
 	.cta {
-    background: #1d1a20;
+    background: transparent;
     border: none;
     position: relative;
-    display: inline;
+    display: flex;
+    align-items: center;
     outline: none;
     z-index: 0;
     font-size: 1.7rem;
     cursor: pointer;
-    margin-right: 5px;
-    padding: 0 0.5rem;
+    padding: 0.7rem;
+    gap: 0.5rem;
+    width: 215px;
+    overflow: hidden;
+    transition: all;
+    transition-duration: 500ms;
 	}
+
+  .cta:not(.loading){
+    
+    background: rgba(18,18,18, 0.95);
+    /* border: 1px solid rgb(18,18,18); */
+    border-radius: 20px;
+  }
+
+  .icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 1rem;
+    opacity: 0;
+    transition: all;
+    transition-duration: 200ms;
+    & svg {
+      width: 40px;
+      color: white;
+    }
+  }
+
+  .cta:not(.loading):hover {
+
+    width: 260px;
+
+    & > .icon {
+      opacity: 1;
+    }
+  }
 
   .disabled {
     user-select: none;
-    cursor: progress;
+    /* cursor: progress; */
+    cursor: wait;
   }
 
-  .cta.loading::before {
+  .loading::before {
     background-image: -webkit-linear-gradient(45deg,rgba(0,0,0,.35) 25%,transparent 25%,transparent 50%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.35) 75%,transparent 75%,transparent);
     background-size: 40px 40px;
     animation: progress-bar-stripes 2s linear infinite;
+    border-radius: 20px;
   }
 
 	.cta::before {

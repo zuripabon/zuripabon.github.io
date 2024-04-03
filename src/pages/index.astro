@@ -3,23 +3,26 @@ import Layout from '../layouts/Layout.astro';
 import Typography from '../components/atoms/Typography.svelte';
 import StartButton from '../components/molecules/StartButton.svelte';
 import Canvas from '../components/screens/Canvas.svelte';
+import Background from '../components/atoms/Background.svelte';
 ---
 <Layout title="I am Zuri Pabón">
-	<main class="center">
-    <header class="header-container">
-      <Typography variant="heading" uppercase big>I am <Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
-    </header>
-    <div class="mobile">
-      <Typography variant="heading" uppercase>I am</Typography>
-      <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
-    </div>
-		<section class="body-container">
-      <div class="body-text">
-        <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+  <Background>
+    <section class="center">
+      <header class="header-container">
+        <Typography variant="heading" uppercase big>I am <Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
+      </header>
+      <div class="mobile">
+        <Typography variant="heading" uppercase>I am</Typography>
+        <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
       </div>
+      <section class="body-container">
+        <div class="body-text">
+          <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        </div>
+      </section>
+      <StartButton client:visible /> 
     </section>
-		<StartButton client:visible /> 
-	</main>
+  </Background>
   <Canvas client:visible/>
 </Layout>
 
@@ -59,6 +62,7 @@ import Canvas from '../components/screens/Canvas.svelte';
 		display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-grow: 1;
     width: 90%;
 		max-width: 1080px;
     row-gap: var(--spacing);

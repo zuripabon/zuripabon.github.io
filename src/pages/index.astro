@@ -20,6 +20,7 @@ import Background from '../components/atoms/Background.svelte';
           <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
         </div>
       </section>
+      <div class="skills-banner"><img src="/skills.svg"/></div>
       <StartButton client:visible /> 
     </section>
   </Background>
@@ -38,6 +39,20 @@ import Background from '../components/atoms/Background.svelte';
 
   .body-text {
     max-width: 875px;
+  }
+
+  .skills-banner {
+    position: absolute;
+    opacity: 0.5;
+    left: 40px;
+    top: calc(50% - 70px);
+    transform: rotate(-13deg);
+/* 
+    position: absolute;
+    opacity: 0.6;
+    top: 50%;
+    left: calc(50% - 500px);
+    transform: translate(-50%, -50%) rotate(5deg); */
   }
 
   .mobile {
@@ -59,6 +74,7 @@ import Background from '../components/atoms/Background.svelte';
 	}
 
 	.center {
+    position: relative;
 		display: flex;
     flex-direction: column;
     justify-content: center;

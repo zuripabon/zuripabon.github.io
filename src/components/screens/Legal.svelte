@@ -49,24 +49,4 @@
     flex-direction: column;
     row-gap: 32px;
   }
-
-  .anime-posters {
-    display: flex;
-    justify-content: stretch;
-    column-gap: 2rem;
-  }
-
-  .aspect-ratio {
-    position: relative;
-    aspect-ratio: 9 / 14;
-    width: 33.3%;
-    /* max-width: 230px; */
-    /* max-height: 550px; */
-  }
-
-  .image {
-    width: 100%;
-    height: 100%;
-    mask-image: linear-gradient(rgb(0 0 0 / 80%) 60%, transparent);
-  }
 </style>

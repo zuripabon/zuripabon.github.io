@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { translate } from '../../lib/copies';
+    import Typography from '../atoms/Typography.svelte';
   export let section = ''
   export let isOpen = false
   export let onClick = () => null
@@ -24,6 +25,9 @@
 
 <button type="button" tabindex="-1" class="message" bind:this={messageElement} class:hidden={!isOpen} on:click={handleOnClick}>
   <span class="message-card">{translate(`cta.${section}`)}</span>
+  <!-- <div class="message-card">
+    <Typography variant="gradient" strong>{translate(`cta.${section}`)}</Typography>
+  </div> -->
 </button>
     
 <style>
@@ -50,10 +54,10 @@
   }
 
   .message-card {
-    font-size: 18px;
-    font-weight: bold;
     color: #2e2e2e;
+    background-color: #3e3e3e;
     background-color: #bbb8b8;
+    font-weight: 900;
     padding: 20px;
     border-radius: 10px;
     border-bottom: 5px solid #e16d81;
@@ -61,6 +65,7 @@
     text-wrap: nowrap;
     /* text-transform: uppercase; */
     letter-spacing: -0.05rem;
+    font-size: 1.2rem;
   }
 
 </style>

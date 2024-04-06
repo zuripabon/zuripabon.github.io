@@ -1,7 +1,7 @@
 const copies:{[key:string]:string} = {
 
     'cta.tent': "Academic Background",
-    'cta.campfire': 'Want a cup of hot cocoa with churros?',
+    'cta.campfire': 'Want hot cocoa with churros?',
     'cta.fox': 'Aside Projects',
     'cta.box': 'Currently working at Cober.io',
     // 'cta.boat': "Success & Failure Stories",

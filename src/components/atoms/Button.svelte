@@ -67,38 +67,35 @@ import Typography from './Typography.svelte';
     cursor: pointer;
     padding: 0.7rem;
     gap: 0.5rem;
-    width: 215px;
+    width: auto;
     overflow: hidden;
     transition: all;
     transition-duration: 500ms;
 	}
 
+  .cta:not(.loading):hover {
+    & > .icon {
+      opacity: 1;
+    }
+  }
+
   .cta:not(.loading){
-    
     background: rgba(18,18,18, 0.95);
     /* border: 1px solid rgb(18,18,18); */
     border-radius: 20px;
   }
 
   .icon {
+    display: none;
     position: absolute;
     right: 0.5rem;
-    top: 1rem;
+    top: 0.7rem;
     opacity: 0;
     transition: all;
     transition-duration: 200ms;
     & svg {
       width: 40px;
       color: white;
-    }
-  }
-
-  .cta:not(.loading):hover {
-
-    width: 260px;
-
-    & > .icon {
-      opacity: 1;
     }
   }
 
@@ -129,14 +126,20 @@ import Typography from './Typography.svelte';
     
 	}
 
-  /* .cta:hover::before {
-    background-color: hsla(283, 82%, 78%, 76%);
-	} */
 
   @media only screen and (min-width: 685px) {
     
     .cta {
       font-size: 2rem;
+      width: 185px;
+    }
+
+    .cta:not(.loading):hover {
+      width: 220px;
+    }
+
+    .icon {
+      display: block;
     }
 
     .cta-container {
@@ -148,11 +151,20 @@ import Typography from './Typography.svelte';
   @media only screen and (min-width: 905px) {
     .cta {
       font-size: 2.4rem;
+      width: 215px;
+    }
+
+    .cta:not(.loading):hover {
+      width: 260px;
     }
 
     .cta-container {
       flex-direction: row;
       font-size: 2.4rem;
+    }
+
+    .icon {
+      top: 1rem;
     }
   }
 

@@ -5,18 +5,28 @@ import StartButton from '../components/molecules/StartButton.svelte';
 import Canvas from '../components/screens/Canvas.svelte';
 import Background from '../components/atoms/Background.svelte';
 ---
-<Layout title="I am Zuri Pabón">
+<Layout title="Zuri Pabon">
   <Background>
     <section class="center">
-      <header class="header-container">
+      <header class="desktop">
         <Typography variant="heading" uppercase big>I am <Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
       </header>
-      <div class="mobile">
+      <header class="tablet">
         <Typography variant="heading" uppercase>I am</Typography>
         <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
-      </div>
+      </header>
+      <header class="mobile">
+        <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri</Typography></Typography>
+        <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Pabón</Typography></Typography>
+      </header>
       <section class="body-container">
-        <div class="body-text">
+        <div class="body-text desktop">
+          <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        </div>
+        <div class="body-text tablet">
+          <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        </div>
+        <div class="body-text mobile">
           <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
         </div>
       </section>
@@ -29,12 +39,16 @@ import Background from '../components/atoms/Background.svelte';
 
 <style>
 
+  .tablet, .desktop {
+    display: none;
+  }
+
   .body-container {
     display: flex;
     justify-content: end;
     align-items: end;
     text-align: end;
-    margin-bottom: var(--spacing);
+    margin-bottom: 1rem;
   }
 
   .body-text {
@@ -42,25 +56,12 @@ import Background from '../components/atoms/Background.svelte';
   }
 
   .skills-banner {
+    display: none;
     position: absolute;
     opacity: 0.5;
     left: 40px;
     top: calc(50% - 70px);
     transform: rotate(-13deg);
-/* 
-    position: absolute;
-    opacity: 0.6;
-    top: 50%;
-    left: calc(50% - 500px);
-    transform: translate(-50%, -50%) rotate(5deg); */
-  }
-
-  .mobile {
-		font-size: 1.8rem;
-	}
-
-  .header-container {
-    display: none;
   }
 
   .subtitle {
@@ -69,9 +70,6 @@ import Background from '../components/atoms/Background.svelte';
     max-width: 875px;
   }
 
-	.desc {
-		font-size: 1.7rem;
-	}
 
 	.center {
     position: relative;
@@ -85,34 +83,45 @@ import Background from '../components/atoms/Background.svelte';
     overflow: clip;
     height: 100%;
     margin: 3rem auto;
+    padding: 0 2rem;
 	}
 
   @media only screen and (min-height: 560px) {
     
-    .center {
-      height: calc(100vh - 6rem);
-      margin: 3rem auto;
-	  }
+
   }
 
   @media only screen and (min-width: 650px) {
     
-    .mobile {
-      font-size: 2.5rem;
+    .tablet {
       display: block;
     }
 
-    .desc {
-      font-size: 2rem;
+    .body-container {
+      margin-bottom: var(--spacing);
     }
-  }
 
-  @media only screen and (min-width: 905px) {
-    .header-container {
-      display: block;
-    }
     .mobile {
       display: none;
     }
+
+    .center {
+      height: calc(100vh - 6rem);
+	  }
+  }
+
+  @media only screen and (min-width: 905px) {
+    .desktop {
+      display: block;
+    }
+
+    .tablet {
+      display: none;
+    }
+
+    .skills-banner {
+      display: block;
+    }
+
   }
 </style>

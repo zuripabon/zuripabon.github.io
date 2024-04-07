@@ -27,7 +27,11 @@
 {/if}
 
 {#if variant === 'paragraph'}
-<p class="paragraph-text" class:uppercase={uppercase} class:paragraph-text-big={big}><slot/></p>
+<p class="paragraph-text" class:uppercase={uppercase} class:strong={strong}><slot/></p>
+{/if}
+
+{#if variant === 'paragraph-lg'}
+<p class="paragraph-text paragraph-lg" class:uppercase={uppercase} class:strong={strong}><slot/></p>
 {/if}
 
 {#if variant === 'body'}
@@ -119,7 +123,7 @@
     color: currentColor;
 	}
 
-  .paragraph-text-big {
+  .paragraph-lg {
     font-size: 2.4rem;
   }
 

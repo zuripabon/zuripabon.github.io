@@ -136,4 +136,17 @@
     flex-direction: column;
     row-gap: 6rem;
   }
+
+  .career-container {
+      display: none;
+  }
+
+  @media only screen and (min-width: 685px) {
+
+    .career-container {
+      display: block;
+    }
+      
+  }
+
 </style>

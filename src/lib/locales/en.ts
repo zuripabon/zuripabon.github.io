@@ -24,7 +24,7 @@ const copies:{[key:string]:string} = {
     'hobbies.about': 'This is me, taking a nice bike ride through the countryside, eating churros dipped in delicious hot cocoa, and watching anime shows. My best top 3 ever:',
     'write.about': 'My favorite hobbies are simple. I enjoy good talks and writing light novels. Currently, I\'m working on <a class="link" href="https://zuripabon.es/blog/light%20novels/2021/07/18/my-life-prenatal-contract.html" target="_blank">"My Prenatal Life Contract"</a> and <a class="link" href="https://zuripabon.es/blog/light%20novels/2019/02/23/anane-the-volunteer.html" target="_blank">"Anane the Volunteer"</a>',
 
-    'title.experiments': "Experiments",
+    'title.experiments': "Aside Projects",
     'intro.experiments': "Below you can find a collection of some experiments and weekend projects I work on as personal free time pet-projects or for a hackathon. Most of them are quite old and inactive, so it is a time machine for my coding skills. You have links below to demo each one of them",
     'experiments.title.webvtt': 'YouTube Subtitles',
     'experiments.desc.webvtt': 'A <a class="link" href="https://tsur.github.io/webvtt/" target="_blank">WebVTT</a> experiment for setting up subtitles to your videos on the fly without having to install third party software for specific platforms and learning about them. It is also possible to share your work with others. This is great for making small parodies.',

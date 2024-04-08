@@ -82,14 +82,12 @@
 
   .poster {
     display: flex;
+    flex-direction: column;
     justify-content: stretch;
-    column-gap: 2rem;
+    gap: 2rem;
   }
 
-  .skills {
-    max-width: 40%;
-    min-width: 40%;
-  }
+
 
   .tag-item {
     display: inline-block;
@@ -128,6 +126,17 @@
 
   @media only screen and (min-width: 685px) {
 
+    .poster {
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      gap: 2rem;
+    }
+
+    .skills {
+      max-width: 40%;
+      min-width: 40%;
+    }
       
   }
 

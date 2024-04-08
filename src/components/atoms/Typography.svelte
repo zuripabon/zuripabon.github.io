@@ -72,10 +72,10 @@
 
 	.heading-text {
     line-height: 1.1;
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 600;
     letter-spacing: -0.15rem;
-    text-wrap: nowrap;
+    /* text-wrap: nowrap; */
     margin: 0;
     padding: 0;
     color: currentColor;
@@ -96,7 +96,7 @@
     font-size: 3rem;
     font-weight: 600;
     letter-spacing: -0.05rem;
-    text-wrap: nowrap;
+    /* text-wrap: nowrap; */
     margin: 0;
     padding: 0;
     color: currentColor;

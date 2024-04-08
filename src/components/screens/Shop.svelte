@@ -69,7 +69,7 @@
   .plans {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 3rem;
   }
 
   @media only screen and (min-width: 685px) {

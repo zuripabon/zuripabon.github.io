@@ -38,6 +38,7 @@ const { title } = Astro.props;
 
 	html {
 		font-size: 12px;
+		min-height: 100vh;
 	}
 	
 	html, * {
@@ -50,7 +51,10 @@ const { title } = Astro.props;
 	body {
 		background: #1d1a20;
 		color: rgba(255, 255, 255, 0.8);
-		height: 100vh;
+		height: 100%;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
 	}
 
 	.link {

@@ -70,8 +70,7 @@ import BarsIcon from '../icons/Bars.svelte'
     left: 0;
     top: 0;
     z-index: 40;
-    place-content: center;
-    place-items: center;
+    flex-direction: column;
     transition: all;
     transition-duration: 200ms;
     border: none;
@@ -79,6 +78,7 @@ import BarsIcon from '../icons/Bars.svelte'
     margin: 30px 60px;
     display: none;
     overflow: hidden;
+    gap: 1rem;
   }
 
   .btn {
@@ -104,14 +104,13 @@ import BarsIcon from '../icons/Bars.svelte'
     display: flex;
     position: relative;
     overflow: hidden;
-    padding-left: 1.5rem;
   }
 
   .list {
     list-style: none;
     display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    place-items: center;
     position: relative;
     left: -900px;
     transition: all;
@@ -147,6 +146,25 @@ import BarsIcon from '../icons/Bars.svelte'
     color: currentColor;
     border: none;
     outline: none;
+  }
+
+  @media only screen and (min-width: 905px) {
+    .navbar {  
+      place-content: center;
+      place-items: center;
+      flex-direction: row;
+      gap: 0;
+    }
+
+    .list {
+      place-items: center;
+      flex-direction: row;
+    }
+
+    .menu {
+      padding-left: 1.5rem;
+    }
+        
   }
 
 

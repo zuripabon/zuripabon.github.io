@@ -21,6 +21,7 @@
         width: 100%;
         height: 100%;
         display: flex;
+        flex-grow: 1;
         position: relative;
         background: radial-gradient(ellipse at bottom, #1C2837 0%, #050608 100%);
         background-attachment: fixed;

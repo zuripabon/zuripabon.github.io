@@ -58,7 +58,7 @@
       {name: Skills.RABBITMQ, level: Skills.HIGH},
       {name: Skills.TESTING_LIB, level: Skills.HIGH},
       {name: Skills.JEST, level: Skills.HIGH},
-      {name: Skills.CYPRESS, level: Skills.MID},
+      {name: Skills.CYPRESS, level: Skills.HIGH},
       {name: Skills.AB_TESTING, level: Skills.MID},
       {name: Skills.GTM, level: Skills.MID},
       {name: Skills.GRAFANA, level: Skills.MID},

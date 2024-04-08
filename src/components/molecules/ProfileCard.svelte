@@ -35,7 +35,7 @@
     align-items: center;
     background: transparent;
     z-index: 20;
-    margin: 30px 60px;
+    margin: 20px 20px;
     display: none;
     gap: 0.5rem;
   }
@@ -69,6 +69,13 @@
     color: white;
     & > svg {
       width: 20px;
+    }
+  }
+
+
+  @media only screen and (min-width: 905px) {
+    .profile {
+      margin: 30px 60px;
     }
   }
 

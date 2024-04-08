@@ -75,7 +75,7 @@ import BarsIcon from '../icons/Bars.svelte'
     transition-duration: 200ms;
     border: none;
     outline: none;
-    margin: 30px 60px;
+    margin: 20px 20px;
     display: none;
     overflow: hidden;
     gap: 1rem;
@@ -154,6 +154,7 @@ import BarsIcon from '../icons/Bars.svelte'
       place-items: center;
       flex-direction: row;
       gap: 0;
+      margin: 30px 60px;
     }
 
     .list {

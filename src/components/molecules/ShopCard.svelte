@@ -89,11 +89,6 @@
     z-index: 0;
   }
 
-
-  .card-container:first-child {
-    max-width: 45%;
-  }
-
   .content {
     display: flex;
     flex-direction: column;
@@ -186,5 +181,19 @@
   .hint {
     text-align: center;
   }
+
+
+  @media only screen and (min-width: 685px) {
+
+        
+  }
+
+  @media only screen and (min-width: 905px) {
+    .card-container:first-child {
+      max-width: 45%;
+    }
+
+  }
+
 
 </style>

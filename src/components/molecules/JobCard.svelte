@@ -46,8 +46,8 @@
       <div class="skills-title">
         <Typography variant="label">
           Learning Skills
-        </Typography> ( 
-        <span class="skills-info"><span class="high"/> Higher focus <span class="low"/> Lower focus</span>)
+        </Typography>
+        <span class="skills-info"> Higher focus <span class="high"/> Lower focus <span class="low"/></span>
       </div>
       <div>
         {#each stack as skill}
@@ -121,43 +121,22 @@
 
   .skills-title {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin-bottom: 0.25rem;
     gap: 0.25rem;
   }
-/* 
-  .aspect-ratio {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    max-width:200px;
-    min-width: 200px;
-    max-height: 125px;
-    min-height: 125px;
-    transition: all;
-    transition-duration: 0ms;
-    
+
+  @media only screen and (min-width: 685px) {
+
+      
   }
 
-  .image {
-    object-fit: contain;
-    width: 100%;
-    height: 100%;
-    mask-image: linear-gradient(rgb(0 0 0 / 80%) 60%, transparent);
-  }
+  @media only screen and (min-width: 905px) {
 
-  .aspect-ratio:hover ~ .desc{
-    display: none;
-    transition-duration: 300ms;
-  }
-  
-  .aspect-ratio:hover {
-    max-width: 100%;
-    min-width: 100%;
-    transition-duration: 300ms;
-  }
+    .skills-title {
+      margin-bottom: 1rem;
+    }
 
-  .link-repo {
-    color: currentColor;
-    vertical-align: middle;
-  } */
+  }
 
 </style>

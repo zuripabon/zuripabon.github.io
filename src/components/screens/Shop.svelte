@@ -68,7 +68,21 @@
   
   .plans {
     display: flex;
+    flex-direction: column;
     gap: 1rem;
+  }
+
+  @media only screen and (min-width: 685px) {
+
+      
+  }
+
+  @media only screen and (min-width: 905px) {
+    .plans {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    }
   }
 
 </style>

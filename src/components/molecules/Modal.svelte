@@ -23,6 +23,10 @@
   </div>
   <div class="content" class:animate={isOpen} class:light-mode={$mode==='light'} class:dark-mode={$mode === 'dark'} >
     <article class="article">
+      <header class="heading">
+        <ModeButton />
+        <CloseButton onClick={handleOnClose} />
+      </header>
       <slot/>
     </article>
   </div>
@@ -54,12 +58,10 @@
     width: 100%;
     height: 100%;
     top: -101%;
-    /* max-width: 1200px; */
     transform: translateX(-50%);
     left: 50%;
     transition: all;
     transition-duration: 200ms;
-    /* hsla(318, 63%, 72%, 0.15); */
     z-index: 60;
     overflow: auto;
   }
@@ -113,24 +115,53 @@
 
   .article {
     margin: 0 auto;
-    padding: 4rem;
-    width: 70%;
-    max-width: 1080px;
-
+    padding: 3rem;
   }
 
-  .close-container {
-    position: fixed;
-    top: 30px;
-    right: 60px;
-    z-index: 70;
+  .close-container, .mode-container {
+    display: none;
   }
 
-  .mode-container {
-    position: fixed;
-    top: 30px;
-    left: 60px;
-    z-index: 70;
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  @media only screen and (min-width: 685px) {
+
+    
+  }
+
+  @media only screen and (min-width: 905px) {
+
+    .heading {
+      display: none;
+    }
+
+    .article {
+      margin: 0 auto;
+      padding: 4rem;
+      width: 70%;
+      max-width: 1080px;
+    }
+
+    .close-container {
+      display: block;
+      position: fixed;
+      top: 30px;
+      right: 60px;
+      z-index: 70;
+    }
+
+    .mode-container {
+      display: block;
+      position: fixed;
+      top: 30px;
+      left: 60px;
+      z-index: 70;
+    }
+
   }
 
 </style>

@@ -39,17 +39,13 @@
 
   .poster {
     display: flex;
-    justify-content: stretch;
-    column-gap: 2rem;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .aspect-ratio {
     position: relative;
     aspect-ratio: 16 / 9;
-    max-width: 450px;
-    min-width: 450px;
-    max-height: 325px;
-    min-height: 325px;
     transition: all;
     transition-duration: 0ms;
     
@@ -63,17 +59,6 @@
     mask-image: linear-gradient(rgb(0 0 0 / 80%) 60%, transparent);
   }
 
-  .aspect-ratio:hover ~ .desc{
-    display: none;
-    transition-duration: 300ms;
-  }
-  
-  .aspect-ratio:hover {
-    max-width: 100%;
-    min-width: 100%;
-    transition-duration: 300ms;
-  }
-
   .link-repo {
     color: currentColor;
     vertical-align: middle;
@@ -82,6 +67,40 @@
     & > svg {
       width: 24px;
     }
+  }
+
+  @media only screen and (min-width: 685px) {
+
+      
+  }
+
+  @media only screen and (min-width: 905px) {
+
+    .poster {
+      display: flex;
+      flex-direction: row;
+      justify-content: stretch;
+      column-gap: 2rem;
+    }
+
+    .aspect-ratio {
+      max-width: 450px;
+      min-width: 450px;
+      max-height: 325px;
+      min-height: 325px;
+    }
+
+    .aspect-ratio:hover ~ .desc{
+      display: none;
+      transition-duration: 300ms;
+    }
+    
+    .aspect-ratio:hover {
+      max-width: 100%;
+      min-width: 100%;
+      transition-duration: 300ms;
+    }
+
   }
 
 </style>

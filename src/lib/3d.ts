@@ -33,7 +33,10 @@ function startUnity(selector: string) {
 function setupUnity(selector: string, onProgress:  (progress: number) => void) {
   const gameCanvas = q(selector, 'canvas') as HTMLCanvasElement;
 
-  const buildUrl = "docs/Build";
+  const prefix = 'docs/';
+  // @todo use wWhen building
+  // const prefix = '';
+  const buildUrl = prefix + "Build";
   const loaderUrl = buildUrl + "/docs.loader.js";
   // const loaderUrl = buildUrl + "/build.loader.js";
 
@@ -70,7 +73,7 @@ export function loadGame(
 ){
     
   info(`I'm using Astro, Svelte and ThreeJs`, {bg: '#543375', fontSize: 14});
-  info(`wanna know more? talk to me at reach.zuripabon@gmail.com`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
+  info(`wanna know more? talk to me at hola@zuripabon.es`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
 
   setupUnity(".webgl", onProgress);
 

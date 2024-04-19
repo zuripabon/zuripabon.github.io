@@ -1,11 +1,12 @@
 import * as THREE from 'three';
+import {MathUtils} from 'three';
 import TWEEN from '@tweenjs/tween.js'
 
 import Stats from 'three/addons/libs/stats.module.js';
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+// import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
 
 // import { DRACOLoader } from '/js/DRACOLoader.js';
 // import { MeshSurfaceSampler } from '/js/MeshSurfaceSampler.js';
@@ -34,17 +35,17 @@ const scene = new THREE.Scene()
  */
 const loadingManager = new THREE.LoadingManager();
 
-const progressContainer = document.getElementById("progress");
-const progressBar = document.getElementById("progress-bar");
+// const progressContainer = document.getElementById("progress");
+// const progressBar = document.getElementById("progress-bar");
 
-loadingManager.onProgress = function(url, loaded, total) {
-    progressBar.style.width = (loaded / total) * 100 + "%";
-}
-loadingManager.onLoad = function(url, loaded, total){
-    progressContainer.style.display = "none";
-    document.getElementById("start-button").style.display = "block";
+// loadingManager.onProgress = function(url, loaded, total) {
+//     progressBar.style.width = (loaded / total) * 100 + "%";
+// }
+// loadingManager.onLoad = function(url, loaded, total){
+//     progressContainer.style.display = "none";
+//     document.getElementById("start-button").style.display = "block";
     
-}
+// }
 
 // Draco loader
 // const dracoLoader = new DRACOLoader()
@@ -58,33 +59,155 @@ const gltfLoader = new GLTFLoader(loadingManager)
 
 var island;
 gltfLoader.load(
-    'base2.glb', 
+    'base.glb', 
     function(gltf){
-        island = gltf.scene;
         gltf.scene.traverse( function( node ) {
+
             if ( node.isMesh ) { 
                 node.castShadow = true;
                 node.receiveShadow = true;
             }
         } );
-        scene.add(island)
+        scene.add(gltf.scene)
 });
 
-// Camera
-const camera = new THREE.PerspectiveCamera(64, sizes.width / sizes.height, 1, 90);
-camera.position.set(0,30,30);
+gltfLoader.load(
+    'ground.glb', 
+    function(gltf){
+        // gltf.scene.traverse( function( node ) {
+
+        
+        //     if ( node.isMesh ) { 
+        //         node.castShadow = true;
+        //         node.receiveShadow = true;
+        //     }
+        // } );
+        scene.add(gltf.scene)
+});
+
+gltfLoader.load(
+    'river.glb', 
+    function(gltf){
+        gltf.scene.traverse( function( node ) {
+
+            if ( node.isMesh ) { 
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        } );
+        scene.add(gltf.scene)
+});
+
+
+gltfLoader.load(
+    'boat.glb', 
+    function(gltf){
+        gltf.scene.traverse( function( node ) {
+
+            if ( node.isMesh ) { 
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        } );
+        scene.add(gltf.scene)
+});
+
+
+gltfLoader.load(
+    'box.glb', 
+    function(gltf){
+        gltf.scene.traverse( function( node ) {
+
+            if ( node.isMesh ) { 
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        } );
+        scene.add(gltf.scene)
+});
+
+
+gltfLoader.load(
+    'campfire.glb', 
+    function(gltf){
+        gltf.scene.traverse( function( node ) {
+
+            if ( node.isMesh ) { 
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        } );
+        scene.add(gltf.scene)
+});
+
+
+gltfLoader.load(
+    'ladder.glb', 
+    function(gltf){
+        gltf.scene.traverse( function( node ) {
+
+            if ( node.isMesh ) { 
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        } );
+        scene.add(gltf.scene)
+});
+
+
+gltfLoader.load(
+    'tent.glb', 
+    function(gltf){
+        gltf.scene.traverse( function( node ) {
+
+            if ( node.isMesh ) { 
+                node.castShadow = true;
+                node.receiveShadow = true;
+            }
+        } );
+        scene.add(gltf.scene)
+});
+
+let mixer = new THREE.AnimationMixer();
+let clock = new THREE.Clock();
+
+gltfLoader.load(
+    'fire.glb', 
+    function(gltf){
+        // console.log(gltf)
+
+        // let clip = mixer.clipAction(gltf.animations[0], gltf.scene);
+        // clip.play();
+        gltf.scene.position.set(-6, -0.1, 2.4)
+        console.log(gltf.scene.position)
+        scene.add(gltf.scene);
+});
+// // Camera
+// const camera = new THREE.PerspectiveCamera(44, sizes.width / sizes.height, 0.01, 100);
+// camera.position.set(-27, 21, 4);
+// camera.rotation.set(-85 * MathUtils.DEG2RAD, -45.75* MathUtils.DEG2RAD , -80* MathUtils.DEG2RAD)
+
+// it kinda works
+const camera = new THREE.OrthographicCamera( sizes.width / - 2, sizes.width / 2, sizes.height / 2, sizes.height / - 2, 0.001, 100 );
+camera.position.set(-50, 32, -0.1);
+camera.zoom = 60;
+camera.updateProjectionMatrix();
+
+
 scene.add(camera);
 
+window.camera = camera;
 // Controls
-const controls = new OrbitControls(camera, canvas);
-controls.target.set(0,0,0);
-controls.enablePan = false;
-controls.minPolarAngle = Math.PI/2.4;
-controls.maxPolarAngle = Math.PI/2.15;
-controls.minDistance = 16;
-controls.maxDistance = 30;
-controls.enableDamping = true;
-controls.rotateSpeed = 0.25;
+let controls;
+controls = new OrbitControls(camera, canvas);
+// controls.target.set(0,0,0);
+// controls.enablePan = false;
+// controls.minPolarAngle = Math.PI/2.4;
+// controls.maxPolarAngle = Math.PI/5.15;
+// controls.minDistance = 16;
+// controls.maxDistance = 50;
+// controls.enableDamping = true;
+// controls.rotateSpeed = 0.25;
 
 // Renderer
 THREE.Cache.enabled = true;
@@ -102,7 +225,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor( 0xffffff, 0);
+renderer.setClearColor( 0x000000, 1);
 scene.background = null;
 
 renderer.outputEncoding = THREE.sRGBEncoding;
@@ -117,8 +240,19 @@ window.addEventListener('resize', () =>
     sizes.height = window.innerHeight;
 
     // Update camera
-    camera.aspect = sizes.width / sizes.height;
+    camera.left = sizes.width / - 2
+    camera.right = sizes.width / 2
+    camera.top = sizes.height / 2
+    camera.bottom = sizes.height / - 2
+    // camera.position.set(-50, 32, -0.1);
+    // camera.rotation.set(-1.7032051055356119, -0.9855574759073757, -1.7292359412427576)
+    // camera.zoom = 65;
     camera.updateProjectionMatrix();
+    // camera.aspect = sizes.width / sizes.height;
+    // camera.position.set(-50, 32, -0.1);
+    // camera.rotation.set(-1.7032051055356119, -0.9855574759073757, -1.7292359412427576)
+    // camera.zoom = 65;
+    // camera.updateProjectionMatrix();
 
     // Update renderer
     renderer.setSize(sizes.width, sizes.height);
@@ -126,40 +260,40 @@ window.addEventListener('resize', () =>
 })
 
 
-document.getElementById("start-button").onclick = function() {
-    // document.getElementById("loadingscreen").classList.add("hidden");
+// document.getElementById("start-button").onclick = function() {
+//     // document.getElementById("loadingscreen").classList.add("hidden");
 
-    new TWEEN.Tween(camera.position)
-    .to( { x: 0, y:3, z:16 }, 1000)
-    .easing(TWEEN.Easing.Cubic.Out)
-    .start()
-  ;
-}
+//     new TWEEN.Tween(camera.position)
+//     .to( { x: 0, y:3, z:16 }, 1000)
+//     .easing(TWEEN.Easing.Cubic.Out)
+//     .start()
+//   ;
+// }
 
 // Lights
-// const hemiLight = new THREE.HemisphereLight( 0xfff, 0xfff, 0.6 );
-// hemiLight.color.setHSL( 0.6, 1, 0.6 );
-// hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
-// hemiLight.position.set( 0, 500, 0 );
-// scene.add( hemiLight );
+const hemiLight = new THREE.HemisphereLight( 0xfff, 0xfff, 0.6 );
+hemiLight.color.setHSL( 0.6, 1, 0.6 );
+hemiLight.groundColor.setHSL( 0.095, 1, 0.75 );
+hemiLight.position.set( 0, 500, 0 );
+scene.add( hemiLight );
 
-// let shadowMapSize = 13;
-// const sunLight = new THREE.DirectionalLight(0xffffff, 1, 100);
-// sunLight.position.set(0,12,12);
-// sunLight.color.setHSL( 0.1, 1, 0.95 );
-// sunLight.visible = true;
-// sunLight.castShadow = true;
-// sunLight.shadow.mapSize.width = 2048;
-// sunLight.shadow.mapSize.height = 2048;
-// sunLight.shadow.camera.near = 0.5; 
-// sunLight.shadow.camera.far = shadowMapSize*2;
-// sunLight.shadow.camera.top = shadowMapSize;
-// sunLight.shadow.camera.bottom = -shadowMapSize;
-// sunLight.shadow.camera.left = -shadowMapSize;
-// sunLight.shadow.camera.right = shadowMapSize;
-// sunLight.shadow.normalBias = 0.02;
-// scene.add(sunLight);
-// scene.add( sunLight.target );
+let shadowMapSize = 13;
+const sunLight = new THREE.DirectionalLight(0xB29191, 1, 100);
+sunLight.position.set(-3,0.7,2);
+sunLight.color.setHSL( 0.1, 1, 0.95 );
+sunLight.visible = true;
+sunLight.castShadow = true;
+sunLight.shadow.mapSize.width = 2048;
+sunLight.shadow.mapSize.height = 2048;
+sunLight.shadow.camera.near = 0.5; 
+sunLight.shadow.camera.far = shadowMapSize*2;
+sunLight.shadow.camera.top = shadowMapSize;
+sunLight.shadow.camera.bottom = -shadowMapSize;
+sunLight.shadow.camera.left = -shadowMapSize;
+sunLight.shadow.camera.right = shadowMapSize;
+sunLight.shadow.normalBias = 0.02;
+scene.add(sunLight);
+scene.add( sunLight.target );
 
 // // const helper = new THREE.CameraHelper( sunLight.shadow.camera );
 // // scene.add( helper );
@@ -251,10 +385,12 @@ let azimuthalAngle;
 const tick = () =>
  {
     // Update controls
-    controls.update()
+    if(controls){
+        controls.update()
+    }
 
-    // Update cyclist position
-    azimuthalAngle = controls.getAzimuthalAngle();
+    // // Update cyclist position
+    // azimuthalAngle = controls.getAzimuthalAngle();
    
 
     // spotLight.position.x = Math.sin(azimuthalAngle) * 12.4;
@@ -272,11 +408,14 @@ const tick = () =>
 
     // scrollSpeed();
 
-    TWEEN.update();
+    // TWEEN.update();
 
     // Render
     // stats.begin()
+    if ( mixer ) mixer.update( clock.getDelta() );
     renderer.render(scene, camera)
+
+    // console.log(camera)
     // stats.end()
 
  

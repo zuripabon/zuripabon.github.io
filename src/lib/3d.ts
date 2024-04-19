@@ -72,7 +72,7 @@ export function loadGame(
   onItemClick?: (id:string) => void,
 ){
     
-  info(`I'm using Astro, Svelte and ThreeJs`, {bg: '#543375', fontSize: 14});
+  info(`I'm using Astro, Svelte and WebGL`, {bg: '#543375', fontSize: 14});
   info(`wanna know more? talk to me at hola@zuripabon.es`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
 
   setupUnity(".webgl", onProgress);

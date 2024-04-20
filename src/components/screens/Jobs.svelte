@@ -31,12 +31,15 @@
       {name: Skills.PWA, level: Skills.HIGH},
       {name: Skills.SUPABASE, level: Skills.HIGH},
       {name: Skills.POSTGRES, level: Skills.HIGH},
+      {name: Skills.SHADCN, level: Skills.HIGH},
+      {name: Skills.CLOUDFLARE, level: Skills.HIGH},
       {name: Skills.DDD, level: Skills.HIGH},
       {name: Skills.TELEGRAM, level: Skills.HIGH},
       {name: Skills.WHATSAPP, level: Skills.HIGH},
       {name: Skills.K8S, level: Skills.HIGH},
       {name: Skills.OPEN_AI, level: Skills.MID},
-      {name: Skills.MISTRAL, level: Skills.MID},
+      {name: Skills.LANG_CHAIN, level: Skills.MID},
+      {name: Skills.OLLAMA, level: Skills.MID},
       {name: Skills.SNS, level: Skills.MID},
       {name: Skills.EKS, level: Skills.MID}
     ]}

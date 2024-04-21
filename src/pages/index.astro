@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Typography from '../components/atoms/Typography.svelte';
 import StartButton from '../components/molecules/StartButton.svelte';
 import Canvas from '../components/screens/Canvas.svelte';
+import Mobile from '../components/screens/Mobile.svelte';
 import Background from '../components/atoms/Background.svelte';
 ---
 <Layout title="Zuri Pabon">
@@ -15,7 +16,7 @@ import Background from '../components/atoms/Background.svelte';
         <Typography variant="heading" uppercase>I am</Typography>
         <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
       </header>
-      <header class="mobile">
+      <header class="mobile heading-mobile">
         <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri</Typography></Typography>
         <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Pabón</Typography></Typography>
       </header>
@@ -24,23 +25,32 @@ import Background from '../components/atoms/Background.svelte';
           <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>B2B</Typography>, <Typography variant="gradient" uppercase strong>Dapp</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
         </div>
         <div class="body-text tablet">
-          <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+          <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>B2B</Typography>, <Typography variant="gradient" uppercase strong>Dapp</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
         </div>
         <div class="body-text mobile">
-          <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>UI</Typography> and <Typography variant="gradient" uppercase strong>CLI</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+          <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>B2B</Typography>, <Typography variant="gradient" uppercase strong>Dapp</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
         </div>
       </section>
+      <div class="mobile">
+        <Mobile client:visible/>
+      </div>
       <div class="skills-banner"><img src="/skills.svg"/></div>
-      <StartButton client:visible /> 
+      <div class="from-mobile"><StartButton client:visible /></div>
     </section>
   </Background>
-  <Canvas client:visible/>
+  <div class="from-mobile">
+    <Canvas client:visible/>
+  </div>
 </Layout>
 
 <style>
 
-  .tablet, .desktop {
+  .tablet, .desktop, .from-mobile {
     display: none;
+  }
+
+  .heading-mobile {
+    transition: all;
   }
 
   .body-container {
@@ -53,6 +63,7 @@ import Background from '../components/atoms/Background.svelte';
 
   .body-text {
     max-width: 875px;
+    text-align: left;
   }
 
   .skills-banner {
@@ -79,22 +90,23 @@ import Background from '../components/atoms/Background.svelte';
     flex-grow: 1;
     width: 90%;
 		max-width: 1080px;
-    row-gap: var(--spacing);
+    row-gap: 3.2rem;
     overflow: clip;
     height: 100%;
     margin: auto;
     padding: 2rem;
 	}
 
-  @media only screen and (min-height: 560px) {
-    
-
-  }
-
   @media only screen and (min-width: 650px) {
-    
+    .from-mobile {
+      display: block;
+    }
     .tablet {
       display: block;
+    }
+
+    .body-text {
+      text-align: end;
     }
 
     .body-container {
@@ -107,6 +119,7 @@ import Background from '../components/atoms/Background.svelte';
 
     .center {
       height: calc(100vh - 6rem);
+      row-gap: var(--spacing);
 	  }
   }
 

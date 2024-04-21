@@ -13,7 +13,7 @@
 
 <div class="card-container">
   {#if isPopular}
-  <div class="hook"><Typography variant="label-small" uppercase strong>Popular</Typography></div>
+  <div class="hook"><Typography variant="label-small" uppercase strong>best choice</Typography></div>
   {/if}
 
   <card
@@ -125,13 +125,13 @@
     flex-direction: column;
     gap: 1rem;
     list-style: none;
-    min-height: 360px;
   }
   
   .feature-item {
     display: flex;
     gap: 0.5rem;
     padding-bottom: 0.5rem;
+    align-items: center;
   }
   
   .feature-box:not(:last-child) .feature-item  {
@@ -191,6 +191,9 @@
   @media only screen and (min-width: 905px) {
     .card-container:first-child {
       max-width: 45%;
+    }
+    .features {
+      min-height: 410px;
     }
 
   }

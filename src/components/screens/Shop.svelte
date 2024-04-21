@@ -2,6 +2,7 @@
   import Typography from '../atoms/Typography.svelte';
   import Translate from '../atoms/Translate.svelte';
   import ShopCard from '../molecules/ShopCard.svelte';
+  export let isMobile = false;
 </script>
 
 
@@ -18,6 +19,7 @@
   </header>
 
   <div class="plans">
+    {#if !isMobile }
     <ShopCard 
       title="One-shot Session" 
       subtitle="Best option for personal portfolio or single-product selling landing page" 
@@ -32,8 +34,9 @@
         {name: 'Full Support & Guidance'},
       ]}
     />
+    {/if}
     <ShopCard 
-      isPopular
+      isPopular={false}
       title="3 months fulltime" 
       subtitle="Get your custom product idea MVP production ready in 3 months" 
       price="1,399€/week"
@@ -43,7 +46,8 @@
         {name: 'Auth & Magic Links'}, 
         {name: 'Postgres/Mongo Database'}, 
         {name: 'Stripe Payments'}, 
-        {name: 'SEO & Blog'}, 
+        {name: 'GA4 & A/B Testing'}, 
+        {name: 'SEO Optimized'}, 
         {name: 'AWS Cloud'}, 
         {name: 'Full Support & Guidance'},
       ]}

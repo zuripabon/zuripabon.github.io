@@ -33,9 +33,9 @@ function startUnity(selector: string) {
 function setupUnity(selector: string, onProgress:  (progress: number) => void) {
   const gameCanvas = q(selector, 'canvas') as HTMLCanvasElement;
 
-  const prefix = 'docs/';
+  // const prefix = 'docs/';
   // @todo use wWhen building
-  // const prefix = '';
+  const prefix = '';
   const buildUrl = prefix + "Build";
   const loaderUrl = buildUrl + "/docs.loader.js";
   // const loaderUrl = buildUrl + "/build.loader.js";
@@ -57,7 +57,7 @@ function setupUnity(selector: string, onProgress:  (progress: number) => void) {
       }).then(() => {
           setTimeout(() => {
             onProgress(100)
-          }, 3*1000);
+          }, 3*1200);
       }).catch((message) => {
         error(message);
       });
@@ -72,7 +72,7 @@ export function loadGame(
   onItemClick?: (id:string) => void,
 ){
     
-  info(`I'm using Astro, Svelte and WebGL`, {bg: '#543375', fontSize: 14});
+  info(`I'm using Astro, Svelte and Unity WebGL`, {bg: '#543375', fontSize: 14});
   info(`wanna know more? talk to me at hola@zuripabon.es`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
 
   setupUnity(".webgl", onProgress);
@@ -95,9 +95,5 @@ export function loadGame(
 }
 
 export function startGame(){
-
-  info(`I'm using Astro, Svelte and ThreeJs`, {bg: '#543375', fontSize: 14});
-  info(`wanna know more? talk to me at reach.zuripabon@gmail.com`, {bg: '#f0baf3', bold: true, color: 'black', fontSize: 10});
-
   startUnity(".webgl");
 }

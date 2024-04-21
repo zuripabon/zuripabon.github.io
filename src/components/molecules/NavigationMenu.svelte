@@ -1,14 +1,19 @@
 <script>
   import Typography from '../atoms/Typography.svelte';
-import BarsIcon from '../icons/Bars.svelte'
+  import BarsIcon from '../icons/Bars.svelte'
   import CloseButton from './CloseButton.svelte';
 
   export let onClick = () => null
+  export let isMobile = false;
 
   let isMenuOpen = false;
 
   const handleToggleMode = () => {
     isMenuOpen = !isMenuOpen
+    const header = document.querySelector('.heading-mobile');
+    if(header){
+      header.style.textAlign= isMenuOpen ? 'end' : 'left';
+    }
   }
 
   const handleOnClick = (id) => () => {
@@ -16,7 +21,7 @@ import BarsIcon from '../icons/Bars.svelte'
   }
 </script>
 
-<nav class="navbar">
+<nav class="navbar" class:visible={isMobile === true} >
   <div>
     {#if isMenuOpen}
       <CloseButton onClick={handleToggleMode} />
@@ -49,11 +54,13 @@ import BarsIcon from '../icons/Bars.svelte'
           <Typography variant="subheading-xs" uppercase>About</Typography>
         </button>
       </li>
+      {#if !isMobile }
       <li class="item">
         <button class="link" on:click={handleOnClick("boat")}>
           <Typography variant="subheading-xs" uppercase>Contact</Typography>
         </button>
       </li>
+      {/if}
       <li class="item">
         <button class="link" on:click={handleOnClick("legal")}>
           <Typography variant="subheading-xs" uppercase>Legal</Typography>
@@ -79,6 +86,11 @@ import BarsIcon from '../icons/Bars.svelte'
     display: none;
     overflow: hidden;
     gap: 1rem;
+  }
+
+  .visible {
+    display: flex;
+    position: fixed;
   }
 
   .btn {
@@ -110,11 +122,12 @@ import BarsIcon from '../icons/Bars.svelte'
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.35rem;
     position: relative;
     left: -900px;
     transition: all;
     transition-duration: 300ms;
+    margin-left: 6px;
   }
 
   .visible {
@@ -160,6 +173,8 @@ import BarsIcon from '../icons/Bars.svelte'
     .list {
       place-items: center;
       flex-direction: row;
+      margin-left: 0px;
+      gap: 1.5rem;
     }
 
     .menu {

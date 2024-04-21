@@ -116,6 +116,7 @@
   .article {
     margin: 0 auto;
     padding: 3rem;
+    margin-bottom: 3rem;
   }
 
   .close-container, .mode-container {

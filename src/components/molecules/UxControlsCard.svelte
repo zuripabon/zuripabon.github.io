@@ -21,7 +21,7 @@
     left: 50%;
     top: 20%;
     display: none;
-    z-index: 50;
+    z-index: 40;
     transform: translateX(-50%);
     place-content: center;
     place-items: center;

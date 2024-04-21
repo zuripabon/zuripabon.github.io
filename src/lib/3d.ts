@@ -33,9 +33,7 @@ function startUnity(selector: string) {
 function setupUnity(selector: string, onProgress:  (progress: number) => void) {
   const gameCanvas = q(selector, 'canvas') as HTMLCanvasElement;
 
-  const prefix = 'docs/';
-  // @todo use wWhen building
-  // const prefix = '';
+  const prefix = '';
   const buildUrl = prefix + "Build";
   const loaderUrl = buildUrl + "/docs.loader.js";
   // const loaderUrl = buildUrl + "/build.loader.js";

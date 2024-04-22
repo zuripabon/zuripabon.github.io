@@ -2,6 +2,7 @@
   import Typography from '../atoms/Typography.svelte';
   import BarsIcon from '../icons/Bars.svelte'
   import CloseButton from './CloseButton.svelte';
+  import { getSectionFromPath } from '../../lib/routes'
 
   export let onClick = () => null
   export let isMobile = false;
@@ -17,7 +18,12 @@
   }
 
   const handleOnClick = (id) => () => {
-    onClick(id)
+    const section = getSectionFromPath(id);
+    if(section){
+      onClick(section)
+      setTimeout(()=>window.history.pushState({}, '', id), 3000)
+      
+    }
   }
 </script>
 
@@ -35,34 +41,34 @@
   <div class="menu">
     <ul class="list" class:visible={isMenuOpen}>
       <li class="item">
-        <button class="link" on:click={handleOnClick("tent")}>
+        <button class="link" on:click={handleOnClick("/education")}>
           <Typography variant="subheading-xs" uppercase>Education</Typography>
         </button>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick("box")}>
+        <button class="link" on:click={handleOnClick("/career")}>
           <Typography variant="subheading-xs" uppercase>Career</Typography>
         </button>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick("fox")}>
+        <button class="link" on:click={handleOnClick("/projects")}>
           <Typography variant="subheading-xs" uppercase>Experiments</Typography>
         </button>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick("campfire")}>
+        <button class="link" on:click={handleOnClick("/about")}>
           <Typography variant="subheading-xs" uppercase>About</Typography>
         </button>
       </li>
       {#if !isMobile }
       <li class="item">
-        <button class="link" on:click={handleOnClick("boat")}>
+        <button class="link" on:click={handleOnClick("/contact")}>
           <Typography variant="subheading-xs" uppercase>Contact</Typography>
         </button>
       </li>
       {/if}
       <li class="item">
-        <button class="link" on:click={handleOnClick("legal")}>
+        <button class="link" on:click={handleOnClick("/legal")}>
           <Typography variant="subheading-xs" uppercase>Legal</Typography>
         </button>
       </li>

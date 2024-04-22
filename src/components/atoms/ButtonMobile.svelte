@@ -3,11 +3,16 @@
   import Typography from './Typography.svelte';
   export let onClick;
 
+  const handleOnClick = () => {
+    window.history.pushState({}, '', '/contact');
+    onClick('boat')
+  }
+
 </script>
 
 <div class="cta-container">
   <div class="cta-border">
-    <button type="button" on:click={onClick} class="cta" >
+    <button type="button" on:click={handleOnClick} class="cta" >
       <Typography variant="gradient" strong>Let's build </Typography> 
       <span class="icon"><ArrowRight/></span>
     </button>

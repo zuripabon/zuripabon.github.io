@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Typography from '../atoms/Typography.svelte';
+import StartButton from '../molecules/StartButton.svelte';
+import Canvas from './Canvas.svelte';
+import Mobile from './Mobile.svelte';
+import Background from '../atoms/Background.svelte';
+---
+<Layout title="Zuri Pabon">
+  <Background>
+    <section class="center">
+      <header class="desktop">
+        <Typography variant="heading" uppercase big>I am <Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
+      </header>
+      <header class="tablet">
+        <Typography variant="heading" uppercase>I am</Typography>
+        <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri Pabón</Typography></Typography>
+      </header>
+      <header class="mobile heading-mobile">
+        <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Zuri</Typography></Typography>
+        <Typography variant="heading" uppercase><Typography variant="gradient" uppercase strong>Pabón</Typography></Typography>
+      </header>
+      <section class="body-container">
+        <div class="body-text desktop">
+          <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>B2B</Typography>, <Typography variant="gradient" uppercase strong>Dapp</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        </div>
+        <div class="body-text tablet">
+          <Typography variant="paragraph-lg" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>B2B</Typography>, <Typography variant="gradient" uppercase strong>Dapp</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        </div>
+        <div class="body-text mobile">
+          <Typography variant="paragraph" big>Over a decade of experience in computer science. I specialize in <Typography variant="gradient" uppercase strong>B2B</Typography>, <Typography variant="gradient" uppercase strong>Dapp</Typography> engineering. My journey as engineer is fueled by creativity, problem-solving, and a relentless drive for excellence.</Typography>
+        </div>
+      </section>
+      <div class="mobile">
+        <Mobile client:visible/>
+      </div>
+      <div class="skills-banner"><img src="/skills.svg"/></div>
+      <div class="from-mobile"><StartButton client:visible /></div>
+    </section>
+  </Background>
+  <div class="from-mobile">
+    <Canvas client:visible/>
+  </div>
+</Layout>
+
+<style>
+
+  .tablet, .desktop, .from-mobile {
+    display: none;
+  }
+
+  .heading-mobile {
+    transition: all;
+  }
+
+  .body-container {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    text-align: end;
+    margin-bottom: 1rem;
+  }
+
+  .body-text {
+    max-width: 875px;
+    text-align: left;
+  }
+
+  .skills-banner {
+    display: none;
+    position: absolute;
+    opacity: 0.5;
+    left: 40px;
+    top: calc(50% - 70px);
+    transform: rotate(-13deg);
+  }
+
+  .subtitle {
+    text-align: end;
+    margin-top: 100px;
+    max-width: 875px;
+  }
+
+	.center {
+    position: relative;
+		display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    width: 90%;
+		max-width: 1080px;
+    row-gap: 3.2rem;
+    overflow: clip;
+    height: 100%;
+    margin: auto;
+    padding: 2rem;
+	}
+
+  @media only screen and (min-width: 650px) {
+    .from-mobile {
+      display: block;
+    }
+    .tablet {
+      display: block;
+    }
+
+    .body-text {
+      text-align: end;
+    }
+
+    .body-container {
+      margin-bottom: var(--spacing);
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    .center {
+      height: calc(100vh - 6rem);
+      row-gap: var(--spacing);
+	  }
+  }
+
+  @media only screen and (min-width: 905px) {
+    .desktop {
+      display: block;
+    }
+
+    .tablet {
+      display: none;
+    }
+
+    .skills-banner {
+      display: block;
+    }
+
+  }
+</style>

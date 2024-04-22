@@ -32,7 +32,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        animation: orb 800s linear infinite;
+        animation: orb 600s linear infinite;
     }
 
     .stars-revert {

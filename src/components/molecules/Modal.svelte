@@ -8,6 +8,7 @@
 
   const handleOnClose = () => {
       onClose();
+      window.history.pushState({}, '', '/');
   }
 
 </script>

@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import NavigationMenu from '../molecules/NavigationMenu.svelte';
   import Modal from '../molecules/Modal.svelte';
   import Education from './Education.svelte';
@@ -8,6 +9,8 @@
   import Shop from './Shop.svelte';
   import Legal from './Legal.svelte';
   import ButtonMobile from '../atoms/ButtonMobile.svelte';
+  import { getSectionFromPath } from '../../lib/routes'
+
   
   let isModalOpen = false;
   let section;
@@ -21,9 +24,16 @@
     isModalOpen = false
   }
 
+  onMount(()=>{
+    section = getSectionFromPath(window.location.pathname);
+    if(section){
+      isModalOpen = true;
+    }
+  })
+
 </script>
 
-<ButtonMobile onClick={() => handleOnSectionClick('boat')} />
+<ButtonMobile onClick={handleOnSectionClick} />
 <NavigationMenu onClick={handleOnSectionClick} isMobile />
 <Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
   {#if section === 'tent'}

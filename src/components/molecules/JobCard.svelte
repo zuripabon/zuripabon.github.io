@@ -2,6 +2,7 @@
   import Typography from '../atoms/Typography.svelte';
   import Tag from '../atoms/Tag.svelte';
   import Translate from '../atoms/Translate.svelte';
+  import { translate } from '../../lib/copies'
 
   export let name = ''
   // export let url = ''
@@ -36,9 +37,21 @@
     </Typography> • <Typography variant="label">
       {date}
     </Typography>
-    <Typography variant="body-big">
-      <Translate key={`${name}.challenges`}/>
-    </Typography>
+    <div class="challenges">
+      <Typography variant="body-big">
+        <Translate key={`${name}.challenges1`}/>
+      </Typography>
+      {#if translate(`${name}.challenges2`) }
+      <Typography variant="body-big">
+        <Translate key={`${name}.challenges2`}/>
+      </Typography>
+      {/if}
+      {#if translate(`${name}.challenges3`) }
+      <Typography variant="body-big">
+        <Translate key={`${name}.challenges3`}/>
+      </Typography>
+      {/if}
+    </div>
   </div>
 
   <div class="poster">
@@ -87,7 +100,11 @@
     gap: 2rem;
   }
 
-
+  .challenges {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
   .tag-item {
     display: inline-block;

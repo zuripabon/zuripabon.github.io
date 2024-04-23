@@ -58,25 +58,34 @@ const copies:{[key:string]:string} = {
     // https://github.com/big-mouse
 
     'title.jobs': "Career Path",
-    'cober.role': "Senior Software Engineer",
+    'cober.role': "Software Engineer",
     'cober.desc': 'At <a class="link" href="https://www.cober.io/" target="_blank">Cober</a> we have the mission of making accessible the insurance sector to iGen, helping businesses to reduce time and cost intensive operatives by improving their bottom line churn and rejection rates, increasing conversion and average ticket size through innovative proposals related to AI bot assistance',
-    'cober.challenges': 'A startup environment on a knife-edge, have you said challenges? Simplifying processes at the most, short feedback loops, tech-savvy mindset, becoming owner of everything and more, reducing operational expenses and begging universe to help us see the light at the end of the road. From technical point of view, we are building plug & play customizable components to augment AI capabilities within the insurance brokers sector, working to automate insurance quotations, cross-selling, incident management, insurance expiration reminders has been the most attractive and cool techy challenges we are facing at Cober',
+    'cober.challenges1': 'A startup environment on a knife-edge, have you said challenges? Simplifying processes at the most, short feedback loops, tech-savvy mindset, becoming owner of everything and more, reducing operational expenses and begging universe to help us see the light at the end of the road.',    
+    'cober.challenges2': 'From technical point of view, we are building plug & play customizable components to augment AI capabilities within the insurance brokers sector.',
+    'cober.challenges3': 'Working to automate insurance quotations, cross-selling, incident management, insurance expiration reminders has been the most attractive and cool techy challenges we are facing at Cober',
 
-    'spotahome.role': "Senior Software Engineer",
+    'spotahome.role': "Software Engineer",
     'spotahome.desc': '<a class="link" href="https://www.spotahome.com/" target="_blank">Spotahome</a> follows a similar business model to online holiday rentals, but  focuses on long-term stays, with a minimum of 30 days, offering a 100% online booking process.',
-    'spotahome.challenges': 'I worked as senior frontend engineer as part of the landlord\'s experience and lead multiple projects for the landlord\'s platform and backoffice systems, including main customer funnels as the listing creation, edition and publication funnels. With about 50K active users per day, working at scale by maintaining our design system, optimizing data fetching with GQL and optimistic strategies, working on queries performance, cache validations or bundle and assets optimization were part of my key contributions to the company with a product and data-centric mindset. How to discover new opportunities, how to approach A/B testing, dealing with data noise and false negatives, flaky e2e, third party code integrations or debugging performance issues were some of the common challenges I faced at spotahome',
+    'spotahome.challenges1': 'I worked as senior frontend engineer as part of the landlord\'s experience and lead multiple projects for the landlord\'s platform and backoffice systems, including main customer funnels as the listing creation, edition and publication funnels.',
+    'spotahome.challenges2': 'With about 50K active users per day, working at scale by maintaining our design system, optimizing data fetching with GQL and optimistic strategies, working on queries performance, cache validations or bundle and assets optimization were part of my key contributions to the company with a product and data-centric mindset culture.',
+    'spotahome.challenges3': 'How to discover new opportunities, how to approach A/B testing, dealing with data noise and false negatives, flaky e2e, third party code integrations or debugging performance issues were some of the common challenges I faced at spotahome',
 
-    'valo.role': "Mid/Senior Software Engineer",
+    'valo.role': "Software Engineer",
     'valo.desc': 'Valo was an amazing piece of engineering focused on a Big Data engine for real-time analytics. The project was merged into <a class="link" href="https://www.itrsgroup.com/" target="_blank">ITRS Group</a> Geneos in February 2018.',
-    'valo.challenges': 'I started working as a mid senior software engineer and later promoted to lead some projects in the frontend as the main VALO UI with interactive notebooks. I extensively worked on the development of the Valo JavaScript SDK to manage the pool of SSE connections with the Valo engine in a non-blocking way by using web workers and also contributed to the development of canvas and DOM based chart visualizations',
+    'valo.challenges1': 'I started working as a mid senior software engineer and later promoted to lead some projects in the frontend as the main VALO UI with interactive notebooks.',
+    'valo.challenges2': 'I extensively worked on the development of the Valo JavaScript SDK to manage the pool of SSE connections with the Valo engine in a non-blocking way by using web workers.',
+    'valo.challenges3': 'The development of canvas and DOM based chart visualizations were part of my contributions too.',
 
     'gsr.role': "Mid Software Engineer",
     'gsr.desc': '<a class="link" href="https://www.gsr.io/" target="_blank">GSR</a> started on as a liquidity provider focused on bulk trading operations.',
-    'gsr.challenges': 'The main role I played on GSR was to support the team with the creation of automated trading bots and P&L report generation by using nodejs agents connecting to the Ripple protocol',
+    'gsr.challenges1': 'The main role I played on GSR was to support the team with the creation of automated trading bots and P&L report generation by using nodejs bots connecting to the Ripple realtime network protocol',
+    'gsr.challenges2': 'As part of my contributions, I also implemented a basic back-office admin panel in Angular.',
+    'gsr.challenges3': '',
 
     'ebury.role': "Junior Software Engineer",
     'ebury.desc': '<a class="link" href="https://www.ebury.com/" target="_blank">Ebury</a> specializes in simplifying international forex trading offering competitive rates',
-    'ebury.challenges': "I started my journey as software engineer at Ebury, working with Python and Django. As a Junior developer, I mainly worked with minor projects in the Ebury\'s backoffice and the Django admin panel. Documenting and maintaining unit and e2e test scenarios. The most challenge project I worked on was a major migration of Django from a very outdated version going through multiple minor and major version updates making sure the system was stable on each new update until migration process was over",
+    'ebury.challenges1': "I started my journey as software engineer at Ebury, working with Python and Django. As a Junior developer, I mainly worked with minor projects in the Ebury\'s backoffice and the Django admin panel. Documenting and maintaining unit and e2e test scenarios.",
+    'ebury.challenges2': "The most challenge project I worked on was a major migration of Django from a very outdated version going through multiple minor and major version updates making sure the system was stable on each new update until migration process was over",
 
     'title.companies': "Logbook",
     'desc.companies': "Welcome brave adventure!, exciting experiences of failed attempts into becoming a successful entrepreneur awaits you ahead. Hope this can be somewhat useful to your noble and worthy goal of discovering new lands of abundance.",

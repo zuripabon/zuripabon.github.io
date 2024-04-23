@@ -21,10 +21,17 @@ export const goTo = (route:string, isSection: boolean = false) => {
   }
 }
 
-const updateState = (isHome: boolean) => {
+const updateState = (isHome: boolean, firstLoad: boolean = false) => {
   if(!isHome){
     pathname.set(window.location.pathname);
-    setTimeout(()=> isModalOpen.set(true), 100)
+    if(firstLoad){
+      isModalOpen.set(true)
+    }
+    else{
+      setTimeout(()=> {
+        isModalOpen.set(true);
+      }, 100);
+    }
   }
   else {
     isModalOpen.set(false)
@@ -34,7 +41,7 @@ const updateState = (isHome: boolean) => {
 
 export const router = () => {
   if(typeof window !== 'undefined'){
-    updateState(window.location.pathname === HOME)
+    updateState(window.location.pathname === HOME, true)
     window.addEventListener('popstate', () => {
       updateState(window.location.pathname === HOME)
     });

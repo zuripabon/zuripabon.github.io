@@ -4,8 +4,8 @@ import en from './locales/en'
 export function translate(key: string, locale='en'){
 
     if(locale === 'es'){
-        return es[key]
+        return es[key] || ''
     }
 
-    return en[key]
+    return en[key] || ''
 }

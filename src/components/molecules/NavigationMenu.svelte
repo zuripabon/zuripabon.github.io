@@ -17,7 +17,8 @@
     }
   }
 
-  const handleOnClick = (id) => () => {
+  const handleOnClick = (id) => (event) => {
+    event.preventDefault();
     routes.goTo(id);
     onClick();
   }
@@ -37,36 +38,36 @@
   <div class="menu">
     <ul class="list" class:visible={isMenuOpen}>
       <li class="item">
-        <button class="link" on:click={handleOnClick(routes.EDUCATION)}>
+        <a class="link" href={routes.EDUCATION} on:click={handleOnClick(routes.EDUCATION)}>
           <Typography variant="subheading-xs" uppercase>Education</Typography>
-        </button>
+        </a>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick(routes.CAREER)}>
+        <a class="link" href={routes.CAREER} on:click={handleOnClick(routes.CAREER)}>
           <Typography variant="subheading-xs" uppercase>Career</Typography>
-        </button>
+        </a>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick(routes.PROJECTS)}>
+        <a class="link" href={routes.PROJECTS} on:click={handleOnClick(routes.PROJECTS)}>
           <Typography variant="subheading-xs" uppercase>Experiments</Typography>
-        </button>
+        </a>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick(routes.ABOUT)}>
+        <a class="link" href={routes.ABOUT} on:click={handleOnClick(routes.ABOUT)}>
           <Typography variant="subheading-xs" uppercase>About</Typography>
-        </button>
+        </a>
       </li>
       {#if !isMobile }
       <li class="item">
-        <button class="link" on:click={handleOnClick(routes.CONTACT)}>
+        <a class="link" href={routes.CONTACT} on:click={handleOnClick(routes.CONTACT)}>
           <Typography variant="subheading-xs" uppercase>Contact</Typography>
-        </button>
+        </a>
       </li>
       {/if}
       <li class="item">
-        <button class="link" on:click={handleOnClick(routes.LEGAL)}>
+        <a class="link" href={routes.LEGAL} on:click={handleOnClick(routes.LEGAL)}>
           <Typography variant="subheading-xs" uppercase>Legal</Typography>
-        </button>
+        </a>
       </li>
     </ul>
   </div>
@@ -88,6 +89,7 @@
     display: none;
     overflow: hidden;
     gap: 1rem;
+    min-width: 100%;
   }
 
   .visible {
@@ -124,12 +126,13 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1.35rem;
+    /* gap: 1.35rem; */
     position: relative;
     left: -900px;
     transition: all;
     transition-duration: 300ms;
     margin-left: 6px;
+    width: 100%;
   }
 
   .visible {
@@ -140,17 +143,18 @@
     transition: all;
     transition-duration: 300ms;
     color: rgba(255, 255, 255, 0.8);
+    user-select: none;
   }
 
   .item:hover {
     color: rgba(255, 255, 255, 1);
-    transform: scale(1.03);
+    transform: scale(1.01);
   }
 
   .link {
     text-decoration: none;
     margin: 0;
-    padding: 0;
+    padding: 0.9rem 0;
     text-transform: none;
     appearance: button;
     -webkit-appearance: button;
@@ -161,6 +165,12 @@
     color: currentColor;
     border: none;
     outline: none;
+    width: 100%;
+    text-align: left;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
   }
 
   @media only screen and (min-width: 905px) {
@@ -170,6 +180,7 @@
       flex-direction: row;
       gap: 0;
       margin: 30px 60px;
+      min-width: auto;
     }
 
     .list {
@@ -181,6 +192,10 @@
 
     .menu {
       padding-left: 1.5rem;
+    }
+
+    .item:hover {
+      transform: scale(1.03);
     }
         
   }

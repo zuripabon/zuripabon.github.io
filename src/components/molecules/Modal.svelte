@@ -5,10 +5,17 @@
 
   export let isOpen = false
   export let onClose = () => null
+  let contentElement;
 
   const handleOnClose = () => {
       onClose();
   }
+
+  $: {
+		if (contentElement && isOpen) {
+			contentElement.scrollTo(0,0);
+		}
+	} 
 
 </script>
 
@@ -21,7 +28,7 @@
   <div class="mode-container">
     <ModeButton />
   </div>
-  <div class="content" class:animate={isOpen} class:light-mode={$mode==='light'} class:dark-mode={$mode === 'dark'} >
+  <div class="content" bind:this={contentElement} class:animate={isOpen} class:light-mode={$mode==='light'} class:dark-mode={$mode === 'dark'} >
     <article class="article">
       <header class="heading">
         <ModeButton />
@@ -38,7 +45,7 @@
   .main {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     opacity: 1;
     visibility: visible;
     top:0;
@@ -115,8 +122,8 @@
 
   .article {
     margin: 0 auto;
-    padding: 3rem;
-    margin-bottom: 3rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .close-container, .mode-container {

@@ -1,13 +1,17 @@
 <script>
   import ArrowRight from '../icons/ArrowRight.svelte';
   import Typography from './Typography.svelte';
-  export let onClick;
+  import * as routes from '../../lib/routes';
+
+  const handleOnClick = () => {
+    routes.goTo(routes.CONTACT);
+  }
 
 </script>
 
 <div class="cta-container">
   <div class="cta-border">
-    <button type="button" on:click={onClick} class="cta" >
+    <button type="button" on:click={handleOnClick} class="cta" >
       <Typography variant="gradient" strong>Let's build </Typography> 
       <span class="icon"><ArrowRight/></span>
     </button>

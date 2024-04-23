@@ -2,9 +2,10 @@
   import Typography from '../atoms/Typography.svelte';
   import BarsIcon from '../icons/Bars.svelte'
   import CloseButton from './CloseButton.svelte';
+  import * as routes from '../../lib/routes'
 
-  export let onClick = () => null
   export let isMobile = false;
+  export let onClick = () => null
 
   let isMenuOpen = false;
 
@@ -17,7 +18,8 @@
   }
 
   const handleOnClick = (id) => () => {
-    onClick(id)
+    routes.goTo(id);
+    onClick();
   }
 </script>
 
@@ -35,34 +37,34 @@
   <div class="menu">
     <ul class="list" class:visible={isMenuOpen}>
       <li class="item">
-        <button class="link" on:click={handleOnClick("tent")}>
+        <button class="link" on:click={handleOnClick(routes.EDUCATION)}>
           <Typography variant="subheading-xs" uppercase>Education</Typography>
         </button>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick("box")}>
+        <button class="link" on:click={handleOnClick(routes.CAREER)}>
           <Typography variant="subheading-xs" uppercase>Career</Typography>
         </button>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick("fox")}>
+        <button class="link" on:click={handleOnClick(routes.PROJECTS)}>
           <Typography variant="subheading-xs" uppercase>Experiments</Typography>
         </button>
       </li>
       <li class="item">
-        <button class="link" on:click={handleOnClick("campfire")}>
+        <button class="link" on:click={handleOnClick(routes.ABOUT)}>
           <Typography variant="subheading-xs" uppercase>About</Typography>
         </button>
       </li>
       {#if !isMobile }
       <li class="item">
-        <button class="link" on:click={handleOnClick("boat")}>
+        <button class="link" on:click={handleOnClick(routes.CONTACT)}>
           <Typography variant="subheading-xs" uppercase>Contact</Typography>
         </button>
       </li>
       {/if}
       <li class="item">
-        <button class="link" on:click={handleOnClick("legal")}>
+        <button class="link" on:click={handleOnClick(routes.LEGAL)}>
           <Typography variant="subheading-xs" uppercase>Legal</Typography>
         </button>
       </li>

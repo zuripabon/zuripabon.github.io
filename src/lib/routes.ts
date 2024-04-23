@@ -1,27 +1,70 @@
-export const getSectionFromPath = (path:string) => {
-    if(path === '/education'){
-        return 'tent';
-    }
+import { pathname, isModalOpen } from './store'
 
-    if(path === '/career'){
-        return 'box'
-    }
+export const HOME = '/'
+export const EDUCATION = '/education'
+export const CAREER = '/career'
+export const PROJECTS = '/projects'
+export const ABOUT = '/about'
+export const CONTACT = '/contact'
+export const LEGAL = '/legal'
 
-    if(path === '/projects'){
-        return 'fox'
-    }
+export const goBack = () => {
+  if(typeof window !== 'undefined'){
+    window.history.back();
+  }
+}
 
-    if(path === '/about'){
-        return 'campfire'
-    }
+export const goTo = (route:string, isSection: boolean = false) => {
+  if(typeof window !== 'undefined'){
+    window.history.pushState({}, '', isSection ? getPathFromSection(route) :route)
+    window.dispatchEvent(new Event('popstate'));
+  }
+}
 
-    if(path === '/contact'){
-        return 'boat'
-    }
+const updateState = (isHome: boolean) => {
+  if(!isHome){
+    pathname.set(window.location.pathname);
+    setTimeout(()=> isModalOpen.set(true), 100)
+  }
+  else {
+    isModalOpen.set(false)
+    pathname.set(HOME);
+  }
+}
 
-    if(path === '/legal'){
-        return 'legal'
-    }
+export const router = () => {
+  if(typeof window !== 'undefined'){
+    updateState(window.location.pathname === HOME)
+    window.addEventListener('popstate', () => {
+      updateState(window.location.pathname === HOME)
+    });
+  }
+}
 
-    return null;
+const getPathFromSection = (section:string) => {
+  if(section === 'tent'){
+      return EDUCATION;
+  }
+
+  if(section === 'box'){
+      return CAREER;
+  }
+
+  if(section === 'fox'){
+      return PROJECTS
+  }
+
+  if(section === 'campfire'){
+      return ABOUT
+  }
+
+  if(section === 'boat'){
+      return CONTACT
+  }
+
+  if(section === 'legal'){
+      return LEGAL
+  }
+
+  return HOME;
 }

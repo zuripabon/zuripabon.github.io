@@ -1,11 +1,10 @@
 <script>
   import ArrowRight from '../icons/ArrowRight.svelte';
   import Typography from './Typography.svelte';
-  export let onClick;
+  import * as routes from '../../lib/routes';
 
   const handleOnClick = () => {
-    window.history.pushState({}, '', '/contact');
-    onClick('boat')
+    routes.goTo(routes.CONTACT);
   }
 
 </script>

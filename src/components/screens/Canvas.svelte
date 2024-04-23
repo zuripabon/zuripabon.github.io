@@ -12,20 +12,20 @@
   import Shop from './Shop.svelte';
   import Legal from './Legal.svelte';
   
-  import { loader } from '../../lib/store'
+  import { loader, pathname, isModalOpen } from '../../lib/store'
   import { loadGame } from '../../lib/3d'
+  import * as routes from '../../lib/routes'
 
   let section = null;
   let isMessageCardOpen = false;
-  let isModalOpen = false;
   let isControlsCardOpen = true;
 
   const handleOnLoad = (progress) => loader.set(progress);
   const handleOnItemHover = (id, state) => {
-    isControlsCardOpen = false;
-    if(isModalOpen){
+    if($isModalOpen){
       return;
     }
+    isControlsCardOpen = false;
     section = id;
     isMessageCardOpen= state;
   }
@@ -35,18 +35,17 @@
       return;
     }
 
-    isModalOpen = true
     isMessageCardOpen= false;
+
+    routes.goTo(section, true)
   }
 
-  const handleOnSectionClick = (id) => {
-    section = id;
-    isModalOpen = true
+  const handleOnSectionClick = () => {
     isMessageCardOpen= false;
   }
 
   const handleOnCloseModal = () => {
-    isModalOpen = false
+    routes.goTo(routes.HOME);
   }
 
   onMount(() => {
@@ -61,18 +60,18 @@
   <ControlsCard isOpen={isControlsCardOpen}/>
   <HoverMessageCard section={section} isOpen={isMessageCardOpen} onClick={handleOnItemClick}/>
   <NavigationMenu onClick={handleOnSectionClick} />
-  <Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
-    {#if section === 'tent'}
+  <Modal isOpen={$isModalOpen} onClose={handleOnCloseModal}>
+    {#if $pathname === routes.EDUCATION}
       <Education/>
-    {:else if section === 'campfire'}
+    {:else if $pathname === routes.ABOUT}
       <About/>
-    {:else if section === 'fox'}
+    {:else if $pathname === routes.PROJECTS}
       <Experiments/>
-    {:else if section === 'box'}
+    {:else if $pathname === routes.CAREER}
       <Jobs/>
-    {:else if section === 'boat'}
+    {:else if $pathname === routes.CONTACT}
       <Shop/>
-    {:else if section === 'legal'}
+    {:else if $pathname === routes.LEGAL}
       <Legal/>
     {/if}
   </Modal>

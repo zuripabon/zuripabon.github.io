@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import NavigationMenu from '../molecules/NavigationMenu.svelte';
   import Modal from '../molecules/Modal.svelte';
   import Education from './Education.svelte';
@@ -9,44 +8,34 @@
   import Shop from './Shop.svelte';
   import Legal from './Legal.svelte';
   import ButtonMobile from '../atoms/ButtonMobile.svelte';
-  import { getSectionFromPath } from '../../lib/routes'
-
-  
-  let isModalOpen = false;
-  let section;
-
-  const handleOnSectionClick = (id) => {
-    section = id;
-    isModalOpen = true
-  }
+  import * as routes from '../../lib/routes'
+  import { pathname, isModalOpen } from '../../lib/store'
+  import { onMount } from 'svelte';
 
   const handleOnCloseModal = () => {
-    isModalOpen = false
+    routes.goTo(routes.HOME);
   }
 
-  onMount(()=>{
-    section = getSectionFromPath(window.location.pathname);
-    if(section){
-      isModalOpen = true;
-    }
+  onMount(() => {
+    routes.router();
   })
 
 </script>
 
-<ButtonMobile onClick={handleOnSectionClick} />
-<NavigationMenu onClick={handleOnSectionClick} isMobile />
-<Modal section={section} isOpen={isModalOpen} onClose={handleOnCloseModal}>
-  {#if section === 'tent'}
+<ButtonMobile />
+<NavigationMenu isMobile />
+<Modal isOpen={$isModalOpen} onClose={handleOnCloseModal}>
+  {#if $pathname === routes.EDUCATION}
     <Education/>
-  {:else if section === 'campfire'}
+  {:else if $pathname === routes.ABOUT}
     <About/>
-  {:else if section === 'fox'}
+  {:else if $pathname === routes.PROJECTS}
     <Experiments/>
-  {:else if section === 'box'}
+  {:else if $pathname === routes.CAREER}
     <Jobs/>
-  {:else if section === 'boat'}
+  {:else if $pathname === routes.CONTACT}
     <Shop isMobile/>
-  {:else if section === 'legal'}
+  {:else if $pathname === routes.LEGAL}
     <Legal/>
   {/if}
 </Modal>

@@ -15,6 +15,7 @@
     "@astrojs/svelte": "^5.2.0",
     "@fontsource/work-sans": "^5.0.17",
     "astro": "^4.5.3",
+    "astro-seo": "^0.8.3",
     "svelte": "^4.2.12",
     "typescript": "^5.4.2"
   }

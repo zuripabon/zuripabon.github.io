@@ -24,14 +24,9 @@ export const goTo = (route:string, isSection: boolean = false) => {
 const updateState = (isHome: boolean, firstLoad: boolean = false) => {
   if(!isHome){
     pathname.set(window.location.pathname);
-    if(firstLoad){
-      isModalOpen.set(true)
-    }
-    else{
-      setTimeout(()=> {
-        isModalOpen.set(true);
-      }, 100);
-    }
+    setTimeout(()=> {
+      isModalOpen.set(true);
+    }, 100);
   }
   else {
     isModalOpen.set(false)

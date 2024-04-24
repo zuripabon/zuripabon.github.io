@@ -116,7 +116,7 @@
     /* max-width: 1200px; */
     transform: translateX(-50%);
     left: 50%;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
     z-index: 50;
   }
 

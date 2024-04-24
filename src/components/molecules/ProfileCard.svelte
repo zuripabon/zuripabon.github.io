@@ -10,7 +10,7 @@
 </script>
 
 <card class="profile">
-  <img class="profile-image" src="/profile.png" alt="zuripabon" title="zuripabon"/>
+  <img class="profile-image" src="/profile.webp" alt="zuripabon" title="zuripabon"/>
   <div class="profile-content">
       <div class="hashtag"><Typography variant="subheading-s" strong><Typography variant="gradient">zuripabon</Typography></Typography></div>
       <Typography variant="label">hola@zuripabon.es</Typography>

@@ -3,7 +3,8 @@ const START_WORKING_DATE = new Date('2013-11-01')
 
 const CURRENT_COMPANY = {
     title: 'Cober', 
-    dates: 'From Oct 2023', 
+    // dates: 'From Oct 2023', 
+    dates: 'Last', 
     url: '#cober', 
     startAt: '2023'
 }

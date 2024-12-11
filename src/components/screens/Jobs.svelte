@@ -22,7 +22,7 @@
   <JobCard 
     name="cober"
     url="https://github.com/tsur/vtt-to-srt"
-    date="Current"
+    date="Last"
     stack={[
       {name: Skills.NEXT_JS, level: Skills.HIGH},
       {name: Skills.RSC, level: Skills.HIGH},
